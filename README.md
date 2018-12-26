@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/16francs/examin_vue.svg?style=svg)](https://circleci.com/gh/16francs/examin_vue)
+[![CircleCI](https://circleci.com/gh/16francs/examin_vue.svg?style=shield)](https://circleci.com/gh/16francs/examin_vue)
 
 # Examin (フロントエンド)
 
