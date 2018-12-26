@@ -17,7 +17,7 @@ jobs:
     # Run lint
     - run:
         name: Run yarn lint
-        command: npm yarn lint
+        command: yarn lint
 
     # Run test
     - run:

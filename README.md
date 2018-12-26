@@ -176,4 +176,3 @@ DATABASE_PASSWORD = 'DBのパスワード'
 (Rails 用のURL)
 
 > http://localhost:3000
-
