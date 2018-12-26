@@ -24,5 +24,13 @@ jobs:
         name: Run yarn test
         command: yarn test:coverage
 
+    # Sore coverage
     - store_artifacts:
-        path: ~/examin_vue/coverage/
+        path: ./coverage
+
+    # Post coverage
+    - run:
+        name: post coverage
+        command: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
+
+
