@@ -1,0 +1,28 @@
+version: 2
+jobs:
+  build:
+    docker:
+    - image: circleci/node:10.8-browsers
+      environment:
+        CHROME_BIN: "/usr/bin/google-chrome"
+    working_directory: ~/examin_vue
+    steps:
+    - checkout
+
+    # Run npm install
+    - run:
+        name: Run yarn install
+        command: yarn install
+
+    # Run lint
+    - run:
+        name: Run yarn lint
+        command: npm yarn lint
+
+    # Run test
+    - run:
+        name: Run yarn test
+        command: yarn test:coverage
+
+    - store_artifacts:
+        path: ~/examin_vue/coverage/
