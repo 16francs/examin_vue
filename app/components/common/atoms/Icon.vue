@@ -1,6 +1,14 @@
 <template>
-  <span :class="`icon ${iconColor} ${iconSize}`">
-    <i :class="`fas ${iconName}`" />
+  <span
+    :class="iconColor, iconSize"
+    class="icon"
+  >
+    <i
+      :class="iconName"
+      class="fas"
+    >
+      <nuxt />
+    </i>
   </span>
 </template>
 
@@ -25,14 +33,14 @@ export default {
     // white, light, dark, black
     // primary, link, info, success, warning, danger
     iconColor: function() {
-      return this.color === '' ? '' : ` is-${this.color}`
+      return this.color === '' ? '' : `is-${this.color}`
     },
     iconName: function() {
       return this.icon === '' ? 'fa-spinner fa-pulse' : this.icon
     },
     // small, medium, large
     iconSize: function() {
-      return this.size === '' ? '' : ` is-${this.color}`
+      return this.size === '' ? '' : `is-${this.color}`
     }
   }
 }

@@ -1,6 +1,7 @@
 <template>
   <button
-    :class="`button${btnColor}${btnFullWidth}${btnOutlined}${btnRounded}${btnSize}`"
+    :class="btnColor, btnFullWidth, btnOutlined, btnRounded, btnSize"
+    class="button"
     @click="handleClick"
   >
     <slot />
@@ -36,20 +37,20 @@ export default {
     // white, light, dark, black
     // primary, link, info, success, warning, danger
     btnColor: function() {
-      return this.color === '' ? '' : ` is-${this.color}`
+      return this.color === '' ? '' : `is-${this.color}`
     },
     btnFullWidth: function() {
-      return this.fullWidth ? ' is-fullwidth' : ''
+      return this.fullWidth ? 'is-fullwidth' : ''
     },
     btnOutlined: function() {
-      return this.outlined ? ' is-outlined' : ''
+      return this.outlined ? 'is-outlined' : ''
     },
     btnRounded: function() {
-      return this.rounded ? ' is-rounded' : ''
+      return this.rounded ? 'is-rounded' : ''
     },
     // small, normal, medium, large
     btnSize: function() {
-      return this.size === '' ? '' : ` is-${this.color}`
+      return this.size === '' ? '' : `is-${this.color}`
     }
   },
 

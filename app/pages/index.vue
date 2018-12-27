@@ -18,9 +18,7 @@
       </span>
 
       <Button @click="doLogin">
-        <Icon
-          color="info"
-          text="aiueo" />
+        <Icon color="info" />
       </Button>
 
     </div>
