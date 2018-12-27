@@ -14,8 +14,9 @@
     </b-field>
 
     <TextField
-      :value="formData.login_id"
-      label="ユーザーID" />
+      :data="formData.login_id"
+      label="ユーザーID"
+      @update="val => formData.login_id = val" />
     <Button
       text="ログイン"
       @click="onClick"
