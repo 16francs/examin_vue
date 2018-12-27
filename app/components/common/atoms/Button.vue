@@ -50,7 +50,7 @@ export default {
     },
     // small, normal, medium, large
     btnSize: function() {
-      return this.size === '' ? '' : `is-${this.color}`
+      return this.size === '' ? '' : `is-${this.size}`
     }
   },
 
