@@ -1,9 +1,11 @@
 import Vuex from 'vuex'
+import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
 import Icon from '~/components/common/atoms/Icon'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
+localVue.use(Buefy)
 
 describe('components/common/atoms/Icon', () => {
   let wrapper
@@ -34,12 +36,12 @@ describe('components/common/atoms/Icon', () => {
 
       describe('icon', () => {
         test('iconの初期値', () => {
-          expect(wrapper.props().icon).toBe('')
+          expect(wrapper.props().icon).toBe('home')
         })
 
         test('iconに代入', () => {
-          wrapper.setProps({ icon: 'home' })
-          expect(wrapper.props().icon).toBe('home')
+          wrapper.setProps({ icon: 'user' })
+          expect(wrapper.props().icon).toBe('user')
         })
       })
 
@@ -64,17 +66,6 @@ describe('components/common/atoms/Icon', () => {
         test('color != null', () => {
           wrapper.setProps({ color: 'primary' })
           expect(wrapper.vm.iconColor).toBe('is-primary')
-        })
-      })
-
-      describe('iconName', () => {
-        test('icon == null', () => {
-          expect(wrapper.vm.iconName).toBe('fa-spinner fa-pulse')
-        })
-
-        test('icon != null', () => {
-          wrapper.setProps({ icon: 'home' })
-          expect(wrapper.vm.iconName).toBe('fa-home')
         })
       })
 

@@ -1,15 +1,13 @@
 <template>
-  <span
-    :class="iconColor, iconSize"
-    class="icon"
+  <b-icon
+    :class="{ 'fa-spin': spin }"
+    :icon="icon"
+    :size="iconSize"
+    :type="iconColor"
+    pack="fas"
   >
-    <i
-      :class="iconName"
-      class="fas"
-    >
-      <slot />
-    </i>
-  </span>
+    <slot />
+  </b-icon>
 </template>
 
 <script>
@@ -21,11 +19,15 @@ export default {
     },
     icon: {
       type: String,
-      default: ''
+      default: 'home'
     },
     size: {
       type: String,
       default: ''
+    },
+    spin: {
+      type: Boolean,
+      default: false
     }
   },
 
@@ -34,9 +36,6 @@ export default {
     // primary, link, info, success, warning, danger
     iconColor: function() {
       return this.color === '' ? '' : `is-${this.color}`
-    },
-    iconName: function() {
-      return this.icon === '' ? 'fa-spinner fa-pulse' : `fa-${this.icon}`
     },
     // small, medium, large
     iconSize: function() {

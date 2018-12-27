@@ -40,7 +40,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['~plugins/buefy'],
+  plugins: [],
 
   /*
   ** Nuxt.js modules

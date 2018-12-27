@@ -3,7 +3,7 @@
     color="primary"
     @click="doSubmit"
   >
-    {{ text }}
+    <span>{{ text }}</span>
   </Button>
 </template>
 
