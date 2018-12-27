@@ -12,7 +12,6 @@
       <button
         class="button"
         data-test="cancel"
-        type="button"
         @click="handleClose"
       >
         {{ cancel }}
@@ -20,7 +19,6 @@
       <button
         class="button is-primary"
         data-test="submit"
-        type="button"
         @click="handleSubmit"
       >
         {{ submit }}
