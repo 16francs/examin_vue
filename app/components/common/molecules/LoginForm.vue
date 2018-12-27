@@ -13,9 +13,16 @@
       />
     </b-field>
 
+    <!-- 新しく作ったフォーム -->
     <TextField
       v-model="formData.login_id"
       label="ユーザーID" />
+
+    <TextField
+      v-model="formData.password"
+      label="パスワード"
+      type="password" />
+    <!-- ここまで -->
 
     <Button
       text="ログイン"
@@ -42,7 +49,7 @@ export default {
   data() {
     return {
       formData: {
-        login_id: 'aiueo',
+        login_id: '',
         password: ''
       }
     }
@@ -54,6 +61,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-</style>
