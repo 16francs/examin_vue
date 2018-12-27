@@ -7,7 +7,7 @@
       :class="iconName"
       class="fas"
     >
-      <nuxt />
+      <slot />
     </i>
   </span>
 </template>
@@ -36,11 +36,11 @@ export default {
       return this.color === '' ? '' : `is-${this.color}`
     },
     iconName: function() {
-      return this.icon === '' ? 'fa-spinner fa-pulse' : this.icon
+      return this.icon === '' ? 'fa-spinner fa-pulse' : `fa-${this.icon}`
     },
     // small, medium, large
     iconSize: function() {
-      return this.size === '' ? '' : `is-${this.color}`
+      return this.size === '' ? '' : `is-${this.size}`
     }
   }
 }
