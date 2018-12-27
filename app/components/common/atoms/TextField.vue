@@ -2,7 +2,7 @@
   <b-field :label="label">
     <b-input
       :type="type"
-      v-model="syncData"
+      v-model="formData"
     >
       <slot />
     </b-input>
@@ -16,7 +16,7 @@ export default {
       type: String,
       default: 'Name'
     },
-    data: {
+    value: {
       type: String,
       default: ''
     },
@@ -27,12 +27,12 @@ export default {
   },
 
   computed: {
-    syncData: {
+    formData: {
       get() {
-        return this.data
+        return this.value
       },
       set(val) {
-        this.$emit('update', val)
+        this.$emit('input', val)
       }
     }
   }
