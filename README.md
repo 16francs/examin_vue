@@ -1,5 +1,5 @@
 [![CircleCI](https://circleci.com/gh/16francs/examin_vue.svg?style=shield)](https://circleci.com/gh/16francs/examin_vue)
-[![Coverage Status](https://coveralls.io/repos/github/16francs/examin_vue/badge.svg)](https://coveralls.io/github/16francs/examin_vue)
+[![Coverage Status](https://coveralls.io/repos/github/16francs/examin_vue/badge.svg?branch=master)](https://coveralls.io/github/16francs/examin_vue?branch=master)
 [![Join the chat at https://gitter.im/16francs/examin_vue](https://badges.gitter.im/16francs/examin_vue.svg)](https://gitter.im/16francs/examin_vue?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # Examin (フロントエンド)
