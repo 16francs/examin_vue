@@ -2,15 +2,12 @@
   <b-field :label="label">
     <b-input
       :type="type"
-      @:value="value"
-      @:input="value = $event"
-    />
+      :value="value" />
   </b-field>
 </template>
 
 <script>
 export default {
-  name: 'Input',
   props: {
     label: {
       type: String,
@@ -27,6 +24,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-</style>

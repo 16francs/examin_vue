@@ -12,18 +12,26 @@
         password-reveal
       />
     </b-field>
+
+    <TextField
+      :value="formData.login_id"
+      label="ユーザーID" />
     <Button
       text="ログイン"
-      @click="onClick(formData)"
+      @click="onClick"
     />
   </section>
 </template>
 
 <script>
 import Button from '~/components/common/atoms/Button'
+import TextField from '~/components/common/atoms/TextField'
+
 export default {
-  name: 'LoginForm',
-  components: { Button },
+  components: {
+    Button,
+    TextField
+  },
   props: {
     error: {
       type: Boolean,
@@ -33,14 +41,14 @@ export default {
   data() {
     return {
       formData: {
-        login_id: '',
+        login_id: 'aiueo',
         password: ''
       }
     }
   },
   methods: {
-    onClick(formData) {
-      this.$emit('login', formData)
+    onClick() {
+      this.$emit('login', this.formData)
     }
   }
 }
