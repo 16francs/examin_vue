@@ -18,8 +18,9 @@
       </span>
 
       <Button @click="doLogin">
-        <Icon color="info" />
-        ログイン
+        <Icon
+          color="info"
+          text="aiueo" />
       </Button>
 
     </div>

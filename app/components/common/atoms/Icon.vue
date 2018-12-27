@@ -1,5 +1,5 @@
 <template>
-  <span :class="`icon${iconColor}${iconSize}`">
+  <span :class="`icon ${iconColor} ${iconSize}`">
     <i :class="`fas ${iconName}`" />
   </span>
 </template>
@@ -11,11 +11,11 @@ export default {
       type: String,
       default: ''
     },
-    size: {
+    icon: {
       type: String,
       default: ''
     },
-    icon: {
+    size: {
       type: String,
       default: ''
     }
@@ -27,12 +27,12 @@ export default {
     iconColor: function() {
       return this.color === '' ? '' : ` is-${this.color}`
     },
+    iconName: function() {
+      return this.icon === '' ? 'fa-spinner fa-pulse' : this.icon
+    },
     // small, medium, large
     iconSize: function() {
       return this.size === '' ? '' : ` is-${this.color}`
-    },
-    iconName: function() {
-      return this.icon === '' ? 'fa-spinner fa-pulse' : this.icon
     }
   }
 }

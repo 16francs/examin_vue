@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="`button${btnColor}${btnSize}${btnFullWidth}${btnOutline}`"
+    :class="`button${btnColor}${btnFullWidth}${btnOutlined}${btnRounded}${btnSize}`"
     @click="handleClick"
   >
     <slot />
@@ -14,17 +14,21 @@ export default {
       type: String,
       default: ''
     },
-    size: {
-      type: String,
-      default: ''
-    },
     fullWidth: {
       type: Boolean,
       default: false
     },
-    outline: {
+    outlined: {
       type: Boolean,
       default: false
+    },
+    rounded: {
+      type: Boolean,
+      default: false
+    },
+    size: {
+      type: String,
+      default: ''
     }
   },
 
@@ -34,15 +38,18 @@ export default {
     btnColor: function() {
       return this.color === '' ? '' : ` is-${this.color}`
     },
-    // small, normal, medium, large
-    btnSize: function() {
-      return this.size === '' ? '' : ` is-${this.color}`
-    },
     btnFullWidth: function() {
       return this.fullWidth ? ' is-fullwidth' : ''
     },
-    btnOutline: function() {
-      return this.outline ? ' is-outlined' : ''
+    btnOutlined: function() {
+      return this.outlined ? ' is-outlined' : ''
+    },
+    btnRounded: function() {
+      return this.rounded ? ' is-rounded' : ''
+    },
+    // small, normal, medium, large
+    btnSize: function() {
+      return this.size === '' ? '' : ` is-${this.color}`
     }
   },
 
