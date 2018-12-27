@@ -17,9 +17,9 @@
         ※IDとパスワードの組みが正しくありません
       </span>
 
-      <Button @click="doLogin">
+      <SubmitButton @click="doLogin">
         <Icon color="info" />
-      </Button>
+      </SubmitButton>
 
     </div>
 
@@ -47,13 +47,13 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import Button from '~/components/common/atoms/Button'
+import SubmitButton from '~/components/common/molecules/SubmitButton'
 import Icon from '~/components/common/atoms/Icon'
 import Logo from '~/components/Logo.vue'
 
 export default {
   components: {
-    Button,
+    SubmitButton,
     Icon,
     Logo
   },
