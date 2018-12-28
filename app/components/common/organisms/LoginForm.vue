@@ -11,7 +11,7 @@
     <submit-button
       color="info"
       text="ログイン"
-      @click="doSubmit"
+      @submit="doSubmit"
     />
   </section>
 </template>

@@ -971,13 +971,6 @@
     axios-retry "^3.1.1"
     consola "^1.4.4"
 
-"@nuxtjs/bulma@^1.2.0":
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/bulma/-/bulma-1.2.2.tgz#abbd78d897d0f321e28f8731ada72a83a3a18d76"
-  integrity sha512-bgB7pTKJfb95tQVkzleTg18FrNxvVm88tFIYurzsIrX6FVpdk+5GMDJe/0tnssYivvCHURCEZ/xnf/1j5xwRXQ==
-  dependencies:
-    bulma "^0.7.2"
-
 "@nuxtjs/devalue@^1.1.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@nuxtjs/devalue/-/devalue-1.2.0.tgz#f3f40c4678916a7159b9e43e9cef57db0390538f"
@@ -2096,7 +2089,7 @@ builtin-status-codes@^3.0.0:
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
 
-bulma@0.7.2, bulma@^0.7.2:
+bulma@0.7.2:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.7.2.tgz#8e944377b74c7926558830d38d8e19eaf49f5fb6"
   integrity sha512-6JHEu8U/1xsyOst/El5ImLcZIiE2JFXgvrz8GGWbnDLwTNRPJzdAM0aoUM1Ns0avALcVb6KZz9NhzmU53dGDcQ==
