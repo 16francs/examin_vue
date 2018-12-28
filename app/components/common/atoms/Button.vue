@@ -36,20 +36,20 @@ export default {
   computed: {
     // white, light, dark, black
     // primary, link, info, success, warning, danger
-    btnColor: function() {
+    btnColor() {
       return this.color === '' ? '' : `is-${this.color}`
     },
-    btnFullWidth: function() {
+    btnFullWidth() {
       return this.fullWidth ? 'is-fullwidth' : ''
     },
-    btnOutlined: function() {
+    btnOutlined() {
       return this.outlined ? 'is-outlined' : ''
     },
-    btnRounded: function() {
+    btnRounded() {
       return this.rounded ? 'is-rounded' : ''
     },
     // small, normal, medium, large
-    btnSize: function() {
+    btnSize() {
       return this.size === '' ? '' : `is-${this.size}`
     }
   },

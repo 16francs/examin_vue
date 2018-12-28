@@ -5,6 +5,7 @@
     :size="iconSize"
     :type="iconColor"
     pack="fas"
+    data-test="icon"
   >
     <slot />
   </b-icon>
@@ -34,11 +35,11 @@ export default {
   computed: {
     // white, light, dark, black
     // primary, link, info, success, warning, danger
-    iconColor: function() {
+    iconColor() {
       return this.color === '' ? '' : `is-${this.color}`
     },
     // small, medium, large
-    iconSize: function() {
+    iconSize() {
       return this.size === '' ? '' : `is-${this.size}`
     }
   }

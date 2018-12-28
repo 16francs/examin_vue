@@ -9,15 +9,15 @@ localVue.use(Buefy)
 
 describe('components/common/atoms/Icon', () => {
   let wrapper
+  let content
   beforeEach(() => {
     wrapper = mount(Icon, { localVue })
+    content = id => `[data-test="${id}"]`
   })
 
   describe('template', () => {
     test('アイコンが存在すること', () => {
-      expect(wrapper.contains('i')).toBeTruthy()
-      expect(wrapper.contains('.icon')).toBeTruthy()
-      expect(wrapper.contains('.fas')).toBeTruthy()
+      expect(wrapper.contains(content('icon')))
     })
   })
 
