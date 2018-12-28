@@ -122,7 +122,7 @@ DATABASE_PASSWORD = 'DBのパスワード'
 
 * サーバーを起動
 
-> $ yarn run dev
+> $ yarn dev
 
 * 下記のURLにアクセスして確認
 
