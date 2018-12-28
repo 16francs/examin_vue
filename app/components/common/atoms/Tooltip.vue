@@ -10,6 +10,7 @@
     :size="tipSize"
     :square="square"
     :type="tipType"
+    data-test="tooltip"
   >
     <slot />
   </b-tooltip>

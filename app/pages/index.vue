@@ -20,7 +20,6 @@
       <SubmitButton @click="doLogin">
         <Icon color="info" />
       </SubmitButton>
-
     </div>
 
     <div>
@@ -50,9 +49,11 @@ import { mapGetters, mapActions } from 'vuex'
 import SubmitButton from '~/components/common/molecules/SubmitButton'
 import Icon from '~/components/common/atoms/Icon'
 import Logo from '~/components/Logo.vue'
+import Pagination from '~/components/common/atoms/Pagination'
 
 export default {
   components: {
+    Pagination,
     SubmitButton,
     Icon,
     Logo

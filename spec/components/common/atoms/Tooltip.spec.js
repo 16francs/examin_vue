@@ -9,8 +9,10 @@ localVue.use(Buefy)
 
 describe('components/common/atoms/Tooltip', () => {
   let wrapper
+  let content
   beforeEach(() => {
     wrapper = mount(Tooltip, { localVue })
+    content = id => `[data-test="${id}"]`
   })
 
   describe('template', () => {
@@ -19,7 +21,7 @@ describe('components/common/atoms/Tooltip', () => {
     })
 
     test('tooltipが存在すること', () => {
-      expect(wrapper.contains('.tooltip')).toBeTruthy()
+      expect(wrapper.contains(content('tooltip'))).toBeTruthy()
     })
   })
 

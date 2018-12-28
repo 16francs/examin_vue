@@ -7,6 +7,7 @@
     :simple="simple"
     :size="pgSize"
     :total="total"
+    data-test="pagination"
   >
     <slot />
   </b-pagination>
@@ -15,17 +16,13 @@
 <script>
 export default {
   props: {
-    current: {
-      type: Number,
-      default: 1
-    },
     order: {
       type: String,
       default: ''
     },
     perPage: {
       type: Number,
-      default: 0
+      default: 20
     },
     rounded: {
       type: Boolean,
@@ -45,11 +42,18 @@ export default {
     }
   },
 
+  data() {
+    return {
+      current: 1
+    }
+  },
+
   computed: {
     // centered, right
     pgOrder() {
       return this.order === '' ? '' : `is-${this.order}`
     },
+    // small, medium, large
     pgSize() {
       return this.size === '' ? '' : `is-${this.size}`
     }

@@ -5,6 +5,7 @@
     :size="iconSize"
     :type="iconColor"
     pack="fas"
+    data-test="icon"
   >
     <slot />
   </b-icon>
