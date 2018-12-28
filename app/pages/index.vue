@@ -1,61 +1,33 @@
 <template>
-  <section class="container">
-    <div>
-      <input
-        v-model="formData.login_id"
-        placeholder="User ID"
-        required
-        autofocus>
-
-      <input
-        v-model="formData.password"
-        placeholder="Password"
-        type="password"
-        required>
-
-      <span v-if="error">
-        ※IDとパスワードの組みが正しくありません
-      </span>
-
-      <SubmitButton @click="doLogin">
-        <Icon color="info" />
-      </SubmitButton>
-
-    </div>
-
-    <div>
-      <logo/>
-      <h1 class="title">
-        examin_vue
-      </h1>
-      <h2 class="subtitle">
-        My flawless Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+  <section>
+    <div class="hero-body" >
+      <div class="block">
+        <h1 class="title">Login</h1>
       </div>
+      <LoginForm
+        @login="doLogin"
+      />
+      <br>
+      <Alert
+        :error="error"
+        message="ユーザーIDまたはパスワードが違います"
+        @close="close"
+      />
     </div>
   </section>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import SubmitButton from '~/components/common/molecules/SubmitButton'
+import LoginForm from '~/components/common/organisms/LoginForm'
 import Icon from '~/components/common/atoms/Icon'
-import Logo from '~/components/Logo.vue'
+import Alert from '~/components/common/atoms/Alert'
 
 export default {
   components: {
-    SubmitButton,
+    Alert,
     Icon,
-    Logo
+    LoginForm
   },
 
   asyncData({ store, redirect }) {
@@ -76,10 +48,6 @@ export default {
 
   data() {
     return {
-      formData: {
-        login_id: '',
-        password: ''
-      },
       error: false
     }
   },
@@ -89,11 +57,12 @@ export default {
   },
 
   methods: {
-    async doLogin() {
+    async doLogin(formData) {
+      console.log('login_id', formData.login_id)
       //ログインロジック
       await this.login({
-        login_id: this.formData.login_id,
-        password: this.formData.password
+        login_id: formData.login_id,
+        password: formData.password
       })
         .then(() => {
           switch (this.loginUser.role) {
@@ -111,6 +80,10 @@ export default {
         .catch(() => {
           this.error = true
         })
+    },
+    close() {
+      console.log('エラー消す')
+      this.error = false
     },
     ...mapActions(['login'])
   }

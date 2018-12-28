@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  name: 'Icon',
   props: {
     color: {
       type: String,
@@ -30,7 +31,6 @@ export default {
       default: false
     }
   },
-
   computed: {
     // white, light, dark, black
     // primary, link, info, success, warning, danger
@@ -44,3 +44,6 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+</style>
