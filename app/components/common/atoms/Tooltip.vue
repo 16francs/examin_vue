@@ -44,7 +44,7 @@ export default {
     },
     position: {
       type: String,
-      default: 'is-top'
+      default: 'top'
     },
     size: {
       type: String,
