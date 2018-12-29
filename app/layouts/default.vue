@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header/>
+    <Navbar/>
     <nuxt/>
   </div>
 </template>
@@ -56,8 +56,7 @@ html {
 </style>
 <script>
 import Navbar from '~/components/common/atoms/Navbar'
-import Header from '../components/teachers/organisms/Header'
 export default {
-  components: { Header, Navbar }
+  components: { Navbar }
 }
 </script>
