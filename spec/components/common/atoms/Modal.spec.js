@@ -34,18 +34,16 @@ describe('components/common/atoms/Modal', () => {
       let mock
       beforeEach(() => {
         mock = jest.fn()
-        wrapper.setMethods({
-          handleClose: mock,
-          handleSubmit: mock
-        })
       })
 
       test('cancelボタンをクリックでhandleCloseが呼ばれること', () => {
+        wrapper.setMethods({ handleClose: mock })
         wrapper.find(content('cancel')).trigger('click')
         expect(mock).toBeCalled()
       })
 
       test('submitボタンをクリックでhandleSubmitが呼ばれること', () => {
+        wrapper.setMethods({ handleSubmit: mock })
         wrapper.find(content('submit')).trigger('click')
         expect(mock).toBeCalled()
       })
@@ -125,20 +123,34 @@ describe('components/common/atoms/Modal', () => {
       let mock
       beforeEach(() => {
         mock = jest.fn()
-        wrapper.setMethods({
-          handleClose: mock,
-          handleSubmit: mock
+      })
+
+      describe('handleClose', () => {
+        test('正常に呼び出されること', () => {
+          wrapper.setMethods({ handleClose: mock })
+          wrapper.vm.handleClose()
+          expect(mock).toBeCalled()
+        })
+
+        test('emitが正常に実行されること', async done => {
+          await wrapper.vm.handleClose()
+          expect(wrapper.emitted().close).toBeTruthy()
+          done()
         })
       })
 
-      test('handleClickが正常に呼び出されること', () => {
-        wrapper.vm.handleClose()
-        expect(mock).toBeCalled()
+      describe('handleSubmit', () => {
+        test('正常に呼び出されること', () => {
+          wrapper.setMethods({ handleSubmit: mock })
+          wrapper.vm.handleSubmit()
+          expect(mock).toBeCalled()
+        })
       })
 
-      test('handleSubmitが正常に呼び出されること', () => {
-        wrapper.vm.handleSubmit()
-        expect(mock).toBeCalled()
+      test('emitが正常に実行されること', async done => {
+        await wrapper.vm.handleSubmit()
+        expect(wrapper.emitted().submit).toBeTruthy()
+        done()
       })
     })
   })

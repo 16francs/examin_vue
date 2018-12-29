@@ -22,10 +22,10 @@ describe('components/common/atoms/Button', () => {
       let mock
       beforeEach(() => {
         mock = jest.fn()
-        wrapper.setMethods({ handleClick: mock })
       })
 
       test('ボタンクリックでhandleClickが呼ばれること', () => {
+        wrapper.setMethods({ handleClick: mock })
         wrapper.find('button').trigger('click')
         expect(mock).toBeCalled()
       })
@@ -152,12 +152,18 @@ describe('components/common/atoms/Button', () => {
         let mock
         beforeEach(() => {
           mock = jest.fn()
-          wrapper.setMethods({ handleClick: mock })
         })
 
         test('正常に呼び出されること', () => {
+          wrapper.setMethods({ handleClick: mock })
           wrapper.vm.handleClick()
           expect(mock).toBeCalled()
+        })
+
+        test('emitが実行されること', async done => {
+          await wrapper.vm.handleClick()
+          expect(wrapper.emitted().click).toBeTruthy()
+          done()
         })
       })
     })
