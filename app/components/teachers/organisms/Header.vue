@@ -2,7 +2,7 @@
   <Navbar :list="list">
     <NavMenu
       :list="list"
-      @user-edit="doUserEdit"
+      @userEdit="doUserEdit"
       @logout="doLogout" />
   </Navbar>
 </template>

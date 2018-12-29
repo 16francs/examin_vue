@@ -16,11 +16,17 @@
 
     <div class="navbar-end">
       <div class="navbar-item buttons">
-        <Button @click="handleUserEdit">
+        <Button
+          data-test="userEdit"
+          @click="handleUserEdit"
+        >
           <span>設定</span>
         </Button>
 
-        <Button @click="handleLogout">
+        <Button
+          data-test="logout"
+          @click="handleLogout"
+        >
           <span>Logout</span>
         </Button>
       </div>
@@ -45,7 +51,7 @@ export default {
 
   methods: {
     handleUserEdit() {
-      this.$emit('user-edit')
+      this.$emit('userEdit')
     },
 
     handleLogout() {
