@@ -7,7 +7,7 @@ const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/atoms/Pagination', () => {
+describe('components/common/molecules/NavMenu', () => {
   let wrapper
   let content
   beforeEach(() => {
@@ -91,12 +91,12 @@ describe('components/common/atoms/Pagination', () => {
           wrapper.vm.handleLogout()
           expect(mock).toBeCalled()
         })
-      })
 
-      test('emitが正常に実行されること', async done => {
-        await wrapper.vm.handleLogout()
-        expect(wrapper.emitted().logout).toBeTruthy()
-        done()
+        test('emitが正常に実行されること', async done => {
+          await wrapper.vm.handleLogout()
+          expect(wrapper.emitted().logout).toBeTruthy()
+          done()
+        })
       })
     })
   })
