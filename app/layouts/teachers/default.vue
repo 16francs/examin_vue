@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <Header @logout="doLogout" />
     <nuxt/>
   </div>
