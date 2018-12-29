@@ -97,6 +97,21 @@ describe('components/common/atoms/TextField', () => {
     })
     // computedのテスト
     describe('computed', () => {
+      describe('formData', () => {
+        beforeEach(() => {
+          wrapper.setProps({ value: 'test' })
+        })
+        test('inputイベントが正しく呼び出されるか', () => {
+          expect(wrapper.emitted().input).toBeTruthy()
+        })
+        test('初期値がinputイベントにより渡されているか', () => {
+          expect(wrapper.emitted().input[0]).toEqual(['test'])
+        })
+        test('valueが更新されたらinputイベントで更新されるか', () => {
+          wrapper.setProps({ value: 'qwerty' })
+          expect(wrapper.emitted().input[1]).toEqual(['qwerty'])
+        })
+      })
       describe('formSize', () => {
         test('size == null', () => {
           expect(wrapper.vm.formSize).toBe('')
