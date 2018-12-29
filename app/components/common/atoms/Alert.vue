@@ -1,7 +1,7 @@
 <template>
   <b-notification
-    :active="error"
-    type="is-danger"
+    :active="isError"
+    :type="alertColor"
     @close="close">
     {{ message }}
   </b-notification>
@@ -11,13 +11,25 @@
 export default {
   name: 'Alert',
   props: {
+    error: {
+      type: Boolean,
+      default: true
+    },
+    color: {
+      type: String,
+      default: 'danger'
+    },
     message: {
       type: String,
       default: 'エラーが発生しました．'
+    }
+  },
+  computed: {
+    isError() {
+      return this.error
     },
-    error: {
-      type: Boolean,
-      default: false
+    alertColor() {
+      return this.color === '' ? '' : `is-${this.color}`
     }
   },
   methods: {
