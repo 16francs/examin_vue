@@ -8,6 +8,19 @@
         class="navbar-item">
         examin
       </span>
+
+      <a
+        aria-expanded="false"
+        aria-label="menu"
+        class="navbar-burger burger"
+        data-target="navMenu"
+        role="button"
+      >
+        <span
+          v-for="item in list"
+          :key="item.index"
+          aria-hidden="true" />
+      </a>
     </div>
     <slot/>
   </nav>
@@ -20,9 +33,15 @@ export default {
     color: {
       type: String,
       default: 'primary'
+    },
+    list: {
+      type: Array,
+      default: () => []
     }
   },
   computed: {
+    // black, dark, light, white
+    // primary, link, info, success, warning, danger
     navbarColor() {
       return this.color === '' ? '' : `is-${this.color}`
     }

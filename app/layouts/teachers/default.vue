@@ -1,13 +1,19 @@
 <template>
   <div>
+    <Header @logout="doLogout" />
     <nuxt/>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import Header from '~/components/teachers/organisms/Header'
 
 export default {
+  components: {
+    Header
+  },
+
   middleware: 'auth-teacher',
 
   methods: {
