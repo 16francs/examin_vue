@@ -20,10 +20,10 @@ describe('components/common/molecules/SubmitButton', () => {
       let mock
       beforeEach(() => {
         mock = jest.fn()
-        wrapper.setMethods({ doSubmit: mock })
       })
 
       test('ボタンクリックでdoSubmitが呼ばれること', () => {
+        wrapper.setMethods({ doSubmit: mock })
         wrapper.find('button').trigger('click')
         expect(mock).toBeCalled()
       })
@@ -50,12 +50,18 @@ describe('components/common/molecules/SubmitButton', () => {
       let mock
       beforeEach(() => {
         mock = jest.fn()
-        wrapper.setMethods({ doSubmit: mock })
       })
 
       test('正常に呼び出されること', () => {
+        wrapper.setMethods({ doSubmit: mock })
         wrapper.vm.doSubmit()
         expect(mock).toBeCalled()
+      })
+
+      test('emitが実行されること', async done => {
+        await wrapper.vm.doSubmit()
+        expect(wrapper.emitted().submit).toBeTruthy()
+        done()
       })
     })
   })
