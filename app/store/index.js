@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '~/plugins/axios'
 import Cookies from 'universal-cookie'
 
 export const state = () => ({
@@ -25,7 +25,7 @@ export const actions = {
   //ログインメソッド
   async login({ commit }, { login_id, password }) {
     await axios
-      .post(`${process.env.baseUrl}/api/auth`, {
+      .post('/auth', {
         login_id,
         password
       })
@@ -43,9 +43,8 @@ export const actions = {
   },
   //ログアウトメソッド
   async logout({ commit, getters }) {
-    commit('toggle')
     await axios
-      .delete(`${process.env.baseUrl}/api/auth`, {
+      .delete('/auth', {
         headers: { 'access-token': getters.accessToken }
       })
       .catch(() => {

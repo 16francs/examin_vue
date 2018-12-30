@@ -16,6 +16,10 @@ describe('store/index.js', () => {
     loginUser = { id: 1, role: 2 }
   })
 
+  afterEach(() => {
+    store = null
+  })
+
   describe('state', () => {
     test('accessTokenの初期値が取得できること', () => {
       expect(store.state.accessToken).toBeNull()
@@ -49,18 +53,10 @@ describe('store/index.js', () => {
       commit = store.commit
     })
 
-    test('mutation setAuth', () => {
+    test('setAuth', () => {
       commit('setAuth', { access_token: accessToken, user: loginUser })
       expect(store.state.accessToken).toBe(accessToken)
       expect(store.state.loginUser).toBe(loginUser)
     })
-  })
-
-  describe('actions', () => {
-    let commit
-    beforeEach(() => {
-      commit = store.commit
-    })
-    // テスト用のAPIサーバーを用意してから実装かなあ...
   })
 })

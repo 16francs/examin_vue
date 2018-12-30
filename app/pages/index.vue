@@ -82,7 +82,6 @@ export default {
         })
     },
     close() {
-      console.log('エラー消す')
       this.error = false
     },
     ...mapActions(['login'])
