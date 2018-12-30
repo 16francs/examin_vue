@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '~/plugins/axios'
 import Cookies from 'universal-cookie'
 
 export const state = () => ({
@@ -25,12 +25,13 @@ export const actions = {
   //ログインメソッド
   async login({ commit }, { login_id, password }) {
     await axios
-      .post(`${process.env.baseUrl}/api/auth`, {
+      .post('/auth', {
         login_id,
         password
       })
       .then(response => {
         const { access_token, user } = response.data
+        console.log('aiueo: ', response)
         // cookie に値を格納
         const cookies = new Cookies()
         cookies.set('auth', JSON.stringify({ access_token, user }))
@@ -45,7 +46,7 @@ export const actions = {
   async logout({ commit, getters }) {
     commit('toggle')
     await axios
-      .delete(`${process.env.baseUrl}/api/auth`, {
+      .delete('/auth', {
         headers: { 'access-token': getters.accessToken }
       })
       .catch(() => {

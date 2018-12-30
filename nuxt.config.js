@@ -5,9 +5,7 @@ module.exports = {
   mode: 'universal',
 
   // 環境設定
-  env: {
-    baseUrl: process.env.BASE_URL || 'http://0.0.0.0:3000'
-  },
+  env: { baseUrl: process.env.BASE_URL || 'http://0.0.0.0:3000' },
 
   /*
   ** Headers of the page
