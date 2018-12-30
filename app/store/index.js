@@ -31,7 +31,6 @@ export const actions = {
       })
       .then(response => {
         const { access_token, user } = response.data
-        console.log('aiueo: ', response)
         // cookie に値を格納
         const cookies = new Cookies()
         cookies.set('auth', JSON.stringify({ access_token, user }))
@@ -44,7 +43,6 @@ export const actions = {
   },
   //ログアウトメソッド
   async logout({ commit, getters }) {
-    commit('toggle')
     await axios
       .delete('/auth', {
         headers: { 'access-token': getters.accessToken }
