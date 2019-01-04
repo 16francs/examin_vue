@@ -1,13 +1,16 @@
 <template>
   <div>
+    <Header/>
     <nuxt/>
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import Header from '~/components/students/organisms/Header'
 
 export default {
+  components: { Header },
   middleware: 'auth-student',
 
   methods: {
