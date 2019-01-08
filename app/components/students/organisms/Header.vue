@@ -1,7 +1,7 @@
 <template>
   <navbar
     :list="list"
-    color="info">
+    color="primary">
     <NavMenu
       :list="list"
       @logout="doLogout"/>
