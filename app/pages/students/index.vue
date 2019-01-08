@@ -1,14 +1,20 @@
 <template>
-  <section class="container">
-    生徒向けページ
-    <card/>
-  </section>
+  <div class="hero-body">
+    <p>学習したい問題集を選択してください．</p>
+    <question-card-list/>
+  </div>
 </template>
 
 <script>
-import Card from '../../components/common/atoms/Card'
+import QuestionCardList from '~/components/students/organisms/QuestionCardList'
 export default {
-  components: { Card },
-  layout: 'students/default'
+  components: { QuestionCardList },
+  layout: 'students/default',
+  // 問題集のデータを取得する
+  async asyncData({ store }) {
+    await store.dispatch('students/problems/getProblems', {
+      accessToken: store.getters['accessToken']
+    })
+  }
 }
 </script>
