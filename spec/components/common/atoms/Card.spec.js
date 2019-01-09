@@ -6,7 +6,7 @@ import Card from '~/components/common/atoms/Card'
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
-describe('components/common/atoms/card', () => {
+describe('components/common/atoms/Card', () => {
   let wrapper
   beforeEach(() => {
     wrapper = mount(Card, { localVue })
