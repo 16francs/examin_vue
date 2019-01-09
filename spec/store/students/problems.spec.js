@@ -13,8 +13,8 @@ describe('store/student/problems', () => {
     store = new Vuex.Store(cloneDeep(Problems))
     accessToken = 'aiueo12345'
     problems = [
-      { id: 1, title: 'テスト', content: 'テストデータです'},
-      { id: 2, title: 'テスト2', content: 'テストデータです'}
+      { id: 1, title: 'テスト', content: 'テストデータです' },
+      { id: 2, title: 'テスト2', content: 'テストデータです' }
     ]
   })
   afterEach(() => {
