@@ -1,17 +1,18 @@
 <template>
   <div
     id="navMenu"
+    :class="{ 'is-active': isActive }"
     class="navbar-menu"
   >
     <div class="navbar-start">
-      <a
+      <nuxt-link
         v-for="(item, index) in list"
         :key="index"
-        :href="item.link"
+        :to="item.link"
         class="navbar-item"
       >
         {{ item.label }}
-      </a>
+      </nuxt-link>
     </div>
 
     <div class="navbar-end">
@@ -43,6 +44,10 @@ export default {
   },
 
   props: {
+    isActive: {
+      type: Boolean,
+      default: false
+    },
     list: {
       type: Array,
       default: () => []

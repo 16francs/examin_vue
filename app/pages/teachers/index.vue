@@ -1,7 +1,7 @@
 <template>
-  <section class="container">
+  <div class="section">
     講師向けページ
-  </section>
+  </div>
 </template>
 
 <script>

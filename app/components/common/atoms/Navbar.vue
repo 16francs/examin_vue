@@ -1,53 +1,61 @@
 <template>
   <nav
     :class="navbarColor"
-    class="navbar">
+    class="navbar"
+    role="navigation"
+  >
     <div class="navbar-brand">
       <span
         :class="navbarColor"
-        class="navbar-item">
+        class="navbar-item"
+      >
         examin
       </span>
 
-      <span
-        aria-expanded="false"
-        aria-label="menu"
+      <a
+        :class="{ 'is-active': isActive }"
         class="navbar-burger burger"
-        role="button"
         data-target="navMenu"
+        @click="handleToggle"
       >
-        <span
-          v-for="item in list"
-          :key="item.index"
-          aria-hidden="true" />
-      </span>
+        <span />
+        <span />
+        <span />
+      </a>
     </div>
-    <slot/>
+    <slot />
   </nav>
 </template>
 
 <script>
 export default {
-  name: 'Navbar',
   props: {
     color: {
       type: String,
       default: 'primary'
+    },
+    isActive: {
+      type: Boolean,
+      default: false
     },
     list: {
       type: Array,
       default: () => []
     }
   },
+
   computed: {
     // black, dark, light, white
     // primary, link, info, success, warning, danger
     navbarColor() {
       return this.color === '' ? '' : `is-${this.color}`
     }
+  },
+
+  methods: {
+    handleToggle() {
+      this.$emit('toggle')
+    }
   }
 }
 </script>
-
-<style scoped>
-</style>
