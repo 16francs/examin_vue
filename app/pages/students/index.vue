@@ -1,14 +1,13 @@
 <template>
   <div class="hero-body">
-    <p>学習したい問題集を選択してください．</p>
-    <question-card-list/>
+    <problem-card-list/>
   </div>
 </template>
 
 <script>
-import QuestionCardList from '~/components/students/organisms/QuestionCardList'
+import ProblemCardList from '~/components/students/organisms/ProblemCardList'
 export default {
-  components: { QuestionCardList },
+  components: { ProblemCardList },
   layout: 'students/default',
   // 問題集のデータを取得する
   async asyncData({ store }) {

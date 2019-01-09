@@ -11,7 +11,7 @@
       </p>
       <a class="card-header-icon">
         <b-icon
-          :icon="isOpen ? 'menu-down' : 'menu-up'"
+          :icon="icon"
         />
       </a>
     </div>
@@ -41,6 +41,11 @@ export default {
     isOpen: {
       type: Boolean,
       default: false
+    }
+  },
+  computed: {
+    icon() {
+      return this.isOpen ? 'menu-down' : 'menu-up'
     }
   }
 }

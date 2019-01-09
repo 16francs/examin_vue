@@ -4,6 +4,7 @@
     color="primary">
     <NavMenu
       :list="list"
+      @userEdit="doUserEdit"
       @logout="doLogout"/>
   </navbar>
 </template>
@@ -23,6 +24,9 @@ export default {
     }
   },
   methods: {
+    doUserEdit() {
+      this.$router.push('/students/edit')
+    },
     doLogout() {
       this.$emit('logout')
     }

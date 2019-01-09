@@ -4,22 +4,22 @@
       v-for="problem in problems"
       :key="problem.id"
     >
-      <question-card
+      <problem-card
         :title="problem.title"
         :content="problem.content"
         @doLearn="doLearn(problem.id)"
-        @doTest="doTest(problem.id)"
+        @doTest="doTest(problem.id, problem.title)"
       />
     </div>
   </div>
 </template>
 
 <script>
-import QuestionCard from '~/components/common/molecules/QuestionCard'
+import ProblemCard from '~/components/common/molecules/ProblemCard'
 import { mapGetters } from 'vuex'
 export default {
-  name: 'QuestionCardList',
-  components: { QuestionCard },
+  name: 'ProblemCardList',
+  components: { ProblemCard },
   // 問題集のデータをvuexから取得する
   computed: {
     ...mapGetters({
@@ -28,11 +28,13 @@ export default {
   },
   methods: {
     doLearn(problemId) {
-      console.log(problemId)
-      this.$router.push(`/students/problems/${problemId}`)
+      this.$router.push(`students/problems/${problemId}`)
     },
-    doTest(problemId) {
-      console.log(problemId)
+    doTest(problemId, problemTitle) {
+      this.$dialog.confirm({
+        message: `<b>${problemTitle}</b>のテストを開始しますか？`,
+        onConfirm: () => console.log(problemId)
+      })
     }
   }
 }

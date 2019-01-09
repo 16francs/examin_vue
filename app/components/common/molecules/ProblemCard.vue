@@ -15,10 +15,10 @@
 </template>
 
 <script>
-import Card from '../atoms/Card'
-import CardFotterItem from '../atoms/CardFotterItem'
+import Card from '~/components/common/atoms/Card'
+import CardFotterItem from '~/components/common/atoms/CardFotterItem'
 export default {
-  name: 'QuestionCard',
+  name: 'ProblemCard',
   components: { CardFotterItem, Card },
   props: {
     title: {
