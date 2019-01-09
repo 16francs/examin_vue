@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: 'CardFotterItem',
+  name: 'CardFooterItem',
   props: {
     text: {
       type: String,
