@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
+  <div>
     <Header @logout="doLogout" />
-    <nuxt/>
+    <nuxt />
   </div>
 </template>
 

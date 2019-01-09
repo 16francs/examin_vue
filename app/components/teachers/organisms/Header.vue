@@ -1,6 +1,11 @@
 <template>
-  <Navbar :list="list">
+  <Navbar
+    :is-active="isActive"
+    :list="list"
+    @toggle="changeActivate"
+  >
     <NavMenu
+      :is-active="isActive"
       :list="list"
       @userEdit="doUserEdit"
       @logout="doLogout" />
@@ -19,6 +24,7 @@ export default {
 
   data() {
     return {
+      isActive: false,
       list: [
         { label: 'ホーム', link: '/teachers' },
         { label: '問題集一覧', link: '/teachers/problems' },
@@ -29,6 +35,9 @@ export default {
   },
 
   methods: {
+    changeActivate() {
+      this.isActive = !this.isActive
+    },
     doUserEdit() {
       this.$router.push('/teachers/edit')
     },
