@@ -9,18 +9,18 @@
         examin
       </span>
 
-      <a
+      <span
         aria-expanded="false"
         aria-label="menu"
         class="navbar-burger burger"
-        data-target="navMenu"
         role="button"
+        data-target="navMenu"
       >
         <span
           v-for="item in list"
           :key="item.index"
           aria-hidden="true" />
-      </a>
+      </span>
     </div>
     <slot/>
   </nav>
