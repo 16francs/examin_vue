@@ -1,19 +1,19 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import CardFotterItem from '~/components/common/atoms/CardFotterItem'
+import CardFooterItem from '~/components/common/atoms/CardFooterItem'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
-describe('components/common/atoms/CardFotterItem', () => {
+describe('components/common/atoms/CardFooterItem', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = mount(CardFotterItem, { localVue })
+    wrapper = mount(CardFooterItem, { localVue })
   })
   describe('template', () => {
     describe('a', () => {
-      test('fotter-itemが存在するか', () => {
+      test('footer-itemが存在するか', () => {
         const a = wrapper.findAll('a').at(0)
         expect(a.classes()).toContain('card-footer-item')
       })
@@ -36,11 +36,16 @@ describe('components/common/atoms/CardFotterItem', () => {
         let mock
         beforeEach(() => {
           mock = jest.fn()
-          wrapper.setMethods({ onClick: mock })
         })
         test('正常に呼び出されること', () => {
+          wrapper.setMethods({ onClick: mock })
           wrapper.vm.onClick()
           expect(mock).toBeCalled()
+        })
+        test('emitが実行されること', async done => {
+          await wrapper.vm.onClick()
+          expect(wrapper.emitted('click')).toBeTruthy()
+          done()
         })
       })
     })
