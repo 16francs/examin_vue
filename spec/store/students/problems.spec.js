@@ -8,10 +8,9 @@ localVue.use(Vuex)
 
 describe('store/student/problems', () => {
   let store
-  let accessToken, problems
+  let problems
   beforeEach(() => {
     store = new Vuex.Store(cloneDeep(Problems))
-    accessToken = 'aiueo12345'
     problems = [
       { id: 1, title: 'テスト', content: 'テストデータです' },
       { id: 2, title: 'テスト2', content: 'テストデータです' }
