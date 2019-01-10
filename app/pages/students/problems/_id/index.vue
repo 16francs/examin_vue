@@ -5,10 +5,9 @@
 </template>
 
 <script>
-import Box from '~/components/common/atoms/Box'
 import QuestionList from '~/components/students/organisms/QuestionList'
 export default {
-  components: { QuestionList, Box },
+  components: { QuestionList },
   layout: 'students/default',
   async asyncData({ store, route }) {
     const { id } = route.params
