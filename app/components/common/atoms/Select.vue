@@ -1,10 +1,10 @@
 <template>
-  <table
-    focusable
-    @click="select"
+  <a
+    class="panel-block"
+    @click="select(index)"
   >
-    {{ index }}. {{ text }}
-  </table>
+    {{ index + 1 }}. {{ text }}
+  </a>
 </template>
 
 <script>
@@ -21,8 +21,8 @@ export default {
     }
   },
   methods: {
-    select() {
-      this.$emit('select')
+    select(index) {
+      this.$emit('select', index)
     }
   }
 }

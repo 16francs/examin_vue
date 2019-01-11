@@ -16,8 +16,8 @@ export default {
       default: 'primary'
     },
     value: {
-      type: String,
-      default: '30'
+      type: Number,
+      default: 30
     },
     maxValue: {
       type: String,

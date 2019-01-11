@@ -1,14 +1,11 @@
 <template>
-  <div>
-    <div
-      v-for="index in answers"
+  <div class="panel">
+    <Select
+      v-for="(answer, index) in answers"
       :key="index"
-    >
-      <Select
-        :index="index"
-        :text="answers[index]"
-      />
-    </div>
+      :index="index"
+      :text="answer"
+    />
   </div>
 </template>
 
