@@ -1,12 +1,15 @@
 <template>
   <section class="section">
     <progress-bar
+      v-if="isTesting"
       :value="limit"
     />
     <box
+      v-if="isTesting"
       :title="questions[number].sentence"
     />
     <select-list
+      v-if="isTesting"
       :answers="questions[number].answers"
       @select="select"
     />
@@ -25,7 +28,8 @@ export default {
     return {
       limit: 100,
       number: 0,
-      selects: []
+      selects: [],
+      isTesting: true
     }
   },
   computed: {
@@ -36,6 +40,7 @@ export default {
   watch: {
     number() {
       if (this.number === this.questions.length) {
+        this.isTesting = false
         clearInterval(this.intervalID)
         console.log(JSON.stringify(this.selects))
         this.setTestResults({ results: this.selects })
@@ -53,8 +58,10 @@ export default {
           user_choice: -1,
           answer_time: -1
         })
-        this.number++
-        this.limit = 100
+        if (this.number < this.questions.length) {
+          this.number++
+          this.limit = 100
+        }
       }
       this.limit--
     }, 70)
@@ -68,8 +75,10 @@ export default {
         user_choice: selectNum
       }
       this.selects.push(select)
-      this.number++
-      this.limit = 100
+      if (this.number < this.questions.length) {
+        this.number++
+        this.limit = 100
+      }
       console.log(this.selects)
     },
     ...mapActions({
