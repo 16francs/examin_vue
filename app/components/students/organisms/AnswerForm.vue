@@ -8,15 +8,16 @@
     />
     <select-list
       :answers="questions[number].answers"
+      @select="select"
     />
   </section>
 </template>
 
 <script>
-import ProgressBar from '../../common/atoms/ProgressBar'
-import SelectList from '../../common/molecules/SelectList'
-import { mapGetters } from 'vuex'
-import Box from '../../common/atoms/Box'
+import ProgressBar from '~/components/common/atoms/ProgressBar'
+import SelectList from '~/components/students/molecules/SelectList'
+import { mapGetters, mapActions } from 'vuex'
+import Box from '~/components/common/atoms/Box'
 export default {
   name: 'AnswerForm',
   components: { Box, SelectList, ProgressBar },
@@ -32,6 +33,17 @@ export default {
       questions: 'students/questions/questions'
     })
   },
+  watch: {
+    number() {
+      if (this.number === this.questions.length) {
+        clearInterval(this.intervalID)
+        console.log(JSON.stringify(this.selects))
+        this.setTestResults({ results: this.selects })
+        this.$router.push('/students/test/result')
+      }
+    }
+  },
+  // 制限時間の制御
   mounted() {
     this.intervalID = setInterval(() => {
       if (this.limit === 0) {
@@ -46,6 +58,23 @@ export default {
       }
       this.limit--
     }, 70)
+  },
+  methods: {
+    // 生徒が回答を選んだとき
+    select(selectNum) {
+      const select = {
+        question_id: this.questions[this.number].question_id,
+        result: selectNum == this.questions[this.number].correct,
+        user_choice: selectNum
+      }
+      this.selects.push(select)
+      this.number++
+      this.limit = 100
+      console.log(this.selects)
+    },
+    ...mapActions({
+      setTestResults: 'students/achievements/setResults'
+    })
   }
 }
 </script>

@@ -3,12 +3,9 @@
 </template>
 
 <script>
-import Box from '../../../../components/common/atoms/Box'
-import SelectList from '../../../../components/common/molecules/SelectList'
-import Select from '../../../../components/common/atoms/Select'
-import AnswerForm from '../../../../components/students/organisms/AnswerForm'
+import AnswerForm from '~/components/students/organisms/AnswerForm'
 export default {
-  components: { AnswerForm, Select, SelectList, Box },
+  components: { AnswerForm },
   layout: 'students/default',
   async asyncData({ store, route }) {
     const { id } = route.params

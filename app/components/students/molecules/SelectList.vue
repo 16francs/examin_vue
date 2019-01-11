@@ -1,24 +1,30 @@
 <template>
-  <div class="panel">
+  <Panel>
     <Select
       v-for="(answer, index) in answers"
       :key="index"
       :index="index"
       :text="answer"
+      @select="select(index)"
     />
-  </div>
+  </Panel>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import Select from '../atoms/Select'
+import Select from '~/components/students/atoms/PanelBlock'
+import Panel from '~/components/students/atoms/Panel'
 export default {
   name: 'SelectList',
-  components: { Select },
+  components: { Panel, Select },
   props: {
     answers: {
       type: Array,
       default: null
+    }
+  },
+  methods: {
+    select(index) {
+      this.$emit('select', index)
     }
   }
 }
