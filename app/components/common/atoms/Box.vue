@@ -17,7 +17,7 @@ export default {
     },
     content: {
       type: String,
-      default: 'コンテンツ'
+      default: ''
     }
   }
 }

@@ -37,7 +37,7 @@ describe('components/common/atoms/Box', () => {
       })
       describe('content', () => {
         test('contentの初期値', () => {
-          expect(wrapper.props().content).toBe('コンテンツ')
+          expect(wrapper.props().content).toBe('')
         })
         test('contentの代入', () => {
           wrapper.setProps({ content: '変更テスト' })
