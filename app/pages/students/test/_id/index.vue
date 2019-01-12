@@ -1,17 +1,15 @@
 <template>
-  <section class="hero-body">
-    <question-list/>
-  </section>
+  <AnswerForm/>
 </template>
 
 <script>
-import QuestionList from '~/components/students/organisms/QuestionList'
+import AnswerForm from '~/components/students/organisms/AnswerForm'
 export default {
-  components: { QuestionList },
+  components: { AnswerForm },
   layout: 'students/default',
   async asyncData({ store, route }) {
     const { id } = route.params
-    await store.dispatch('students/questions/getQuestions', {
+    await store.dispatch('students/questions/getRandomQuestions', {
       accessToken: store.getters['accessToken'],
       problemId: id
     })

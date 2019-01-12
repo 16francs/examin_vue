@@ -1,28 +1,36 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import CardFooterItem from '~/components/common/atoms/CardFooterItem'
+import PanelBlock from '~/components/students/atoms/PanelBlock'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
-describe('components/common/atoms/CardFooterItem', () => {
+
+describe('components/students/atoms/PanelBlock', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = mount(CardFooterItem, { localVue })
+    wrapper = mount(PanelBlock, { localVue })
   })
   describe('template', () => {
-    describe('a', () => {
-      test('footer-itemが存在するか', () => {
-        expect(wrapper.contains('[data-test="card-footer-item"]')).toBeTruthy()
-      })
+    test('PanelBlockが存在するか', () => {
+      expect(wrapper.contains('[data-test="panel-block"]')).toBeTruthy()
     })
   })
   describe('script', () => {
     describe('props', () => {
+      describe('index', () => {
+        test('indexの初期値', () => {
+          expect(wrapper.props().index).toBe(1)
+        })
+        test('indexに代入', () => {
+          wrapper.setProps({ index: 2 })
+          expect(wrapper.props().index).toBe(2)
+        })
+      })
       describe('text', () => {
         test('textの初期値', () => {
-          expect(wrapper.props().text).toBe('テスト')
+          expect(wrapper.props().text).toBe('')
         })
         test('textに代入', () => {
           wrapper.setProps({ text: '変更テスト' })
@@ -31,19 +39,20 @@ describe('components/common/atoms/CardFooterItem', () => {
       })
     })
     describe('methods', () => {
-      describe('onClick', () => {
+      describe('select', () => {
         let mock
         beforeEach(() => {
           mock = jest.fn()
         })
         test('正常に呼び出されること', () => {
-          wrapper.setMethods({ onClick: mock })
-          wrapper.vm.onClick()
+          wrapper.setMethods({ select: mock })
+          wrapper.vm.select()
           expect(mock).toBeCalled()
         })
+
         test('emitが実行されること', async done => {
-          await wrapper.vm.onClick()
-          expect(wrapper.emitted('click')).toBeTruthy()
+          await wrapper.vm.select()
+          expect(wrapper.emitted().select).toBeTruthy()
           done()
         })
       })

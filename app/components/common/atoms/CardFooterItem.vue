@@ -1,6 +1,7 @@
 <template>
   <a
     class="card-footer-item"
+    data-test="card-footer-item"
     @click="onClick">
     {{ text }}
   </a>

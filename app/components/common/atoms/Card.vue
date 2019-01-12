@@ -1,12 +1,17 @@
 <template>
   <b-collapse
     :open="isOpen"
-    class="card">
+    class="card"
+    data-test="card"
+  >
     <div
       slot="trigger"
       slot-scope="props"
       class="card-header">
-      <p class="card-header-title">
+      <p
+        class="card-header-title"
+        data-test="card-title"
+      >
         {{ title }}
       </p>
       <a class="card-header-icon">
@@ -16,7 +21,10 @@
       </a>
     </div>
     <div class="card-content">
-      <div class="content">
+      <div
+        class="content"
+        data-test="card-content"
+      >
         {{ content }}
       </div>
     </div>
