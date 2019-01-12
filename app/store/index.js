@@ -39,20 +39,17 @@ export const actions = {
   },
   //ログアウトメソッド
   async logout({ commit }) {
-    await this.$axios
-      .delete('/auth')
-      .catch(() => {
-        throw new Error('Server Error')
-      })
-      .finally(() => {
-        // cookie の認証情報を削除
-        const cookies = new Cookies()
-        cookies.remove('auth')
-        // store の認証情報を削除
-        // 初期化方法わからないので，とりあえずstoreの初期値
-        const access_token = null
-        const user = { id: 0, role: -1 }
-        commit('setAuth', { access_token, user })
-      })
+    await this.$axios.delete('/auth').catch(() => {
+      throw new Error('Server Error')
+    })
+
+    // cookie の認証情報を削除
+    const cookies = new Cookies()
+    cookies.remove('auth')
+    // store の認証情報を削除
+    // 初期化方法わからないので，とりあえずstoreの初期値
+    const access_token = null
+    const user = { id: 0, role: -1 }
+    commit('setAuth', { access_token, user })
   }
 }

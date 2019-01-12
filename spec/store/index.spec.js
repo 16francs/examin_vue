@@ -67,12 +67,18 @@ describe('store/index.js', () => {
     })
 
     test('login', async () => {
-      const result = await store.dispatch('login', {
+      await store.dispatch('login', {
         login_id: 'test',
         password: 'test'
       })
       expect(store.getters['accessToken']).toBe('test-token')
       expect(store.getters['loginUser']).toEqual({ id: 1, role: 1 })
+    })
+
+    test('logout', async () => {
+      await store.dispatch('logout')
+      expect(store.getters['accessToken']).toBeNull()
+      expect(store.getters['loginUser']).toEqual({ id: 0, role: -1 })
     })
   })
 })

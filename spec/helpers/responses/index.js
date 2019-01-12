@@ -8,6 +8,11 @@ const post = {
   }
 }
 
+const destroy = {
+  '/auth': {}
+}
+
 export default {
-  post
+  post,
+  destroy
 }
