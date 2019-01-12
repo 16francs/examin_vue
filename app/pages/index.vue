@@ -58,7 +58,6 @@ export default {
 
   methods: {
     async doLogin(formData) {
-      console.log('login_id', formData.login_id)
       //ログインロジック
       await this.login({
         login_id: formData.login_id,
