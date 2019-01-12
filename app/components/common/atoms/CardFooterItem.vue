@@ -1,6 +1,7 @@
 <template>
   <a
     class="card-footer-item"
+    data-test="card-footer-item"
     @click="onClick">
     {{ text }}
   </a>
@@ -8,7 +9,7 @@
 
 <script>
 export default {
-  name: 'CardFotterItem',
+  name: 'CardFooterItem',
   props: {
     text: {
       type: String,

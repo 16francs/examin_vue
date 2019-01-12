@@ -28,12 +28,12 @@ export default {
   },
   methods: {
     doLearn(problemId) {
-      this.$router.push(`students/problems/${problemId}`)
+      this.$router.push(`/students/problems/${problemId}`)
     },
     doTest(problemId, problemTitle) {
       this.$dialog.confirm({
         message: `<b>${problemTitle}</b>のテストを開始しますか？`,
-        onConfirm: () => console.log(problemId)
+        onConfirm: () => this.$router.push(`/students/test/${problemId}`)
       })
     }
   }

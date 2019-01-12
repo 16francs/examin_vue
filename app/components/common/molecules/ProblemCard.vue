@@ -3,11 +3,11 @@
     :title="title"
     :content="content"
   >
-    <card-fotter-item
+    <card-footer-item
       text="学習する"
       @click="doLearn"
     />
-    <card-fotter-item
+    <card-footer-item
       text="テスト"
       @click="doTest"
     />
@@ -16,10 +16,10 @@
 
 <script>
 import Card from '~/components/common/atoms/Card'
-import CardFotterItem from '~/components/common/atoms/CardFotterItem'
+import CardFooterItem from '~/components/common/atoms/CardFooterItem'
 export default {
   name: 'ProblemCard',
-  components: { CardFotterItem, Card },
+  components: { CardFooterItem, Card },
   props: {
     title: {
       type: String,

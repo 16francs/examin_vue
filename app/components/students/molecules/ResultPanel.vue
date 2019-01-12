@@ -1,0 +1,28 @@
+<template>
+  <panel>
+    <panel-hard-block
+      v-for="(result, index) in results"
+      :key="result.question_id"
+      :index="index"
+      :text="result.result ? '正解': '不正解'"
+    />
+  </panel>
+</template>
+
+<script>
+import Panel from '~/components/students/atoms/Panel'
+import PanelHardBlock from '~/components/students/atoms/PanelHardBlock'
+export default {
+  name: 'ResultPanel',
+  components: { PanelHardBlock, Panel },
+  props: {
+    results: {
+      type: Array,
+      default: () => []
+    }
+  }
+}
+</script>
+
+<style scoped>
+</style>

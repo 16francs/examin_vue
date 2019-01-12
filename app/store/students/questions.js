@@ -22,5 +22,15 @@ export const actions = {
     console.log(json.data)
     if (json.status !== 200) throw new Error('Internal server error.')
     commit('setQuestions', { questions: json.data.questions })
+  },
+  async getRandomQuestions({ commit }, { accessToken, problemId }) {
+    const json = await axios.get(
+      `/students/problems/${problemId}/questions/random?count=10`,
+      {
+        headers: { 'access-token': accessToken }
+      }
+    )
+    if (json.status !== 200) throw new Error('Internal server error.')
+    commit('setQuestions', { questions: json.data.questions })
   }
 }
