@@ -10,8 +10,8 @@
 </template>
 
 <script>
-import Panel from '../atoms/Panel'
-import PanelHardBlock from '../atoms/PanelHardBlock'
+import Panel from '~/components/students/atoms/Panel'
+import PanelHardBlock from '~/components/students/atoms/PanelHardBlock'
 export default {
   name: 'ResultPanel',
   components: { PanelHardBlock, Panel },
