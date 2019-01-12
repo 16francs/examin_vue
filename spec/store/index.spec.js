@@ -62,23 +62,51 @@ describe('store/index.js', () => {
   })
 
   describe('actions', () => {
+    let params
     beforeEach(() => {
       store.$axios = axios
     })
 
-    test('login', async () => {
-      await store.dispatch('login', {
-        login_id: 'test',
-        password: 'test'
-      })
-      expect(store.getters['accessToken']).toBe('test-token')
-      expect(store.getters['loginUser']).toEqual({ id: 1, role: 1 })
+    afterEach(() => {
+      params = null
     })
 
-    test('logout', async () => {
-      await store.dispatch('logout')
-      expect(store.getters['accessToken']).toBeNull()
-      expect(store.getters['loginUser']).toEqual({ id: 0, role: -1 })
+    describe('success', () => {
+      beforeEach(() => {
+        store.$axios.setSafetyMode(true)
+      })
+
+      test('login', async () => {
+        params = { login_id: 'test', password: 'test' }
+        await store.dispatch('login', params)
+        expect(store.getters['accessToken']).toBe('test-token')
+        expect(store.getters['loginUser']).toEqual({ id: 1, role: 1 })
+      })
+
+      test('logout', async () => {
+        await store.dispatch('logout')
+        expect(store.getters['accessToken']).toBeNull()
+        expect(store.getters['loginUser']).toEqual({ id: 0, role: -1 })
+      })
+    })
+
+    describe('failure', () => {
+      beforeEach(() => {
+        store.$axios.setSafetyMode(false)
+      })
+
+      test('login', async () => {
+        params = { login_id: 'test', password: 'test' }
+        await expect(store.dispatch('login', params)).rejects.toEqual(
+          new Error('Invalid Error')
+        )
+      })
+
+      test('logout', async () => {
+        await expect(store.dispatch('logout')).rejects.toEqual(
+          new Error('Server Error')
+        )
+      })
     })
   })
 })
