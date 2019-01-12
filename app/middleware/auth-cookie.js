@@ -1,6 +1,6 @@
 import Cookies from 'universal-cookie'
 
-export default ({ req, store, app: { $axios } }) => {
+export default ({ req, store }) => {
   if (process.browser) {
     const cookies = new Cookies()
     const auth = cookies.get('auth')
