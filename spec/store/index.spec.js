@@ -2,6 +2,7 @@ import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
 import cloneDeep from 'lodash.clonedeep'
 import * as Index from '~/store/index'
+import axios from '~~/spec/helpers/axios'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -57,6 +58,21 @@ describe('store/index.js', () => {
       commit('setAuth', { access_token: accessToken, user: loginUser })
       expect(store.state.accessToken).toBe(accessToken)
       expect(store.state.loginUser).toBe(loginUser)
+    })
+  })
+
+  describe('actions', () => {
+    beforeEach(() => {
+      store.$axios = axios
+    })
+
+    test('login', async () => {
+      const result = await store.dispatch('login', {
+        login_id: 'test',
+        password: 'test'
+      })
+      expect(store.getters['accessToken']).toBe('test-token')
+      expect(store.getters['loginUser']).toEqual({ id: 1, role: 1 })
     })
   })
 })
