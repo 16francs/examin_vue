@@ -16,9 +16,7 @@ export const mutations = {
 
 export const actions = {
   async getProblems({ commit }, { accessToken }) {
-    const json = await axios.get(`/students/problems`, {
-      headers: { 'access-token': accessToken }
-    })
+    const json = await this.$axios.get('/students/problems')
     console.log(json)
     if (json.status !== 200) throw new Error('Internal server error.')
     commit('setProblems', { problems: json.data.problems })
