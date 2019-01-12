@@ -1,6 +1,7 @@
 <template>
   <a
     class="panel-block"
+    data-test="panel-block"
     @click="select(index)"
   >
     {{ index + 1 }}. {{ text }}

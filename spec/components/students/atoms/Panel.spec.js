@@ -14,8 +14,7 @@ describe('components/students/atoms/Panel', () => {
   })
   describe('template', () => {
     test('panelが存在するか', () => {
-      const div = wrapper.findAll('div').at(0)
-      expect(div.classes()).toContain('panel')
+      expect(wrapper.contains('[data-test="panel"]')).toBeTruthy()
     })
   })
 })

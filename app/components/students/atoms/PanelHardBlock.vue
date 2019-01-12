@@ -1,5 +1,8 @@
 <template>
-  <span class="panel-block">
+  <span
+    class="panel-block"
+    data-test="panel-hard-block"
+  >
     {{ index + 1 }}. {{ text }}
   </span>
 </template>

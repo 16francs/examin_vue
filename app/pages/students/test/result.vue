@@ -8,7 +8,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import ResultPanel from '../../../components/students/molecules/ResultPanel'
+import ResultPanel from '~/components/students/molecules/ResultPanel'
 export default {
   components: { ResultPanel },
   layout: 'students/default',

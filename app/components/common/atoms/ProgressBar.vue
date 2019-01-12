@@ -4,6 +4,7 @@
     :max="maxValue"
     :class="barColor"
     class="progress"
+    data-test="progress-bar"
   />
 </template>
 
@@ -20,8 +21,8 @@ export default {
       default: 30
     },
     maxValue: {
-      type: String,
-      default: '100'
+      type: Number,
+      default: 100
     }
   },
   computed: {

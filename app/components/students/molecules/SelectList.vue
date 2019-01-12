@@ -19,7 +19,7 @@ export default {
   props: {
     answers: {
       type: Array,
-      default: null
+      default: () => []
     }
   },
   methods: {

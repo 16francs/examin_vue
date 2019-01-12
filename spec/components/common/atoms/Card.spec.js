@@ -12,17 +12,14 @@ describe('components/common/atoms/Card', () => {
     wrapper = mount(Card, { localVue })
   })
   describe('template', () => {
-    test('boxが存在するか', () => {
-      const div = wrapper.findAll('div').at(0)
-      expect(div.classes()).toContain('card')
+    test('cardが存在するか', () => {
+      expect(wrapper.contains('[data-test="card"]')).toBeTruthy()
     })
     test('タイトルが存在すること', () => {
-      const p = wrapper.findAll('p').at(0)
-      expect(p.classes()).toContain('card-header-title')
+      expect(wrapper.contains('[data-test="card-title"]')).toBeTruthy()
     })
     test('コンテンツが存在すること', () => {
-      const div = wrapper.findAll('div').at(4)
-      expect(div.classes()).toContain('card-content')
+      expect(wrapper.contains('[data-test="card-content"]')).toBeTruthy()
     })
   })
   describe('script', () => {

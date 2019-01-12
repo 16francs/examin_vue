@@ -14,8 +14,7 @@ describe('components/common/atoms/CardFooterItem', () => {
   describe('template', () => {
     describe('a', () => {
       test('footer-itemが存在するか', () => {
-        const a = wrapper.findAll('a').at(0)
-        expect(a.classes()).toContain('card-footer-item')
+        expect(wrapper.contains('[data-test="card-footer-item"]')).toBeTruthy()
       })
     })
   })

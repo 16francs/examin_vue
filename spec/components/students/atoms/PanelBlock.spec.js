@@ -14,8 +14,7 @@ describe('components/students/atoms/PanelBlock', () => {
   })
   describe('template', () => {
     test('PanelBlockが存在するか', () => {
-      const div = wrapper.findAll('a').at(0)
-      expect(div.classes()).toContain('panel-block')
+      expect(wrapper.contains('[data-test="panel-block"]')).toBeTruthy()
     })
   })
   describe('script', () => {
