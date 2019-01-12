@@ -1,6 +1,6 @@
 <template>
   <Panel>
-    <Select
+    <PanelBlock
       v-for="(answer, index) in answers"
       :key="index"
       :index="index"
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Select from '~/components/students/atoms/PanelBlock'
+import PanelBlock from '~/components/students/atoms/PanelBlock'
 import Panel from '~/components/students/atoms/Panel'
 export default {
   name: 'SelectList',

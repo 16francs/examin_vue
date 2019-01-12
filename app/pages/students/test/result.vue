@@ -1,12 +1,16 @@
 <template>
-  <div>
-    {{ results.length }}
-  </div>
+  <section class="section">
+    <result-panel
+      :results="results"
+    />
+  </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import ResultPanel from '../../../components/students/molecules/ResultPanel'
 export default {
+  components: { ResultPanel },
   layout: 'students/default',
   computed: {
     ...mapGetters({

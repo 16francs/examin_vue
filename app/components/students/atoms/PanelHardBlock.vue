@@ -1,15 +1,12 @@
 <template>
-  <a
-    class="panel-block"
-    @click="select(index)"
-  >
+  <span class="panel-block">
     {{ index + 1 }}. {{ text }}
-  </a>
+  </span>
 </template>
 
 <script>
 export default {
-  name: 'PanelBlock',
+  name: 'PanelHardBlock',
   props: {
     index: {
       type: Number,
@@ -18,11 +15,6 @@ export default {
     text: {
       type: String,
       default: ''
-    }
-  },
-  methods: {
-    select(index) {
-      this.$emit('select', index)
     }
   }
 }
