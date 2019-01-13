@@ -81,7 +81,6 @@ describe('components/common/molecules/ProblemCard', () => {
           expect(mock).toBeCalled()
         })
 
-
         test('emitが実行されること', async done => {
           await wrapper.vm.doTest()
           expect(wrapper.emitted().doTest).toBeTruthy()
