@@ -16,7 +16,7 @@ describe('components/common/molecules/NavBrand', () => {
   })
 
   describe('template', () => {
-    test('navbar-brandば存在すること', () => {
+    test('navbar-brandが存在すること', () => {
       expect(wrapper.find(content('navbar-brand'))).toBeTruthy()
     })
   })

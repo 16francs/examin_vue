@@ -5,6 +5,7 @@
         :class="{ 'is-active': isActive }"
         class="navbar-burger burger"
         data-target="navMenu"
+        data-test="navbar-burger"
         @click="handleToggle"
       >
         <span />
