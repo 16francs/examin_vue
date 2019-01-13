@@ -15,17 +15,20 @@ export const mutations = {
 }
 
 export const actions = {
-  async getQuestions({ commit }, { accessToken, problemId }) {
-    const json = await this.$axios.get(`/students/problems/${problemId}`)
-    console.log(json.data)
-    if (json.status !== 200) throw new Error('Internal server error.')
+  async getQuestions({ commit }, { problemId }) {
+    const json = await this.$axios
+      .get(`/students/problems/${problemId}`)
+      .catch(() => {
+        throw new Error('Server Error')
+      })
     commit('setQuestions', { questions: json.data.questions })
   },
-  async getRandomQuestions({ commit }, { accessToken, problemId }) {
-    const json = await this.$axios.get(
-      `/students/problems/${problemId}/questions/random?count=10`
-    )
-    if (json.status !== 200) throw new Error('Internal server error.')
+  async getRandomQuestions({ commit }, { problemId }) {
+    const json = await this.$axios
+      .get(`/students/problems/${problemId}/questions/random?count=10`)
+      .catch(() => {
+        throw new Error('Server Error')
+      })
     commit('setQuestions', { questions: json.data.questions })
   }
 }
