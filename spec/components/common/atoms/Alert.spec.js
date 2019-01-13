@@ -84,7 +84,7 @@ describe('components/common/atoms/Alert', () => {
           expect(mock).toBeCalled()
         })
 
-        test('emitが執行されること', async done => {
+        test('emitが実行されること', async done => {
           await wrapper.vm.close()
           expect(wrapper.emitted().close).toBeTruthy()
           done()
