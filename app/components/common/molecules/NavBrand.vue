@@ -1,11 +1,13 @@
 <template>
-  <nav
-    :class="navbarColor"
-    class="navbar"
-    role="navigation"
-  >
+  <div class="navbar-brand">
+    <span
+      :class="navbarColor"
+      class="navbar-item"
+    >
+      examin
+    </span>
     <slot />
-  </nav>
+  </div>
 </template>
 
 <script>

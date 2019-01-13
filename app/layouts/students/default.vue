@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header/>
+    <Header @logout="doLogout" />
     <nuxt/>
   </div>
 </template>
@@ -10,7 +10,10 @@ import { mapActions } from 'vuex'
 import Header from '~/components/students/organisms/Header'
 
 export default {
-  components: { Header },
+  components: {
+    Header
+  },
+
   middleware: 'auth-student',
 
   methods: {

@@ -1,46 +1,34 @@
 <template>
-  <navbar
-    :is-active="isActive"
+  <Header
     :list="list"
-    color="primary"
-    @toggle="changeActivate"
-  >
-    <NavMenu
-      :is-active="isActive"
-      :list="list"
-      @userEdit="doUserEdit"
-      @logout="doLogout"/>
-  </navbar>
+    @logout="doLogout"
+    @userEdit="doUserEdit" />
 </template>
 
 <script>
-import Navbar from '~/components/common/atoms/Navbar'
-import NavMenu from '~/components/common/molecules/NavMenu'
+import Header from '~/components/common/organisms/Header'
+
 export default {
-  name: 'Header',
-  components: { NavMenu, Navbar },
+  components: {
+    Header
+  },
+
   data() {
     return {
-      isActive: false,
       list: [
         { label: 'ホーム', link: '/students' },
         { label: 'テスト', link: '/students/test' }
       ]
     }
   },
+
   methods: {
-    changeActivate() {
-      this.isActive = !this.isActive
+    doLogout() {
+      this.$emit('logout')
     },
     doUserEdit() {
       this.$router.push('/students/edit')
-    },
-    doLogout() {
-      this.$emit('logout')
     }
   }
 }
 </script>
-
-<style scoped>
-</style>
