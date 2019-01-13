@@ -2,12 +2,15 @@
   <section>
     <TextField
       v-model="formData.login_id"
-      label="ユーザーID" />
+      label="ユーザーID"
+      data-test="login_id" />
 
     <TextField
       v-model="formData.password"
       label="パスワード"
-      type="password" />
+      type="password"
+      data-test="password" />
+
     <submit-button
       color="info"
       text="ログイン"
