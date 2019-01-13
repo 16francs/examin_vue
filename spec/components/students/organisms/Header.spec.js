@@ -2,14 +2,14 @@ import Vuex from 'vuex'
 import Buefy from 'buefy'
 import VueRouter from 'vue-router'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import Header from '~/components/teachers/organisms/Header'
+import Header from '~/components/students/organisms/Header'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 localVue.use(VueRouter)
 
-describe('components/teachers/organisms/Header', () => {
+describe('components/students/organisms/Header', () => {
   let wrapper
   let router
   beforeEach(() => {
@@ -21,10 +21,8 @@ describe('components/teachers/organisms/Header', () => {
     describe('data', () => {
       test('listが存在すること', () => {
         const list = [
-          { label: 'ホーム', link: '/teachers' },
-          { label: '問題集一覧', link: '/teachers/problems' },
-          { label: '講師一覧', link: '/teachers/teachers' },
-          { label: '生徒一覧', link: '/teachers/students' }
+          { label: 'ホーム', link: '/students' },
+          { label: 'テスト', link: '/students/test' }
         ]
         expect(wrapper.vm.list).toEqual(list)
       })
@@ -45,7 +43,7 @@ describe('components/teachers/organisms/Header', () => {
 
         test('routerが正常に実行されること', async done => {
           await wrapper.vm.doUserEdit()
-          expect(wrapper.vm.$route.path).toBe('/teachers/edit')
+          expect(wrapper.vm.$route.path).toBe('/students/edit')
           done()
         })
       })
