@@ -1,10 +1,11 @@
 <template>
-  <Panel>
+  <Panel data-test="panel">
     <PanelBlock
       v-for="(answer, index) in answers"
       :key="index"
       :index="index"
       :text="answer"
+      data-test="panel-block"
       @select="select(index)"
     />
   </Panel>
@@ -15,7 +16,7 @@ import PanelBlock from '~/components/students/atoms/PanelBlock'
 import Panel from '~/components/students/atoms/Panel'
 export default {
   name: 'SelectList',
-  components: { Panel, Select },
+  components: { Panel, PanelBlock },
   props: {
     answers: {
       type: Array,
