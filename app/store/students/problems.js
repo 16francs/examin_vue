@@ -15,10 +15,10 @@ export const mutations = {
 }
 
 export const actions = {
-  async getProblems({ commit }, { accessToken }) {
-    const json = await this.$axios.get('/students/problems')
-    console.log(json)
-    if (json.status !== 200) throw new Error('Internal server error.')
+  async getProblems({ commit }) {
+    const json = await this.$axios.get('/students/problems').catch(() => {
+      throw new Error('Server Error')
+    })
     commit('setProblems', { problems: json.data.problems })
   }
 }

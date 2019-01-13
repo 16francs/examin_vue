@@ -1,7 +1,12 @@
 import index from './index'
+import problems from './problems'
+import questions from './questions'
 
 export default {
-  get: {},
+  get: {
+    ...problems.get,
+    ...questions.get
+  },
   post: {
     ...index.post
   },
