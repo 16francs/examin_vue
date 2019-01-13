@@ -77,11 +77,17 @@ describe('components/common/atoms/Alert', () => {
         let mock
         beforeEach(() => {
           mock = jest.fn()
-          wrapper.setMethods({ close: mock })
         })
         test('正常に呼び出されること', () => {
+          wrapper.setMethods({ close: mock })
           wrapper.vm.close()
           expect(mock).toBeCalled()
+        })
+
+        test('emitが執行されること', async done => {
+          await wrapper.vm.close()
+          expect(wrapper.emitted().close).toBeTruthy()
+          done()
         })
       })
     })

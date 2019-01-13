@@ -2,13 +2,16 @@
   <card
     :title="title"
     :content="content"
+    data-test="card"
   >
     <card-footer-item
       text="学習する"
+      data-test="footer-item-learn"
       @click="doLearn"
     />
     <card-footer-item
       text="テスト"
+      data-test="footer-item-test"
       @click="doTest"
     />
   </card>
