@@ -71,6 +71,20 @@ describe('components/common/molecules/NavMenu', () => {
         mock = jest.fn()
       })
 
+      describe('handleClick', () => {
+        test('正常に呼び出されること', () => {
+          wrapper.setMethods({ handleClick: mock })
+          wrapper.vm.handleClick()
+          expect(mock).toBeCalled()
+        })
+
+        test('emitが正常に実行されること', async done => {
+          await wrapper.vm.handleClick()
+          expect(wrapper.emitted().close).toBeTruthy()
+          done()
+        })
+      })
+
       describe('handleUserEdit', () => {
         test('正常に呼び出されること', () => {
           wrapper.setMethods({ handleUserEdit: mock })

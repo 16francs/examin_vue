@@ -1,5 +1,8 @@
 <template>
-  <div class="navbar-brand">
+  <div
+    class="navbar-brand"
+    data-test="navbar-brand"
+  >
     <span
       :class="navbarColor"
       class="navbar-item"
