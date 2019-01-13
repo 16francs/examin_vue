@@ -1,21 +1,23 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import Navbar from '~/components/common/atoms/Navbar'
+import NavBrand from '~/components/common/molecules/NavBrand'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/atoms/Navbar', () => {
+describe('components/common/molecules/NavBrand', () => {
   let wrapper
+  let content
   beforeEach(() => {
-    wrapper = mount(Navbar, { localVue })
+    wrapper = mount(NavBrand, { localVue })
+    content = id => `[data-test="${id}"]`
   })
 
   describe('template', () => {
-    test('ナビバーが存在すること', () => {
-      expect(wrapper.contains('nav')).toBeTruthy()
+    test('navbar-brandが存在すること', () => {
+      expect(wrapper.find(content('navbar-brand'))).toBeTruthy()
     })
   })
 

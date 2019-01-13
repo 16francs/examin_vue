@@ -10,6 +10,7 @@
         :key="index"
         :to="item.link"
         class="navbar-item"
+        @click.native="handleClick"
       >
         {{ item.label }}
       </nuxt-link>
@@ -55,10 +56,12 @@ export default {
   },
 
   methods: {
+    handleClick() {
+      this.$emit('close')
+    },
     handleUserEdit() {
       this.$emit('userEdit')
     },
-
     handleLogout() {
       this.$emit('logout')
     }

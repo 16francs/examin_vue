@@ -1,30 +1,20 @@
 <template>
-  <Navbar
-    :is-active="isActive"
+  <Header
     :list="list"
-    @toggle="changeActivate"
-  >
-    <NavMenu
-      :is-active="isActive"
-      :list="list"
-      @userEdit="doUserEdit"
-      @logout="doLogout" />
-  </Navbar>
+    @logout="doLogout"
+    @userEdit="doUserEdit" />
 </template>
 
 <script>
-import Navbar from '~/components/common/atoms/Navbar'
-import NavMenu from '~/components/common/molecules/NavMenu'
+import Header from '~/components/common/organisms/Header'
 
 export default {
   components: {
-    Navbar,
-    NavMenu
+    Header
   },
 
   data() {
     return {
-      isActive: false,
       list: [
         { label: 'ホーム', link: '/teachers' },
         { label: '問題集一覧', link: '/teachers/problems' },
@@ -35,14 +25,11 @@ export default {
   },
 
   methods: {
-    changeActivate() {
-      this.isActive = !this.isActive
+    doLogout() {
+      this.$emit('logout')
     },
     doUserEdit() {
       this.$router.push('/teachers/edit')
-    },
-    doLogout() {
-      this.$emit('logout')
     }
   }
 }
