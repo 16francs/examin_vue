@@ -1,4 +1,3 @@
-import axios from '~/plugins/axios'
 import Cookies from 'universal-cookie'
 
 export const state = () => ({
@@ -24,11 +23,8 @@ export const mutations = {
 export const actions = {
   //ログインメソッド
   async login({ commit }, { login_id, password }) {
-    await axios
-      .post('/auth', {
-        login_id,
-        password
-      })
+    await this.$axios
+      .post('/auth', { login_id, password })
       .then(response => {
         const { access_token, user } = response.data
         // cookie に値を格納
@@ -42,23 +38,18 @@ export const actions = {
       })
   },
   //ログアウトメソッド
-  async logout({ commit, getters }) {
-    await axios
-      .delete('/auth', {
-        headers: { 'access-token': getters.accessToken }
-      })
-      .catch(() => {
-        throw new Error('Server Error')
-      })
-      .finally(() => {
-        // cookie の認証情報を削除
-        const cookies = new Cookies()
-        cookies.remove('auth')
-        // store の認証情報を削除
-        // 初期化方法わからないので，とりあえずstoreの初期値
-        const access_token = null
-        const user = { id: 0, role: -1 }
-        commit('setAuth', { access_token, user })
-      })
+  async logout({ commit }) {
+    await this.$axios.delete('/auth').catch(() => {
+      throw new Error('Server Error')
+    })
+
+    // cookie の認証情報を削除
+    const cookies = new Cookies()
+    cookies.remove('auth')
+    // store の認証情報を削除
+    // 初期化方法わからないので，とりあえずstoreの初期値
+    const access_token = null
+    const user = { id: 0, role: -1 }
+    commit('setAuth', { access_token, user })
   }
 }
