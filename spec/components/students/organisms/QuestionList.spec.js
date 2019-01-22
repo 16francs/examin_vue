@@ -2,41 +2,25 @@ import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import QuestionList from '~/components/students/organisms/QuestionList'
-import * as Questions from '~/store/students/questions'
+import Module from '~~/spec/helpers/store'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
 describe('components/students/organisms/QuestionList', () => {
-  let wrapper, getters, questions, store
+  let wrapper, questions, store
   beforeEach(() => {
     questions = [
       { id: 1, sentence: 'read', correct: '読む' },
       { id: 2, sentence: 'walk', correct: '歩く' }
     ]
-    getters = {
-      questions: () => questions
-    }
-    store = new Vuex.Store({
-      modules: {
-        students: {
-          namespaced: true,
-
-          modules: {
-            questions: {
-              namespaced: true,
-
-              state: Questions.state,
-              getters,
-              mutations: Questions.mutations,
-              actions: Questions.actions
-            }
-          }
-        }
-      }
-    })
+    store = new Vuex.Store(Module)
     wrapper = shallowMount(QuestionList, { localVue, store })
+
+    store.replaceState({
+      students: { questions: { questions: questions } }
+    })
   })
 
   describe('template', () => {
