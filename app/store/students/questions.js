@@ -1,5 +1,3 @@
-import axios from '~/plugins/axios.js'
-
 export const state = () => ({
   questions: []
 })
