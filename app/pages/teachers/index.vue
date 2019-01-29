@@ -12,6 +12,10 @@ export default {
 
   components: {
     ProblemList
+  },
+
+  async asyncData({ store }) {
+    await store.dispatch('teachers/problems/getProblems')
   }
 }
 </script>

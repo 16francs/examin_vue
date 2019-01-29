@@ -1,7 +1,7 @@
 import Cookies from 'universal-cookie'
 
 export const state = () => ({
-  accessToken: null,
+  accessToken: '',
   loginUser: {
     id: 0,
     role: -1
@@ -14,8 +14,8 @@ export const getters = {
 }
 
 export const mutations = {
-  setAuth(state, { access_token, user }) {
-    state.accessToken = access_token
+  setAuth(state, { token, user }) {
+    state.accessToken = token
     state.loginUser = user
   }
 }
@@ -26,29 +26,25 @@ export const actions = {
     await this.$axios
       .post('/auth', { login_id, password })
       .then(response => {
-        const { access_token, user } = response.data
+        const { token, user } = response.data
         // cookie に値を格納
         const cookies = new Cookies()
-        cookies.set('auth', JSON.stringify({ access_token, user }))
+        cookies.set('auth', JSON.stringify({ token, user }))
         // store に値を格納
-        commit('setAuth', { access_token, user })
+        commit('setAuth', { token, user })
       })
       .catch(() => {
         throw new Error('Invalid Error')
       })
   },
   //ログアウトメソッド
-  async logout({ commit }) {
-    await this.$axios.delete('/auth').catch(() => {
-      throw new Error('Server Error')
-    })
-
+  logout({ commit }) {
     // cookie の認証情報を削除
     const cookies = new Cookies()
     cookies.remove('auth')
     // store の認証情報を削除
     // 初期化方法わからないので，とりあえずstoreの初期値
-    const access_token = null
+    const access_token = ''
     const user = { id: 0, role: -1 }
     commit('setAuth', { access_token, user })
   }

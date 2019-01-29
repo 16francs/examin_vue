@@ -2,8 +2,10 @@ export default function({ $axios, store }) {
   $axios.onRequest(config => {
     config.baseURL = process.env.baseUrl + '/api'
 
-    if (store.state.accessToken) {
-      config.headers.common['access-token'] = store.getters['accessToken']
+    const accessToken = store.getters['accessToken']
+    if (accessToken) {
+      const token = 'Bearer ' + accessToken
+      config.headers.common['Authorization'] = token
     }
     return config
   })
