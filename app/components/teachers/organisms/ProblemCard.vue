@@ -22,13 +22,19 @@
 
     <footer class="card-footer">
       <span class="card-footer-item">
-        <Icon icon="info-circle" />
+        <Tooltip label="詳細">
+          <Icon icon="info-circle" />
+        </Tooltip>
       </span>
       <span class="card-footer-item">
-        <Icon icon="edit" />
+        <Tooltip label="編集">
+          <Icon icon="edit" />
+        </Tooltip>
       </span>
       <span class="card-footer-item">
-        <Icon icon="trash-alt" />
+        <Tooltip label="削除">
+          <Icon icon="trash-alt" />
+        </Tooltip>
       </span>
     </footer>
   </div>
@@ -36,10 +42,12 @@
 
 <script>
 import Icon from '~/components/common/atoms/Icon'
+import Tooltip from '~/components/common/atoms/Tooltip'
 
 export default {
   components: {
-    Icon
+    Icon,
+    Tooltip
   },
 
   props: {

@@ -28,12 +28,12 @@ describe('components/common/atoms/Tooltip', () => {
   describe('script', () => {
     describe('active', () => {
       test('activeの初期値', () => {
-        expect(wrapper.props().active).toBeFalsy()
+        expect(wrapper.props().active).toBeTruthy()
       })
 
       test('activeに代入', () => {
-        wrapper.setProps({ active: true })
-        expect(wrapper.props().active).toBeTruthy()
+        wrapper.setProps({ active: false })
+        expect(wrapper.props().active).toBeFalsy()
       })
     })
 
