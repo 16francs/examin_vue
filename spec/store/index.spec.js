@@ -23,7 +23,7 @@ describe('store/index.js', () => {
 
   describe('state', () => {
     test('accessTokenの初期値が取得できること', () => {
-      expect(store.state.accessToken).toBeNull()
+      expect(store.state.accessToken).toBe('')
     })
 
     test('loginUserの初期値が取得できること', () => {
@@ -55,7 +55,7 @@ describe('store/index.js', () => {
     })
 
     test('setAuth', () => {
-      commit('setAuth', { access_token: accessToken, user: loginUser })
+      commit('setAuth', { token: accessToken, user: loginUser })
       expect(store.state.accessToken).toBe(accessToken)
       expect(store.state.loginUser).toBe(loginUser)
     })
@@ -79,13 +79,13 @@ describe('store/index.js', () => {
       test('login', async () => {
         params = { login_id: 'test', password: 'test' }
         await store.dispatch('login', params)
-        expect(store.getters['accessToken']).toBe('test-token')
-        expect(store.getters['loginUser']).toEqual({ id: 1, role: 1 })
+        expect(store.getters['accessToken']).toBe(accessToken)
+        expect(store.getters['loginUser']).toEqual(loginUser)
       })
 
       test('logout', async () => {
         await store.dispatch('logout')
-        expect(store.getters['accessToken']).toBeNull()
+        expect(store.getters['accessToken']).toBe('')
         expect(store.getters['loginUser']).toEqual({ id: 0, role: -1 })
       })
     })
@@ -99,12 +99,6 @@ describe('store/index.js', () => {
         params = { login_id: 'test', password: 'test' }
         await expect(store.dispatch('login', params)).rejects.toEqual(
           new Error('Invalid Error')
-        )
-      })
-
-      test('logout', async () => {
-        await expect(store.dispatch('logout')).rejects.toEqual(
-          new Error('Server Error')
         )
       })
     })

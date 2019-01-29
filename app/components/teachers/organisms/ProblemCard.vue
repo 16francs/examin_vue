@@ -6,12 +6,17 @@
 
     <div class="card-content">
       <div class="content">
-        <div>{{ problem.content }}</div>
 
-        <div>タグ</div>
+        <div class="tag">タグ</div>
+        <div class="tag">タグ</div>
+        <div class="tag">タグ</div>
 
-        <span>{{ problem.updated_at }}</span>
-        <span>@{{ problem.teacher_name }}</span>
+        <div class="description">{{ problem.content }}</div>
+
+        <div class="level">
+          <div class="level-left">@{{ problem.teacher_name }}</div>
+          <div class="level-right">{{ problem.updated_at }}</div>
+        </div>
       </div>
     </div>
 
@@ -53,3 +58,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.description {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+</style>

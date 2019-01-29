@@ -14,7 +14,5 @@ export default {
   },
   put: {},
   patch: {},
-  destroy: {
-    ...index.destroy
-  }
+  destroy: {}
 }

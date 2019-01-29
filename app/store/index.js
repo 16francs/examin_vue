@@ -44,8 +44,8 @@ export const actions = {
     cookies.remove('auth')
     // store の認証情報を削除
     // 初期化方法わからないので，とりあえずstoreの初期値
-    const access_token = ''
+    const token = ''
     const user = { id: 0, role: -1 }
-    commit('setAuth', { access_token, user })
+    commit('setAuth', { token, user })
   }
 }
