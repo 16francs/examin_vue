@@ -11,7 +11,7 @@
         <div>タグ</div>
 
         <span>{{ problem.updated_at }}</span>
-        <span>@{{ problem.teacher_id }}</span>
+        <span>@{{ problem.teacher_name }}</span>
       </div>
     </div>
 
@@ -41,7 +41,13 @@ export default {
     problem: {
       type: Object,
       default: () => {
-        return { id: 0, title: '', content: '', teacher_id: 0, updated_at: '' }
+        return {
+          id: 0,
+          title: '',
+          content: '',
+          teacher_name: '',
+          updated_at: ''
+        }
       }
     }
   }
