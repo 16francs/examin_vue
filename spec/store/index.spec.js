@@ -83,8 +83,8 @@ describe('store/index.js', () => {
         expect(store.getters['loginUser']).toEqual(loginUser)
       })
 
-      test('logout', async () => {
-        await store.dispatch('logout')
+      test('logout', () => {
+        store.dispatch('logout')
         expect(store.getters['accessToken']).toBe('')
         expect(store.getters['loginUser']).toEqual({ id: 0, role: -1 })
       })
@@ -99,12 +99,6 @@ describe('store/index.js', () => {
         params = { login_id: 'test', password: 'test' }
         await expect(store.dispatch('login', params)).rejects.toEqual(
           new Error('Invalid Error')
-        )
-      })
-
-      test('logout', async () => {
-        await expect(store.dispatch('logout')).rejects.toEqual(
-          new Error('Server Error')
         )
       })
     })

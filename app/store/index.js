@@ -38,11 +38,7 @@ export const actions = {
       })
   },
   //ログアウトメソッド
-  async logout({ commit }) {
-    await this.$axios.delete('/auth').catch(() => {
-      throw new Error('Server Error')
-    })
-
+  logout({ commit }) {
     // cookie の認証情報を削除
     const cookies = new Cookies()
     cookies.remove('auth')
