@@ -40,6 +40,8 @@
 import Button from '~/components/common/atoms/Button'
 
 export default {
+  name: 'NavMenu',
+
   components: {
     Button
   },

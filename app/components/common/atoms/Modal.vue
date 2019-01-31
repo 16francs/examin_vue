@@ -29,6 +29,8 @@
 
 <script>
 export default {
+  name: 'Modal',
+
   props: {
     active: {
       type: Boolean,

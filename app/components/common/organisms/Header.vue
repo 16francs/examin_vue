@@ -28,6 +28,8 @@ import NavBrand from '~/components/common/molecules/NavBrand'
 import NavMenu from '~/components/common/molecules/NavMenu'
 
 export default {
+  name: 'Header',
+
   components: {
     Navbar,
     NavBrand,

@@ -18,6 +18,8 @@
 
 <script>
 export default {
+  name: 'Tooltip',
+
   props: {
     active: {
       type: Boolean,
