@@ -10,6 +10,8 @@
 
 <script>
 export default {
+  name: 'Navbar',
+
   props: {
     color: {
       type: String,

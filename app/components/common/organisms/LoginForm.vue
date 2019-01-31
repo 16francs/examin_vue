@@ -24,6 +24,8 @@ import TextField from '~/components/common/atoms/TextField'
 import SubmitButton from '../molecules/SubmitButton'
 
 export default {
+  name: 'LoginForm',
+
   components: {
     SubmitButton,
     TextField

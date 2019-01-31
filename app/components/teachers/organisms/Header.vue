@@ -9,6 +9,8 @@
 import Header from '~/components/common/organisms/Header'
 
 export default {
+  name: 'Header',
+
   components: {
     Header
   },

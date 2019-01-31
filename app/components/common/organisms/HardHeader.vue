@@ -9,6 +9,8 @@ import Navbar from '~/components/common/atoms/Navbar'
 import NavBrand from '~/components/common/molecules/NavBrand'
 
 export default {
+  name: 'HardHeader',
+
   components: {
     Navbar,
     NavBrand
