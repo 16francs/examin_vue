@@ -19,7 +19,8 @@
       :list="list"
       @close="doClose"
       @logout="doLogout"
-      @userEdit="doUserEdit" />
+      @userEdit="doUserEdit"
+    />
   </the-navbar>
 </template>
 

@@ -2,7 +2,8 @@
   <a
     class="card-footer-item"
     data-test="card-footer-item"
-    @click="onClick">
+    @click="onClick"
+  >
     {{ text }}
   </a>
 </template>
@@ -15,6 +16,7 @@ export default {
       default: 'テスト'
     }
   },
+
   methods: {
     onClick() {
       this.$emit('click')

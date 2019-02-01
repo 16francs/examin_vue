@@ -3,13 +3,15 @@
     <the-text-field
       v-model="formData.login_id"
       label="ユーザーID"
-      data-test="login_id" />
+      data-test="login_id"
+    />
 
     <the-text-field
       v-model="formData.password"
       label="パスワード"
       type="password"
-      data-test="password" />
+      data-test="password"
+    />
 
     <the-submit-button
       color="info"
@@ -28,12 +30,14 @@ export default {
     TheSubmitButton,
     TheTextField
   },
+
   props: {
     error: {
       type: Boolean,
       default: false
     }
   },
+
   data() {
     return {
       formData: {
@@ -42,6 +46,7 @@ export default {
       }
     }
   },
+
   methods: {
     doSubmit() {
       this.$emit('login', this.formData)

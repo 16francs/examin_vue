@@ -32,6 +32,7 @@ export default {
       default: ''
     }
   },
+
   computed: {
     // white, light, dark, black
     // primary, link, info, success, warning, danger
@@ -52,6 +53,7 @@ export default {
       return this.size === '' ? '' : `is-${this.size}`
     }
   },
+
   methods: {
     handleClick() {
       this.$emit('click')
@@ -59,6 +61,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-</style>

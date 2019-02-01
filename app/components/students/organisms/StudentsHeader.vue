@@ -2,7 +2,8 @@
   <the-header
     :list="list"
     @logout="doLogout"
-    @userEdit="doUserEdit" />
+    @userEdit="doUserEdit"
+  />
 </template>
 
 <script>

@@ -15,9 +15,7 @@
         {{ title }}
       </p>
       <a class="card-header-icon">
-        <b-icon
-          :icon="icon"
-        />
+        <b-icon :icon="icon" />
       </a>
     </div>
     <div class="card-content">
@@ -50,6 +48,7 @@ export default {
       default: false
     }
   },
+
   computed: {
     icon() {
       return this.isOpen ? 'menu-down' : 'menu-up'

@@ -2,7 +2,8 @@
   <b-notification
     :active="isError"
     :type="alertColor"
-    @close="close">
+    @close="close"
+  >
     {{ message }}
   </b-notification>
 </template>
@@ -23,6 +24,7 @@ export default {
       default: 'エラーが発生しました．'
     }
   },
+
   computed: {
     isError() {
       return this.error
@@ -31,6 +33,7 @@ export default {
       return this.color === '' ? '' : `is-${this.color}`
     }
   },
+
   methods: {
     close() {
       this.$emit('close')
@@ -38,6 +41,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-</style>
