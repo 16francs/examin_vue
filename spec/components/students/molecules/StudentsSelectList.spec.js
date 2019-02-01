@@ -1,18 +1,18 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import SelectList from '~/components/students/molecules/SelectList'
+import StudentsSelectList from '~/components/students/molecules/StudentsSelectList'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/students/molecules/SelectList', () => {
+describe('components/students/molecules/StudentsSelectList', () => {
   let wrapper
   let answers
   beforeEach(() => {
     answers = ['read', 'write']
-    wrapper = mount(SelectList, { localVue })
+    wrapper = mount(StudentsSelectList, { localVue })
   })
 
   describe('template', () => {

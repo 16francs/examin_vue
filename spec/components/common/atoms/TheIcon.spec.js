@@ -1,17 +1,17 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import Icon from '~/components/common/atoms/Icon'
+import TheIcon from '~/components/common/atoms/TheIcon'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/atoms/Icon', () => {
+describe('components/common/atoms/TheIcon', () => {
   let wrapper
   let content
   beforeEach(() => {
-    wrapper = mount(Icon, { localVue })
+    wrapper = mount(TheIcon, { localVue })
     content = id => `[data-test="${id}"]`
   })
 

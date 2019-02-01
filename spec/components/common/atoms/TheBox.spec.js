@@ -1,16 +1,16 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import Box from '~/components/common/atoms/Box'
+import TheBox from '~/components/common/atoms/TheBox'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/atoms/Box', () => {
+describe('components/common/atoms/TheBox', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = mount(Box, { localVue })
+    wrapper = mount(TheBox, { localVue })
   })
   describe('template', () => {
     test('boxが存在するか', () => {

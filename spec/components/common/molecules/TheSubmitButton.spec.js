@@ -1,14 +1,14 @@
 import Vuex from 'vuex'
 import { mount, createLocalVue } from '@vue/test-utils'
-import SubmitButton from '~/components/common/molecules/SubmitButton'
+import TheSubmitButton from '~/components/common/molecules/TheSubmitButton'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-describe('components/common/molecules/SubmitButton', () => {
+describe('components/common/molecules/TheSubmitButton', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = mount(SubmitButton, { localVue })
+    wrapper = mount(TheSubmitButton, { localVue })
   })
 
   describe('template', () => {

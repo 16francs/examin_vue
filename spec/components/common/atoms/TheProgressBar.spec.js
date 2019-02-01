@@ -1,22 +1,18 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import ProgressBar from '~/components/common/atoms/ProgressBar'
+import TheProgressBar from '~/components/common/atoms/TheProgressBar'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/atoms/ProgressBar', () => {
+describe('components/common/atoms/TheProgressBar', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = mount(ProgressBar, { localVue })
+    wrapper = mount(TheProgressBar, { localVue })
   })
   describe('template', () => {
-    let wrapper
-    beforeEach(() => {
-      wrapper = mount(ProgressBar, { localVue })
-    })
     test('ProgressBarが存在するか', () => {
       expect(wrapper.contains('[data-test="progress-bar"]')).toBeTruthy()
     })

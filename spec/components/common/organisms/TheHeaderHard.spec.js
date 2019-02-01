@@ -1,16 +1,16 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import HardHeader from '~/components/common/organisms/HardHeader'
+import TheHeaderHard from '~/components/common/organisms/TheHeaderHard'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/organisms/HardHeader', () => {
+describe('components/common/organisms/TheHeaderHard', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = mount(HardHeader, { localVue })
+    wrapper = mount(TheHeaderHard, { localVue })
   })
 
   describe('script', () => {

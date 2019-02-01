@@ -1,13 +1,13 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import ResultPanel from '~/components/students/molecules/ResultPanel'
+import StudentsResultPanel from '~/components/students/molecules/StudentsResultPanel'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/students/molecules/ResultPanel', () => {
+describe('components/students/molecules/StudentsResultPanel', () => {
   let wrapper
   let results
   beforeEach(() => {
@@ -17,7 +17,7 @@ describe('components/students/molecules/ResultPanel', () => {
         result: true
       }
     }
-    wrapper = mount(ResultPanel, { localVue })
+    wrapper = mount(StudentsResultPanel, { localVue })
   })
 
   describe('template', () => {

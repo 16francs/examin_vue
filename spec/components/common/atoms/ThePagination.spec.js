@@ -1,17 +1,17 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import Pagination from '~/components/common/atoms/Pagination'
+import ThePagination from '~/components/common/atoms/ThePagination'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/atoms/Pagination', () => {
+describe('components/common/atoms/ThePagination', () => {
   let wrapper
   let content
   beforeEach(() => {
-    wrapper = mount(Pagination, { localVue })
+    wrapper = mount(ThePagination, { localVue })
     content = id => `[data-test="${id}"]`
   })
 

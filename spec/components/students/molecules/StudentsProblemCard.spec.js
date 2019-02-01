@@ -1,16 +1,16 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import ProblemCard from '~/components/common/molecules/ProblemCard'
+import StudentsProblemCard from '~/components/students/molecules/StudentsProblemCard'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/molecules/ProblemCard', () => {
+describe('components/common/molecules/StudentsProblemCard', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = mount(ProblemCard, { localVue })
+    wrapper = mount(StudentsProblemCard, { localVue })
   })
 
   describe('template', () => {

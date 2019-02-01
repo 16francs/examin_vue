@@ -1,14 +1,14 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import QuestionList from '~/components/students/organisms/QuestionList'
+import StudentsQuestionList from '~/components/students/organisms/StudentsQuestionList'
 import Module from '~~/spec/helpers/store'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/students/organisms/QuestionList', () => {
+describe('components/students/organisms/StudentsQuestionList', () => {
   let wrapper, questions, store
   beforeEach(() => {
     questions = [
@@ -16,7 +16,7 @@ describe('components/students/organisms/QuestionList', () => {
       { id: 2, sentence: 'walk', correct: '歩く' }
     ]
     store = new Vuex.Store(Module)
-    wrapper = shallowMount(QuestionList, { localVue, store })
+    wrapper = shallowMount(StudentsQuestionList, { localVue, store })
 
     store.replaceState({
       students: { questions: { questions: questions } }

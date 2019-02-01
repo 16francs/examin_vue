@@ -2,19 +2,19 @@ import Vuex from 'vuex'
 import Buefy from 'buefy'
 import VueRouter from 'vue-router'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import Header from '~/components/students/organisms/Header'
+import StudentsHeader from '~/components/students/organisms/StudentsHeader'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 localVue.use(VueRouter)
 
-describe('components/students/organisms/Header', () => {
+describe('components/students/organisms/StudentsHeader', () => {
   let wrapper
   let router
   beforeEach(() => {
     router = new VueRouter()
-    wrapper = shallowMount(Header, { localVue, router })
+    wrapper = shallowMount(StudentsHeader, { localVue, router })
   })
 
   describe('script', () => {

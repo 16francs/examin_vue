@@ -1,23 +1,21 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import NavBrand from '~/components/common/molecules/NavBrand'
+import TheNavbar from '~/components/common/atoms/TheNavbar'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/molecules/NavBrand', () => {
+describe('components/common/atoms/TheNavbar', () => {
   let wrapper
-  let content
   beforeEach(() => {
-    wrapper = mount(NavBrand, { localVue })
-    content = id => `[data-test="${id}"]`
+    wrapper = mount(TheNavbar, { localVue })
   })
 
   describe('template', () => {
-    test('navbar-brandが存在すること', () => {
-      expect(wrapper.find(content('navbar-brand'))).toBeTruthy()
+    test('ナビバーが存在すること', () => {
+      expect(wrapper.contains('nav')).toBeTruthy()
     })
   })
 
@@ -36,7 +34,7 @@ describe('components/common/molecules/NavBrand', () => {
     })
 
     describe('computed', () => {
-      describe('navbarColor', () => {
+      describe('theNavbarColor', () => {
         test('color == null', () => {
           wrapper.setProps({ color: '' })
           expect(wrapper.vm.navbarColor).toBe('')

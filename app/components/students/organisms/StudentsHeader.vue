@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import TheHeader from '~/components/common/organisms/StudentsHeader'
+import TheHeader from '~/components/common/organisms/TheHeader'
 
 export default {
   components: {

@@ -1,17 +1,17 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import NavMenu from '~/components/common/molecules/NavMenu'
+import TheNavbarMenu from '~/components/common/molecules/TheNavbarMenu'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/molecules/NavMenu', () => {
+describe('components/common/molecules/TheNavbarMenu', () => {
   let wrapper
   let content
   beforeEach(() => {
-    wrapper = mount(NavMenu, { localVue })
+    wrapper = mount(TheNavbarMenu, { localVue })
     content = id => `[data-test="${id}"]`
   })
 

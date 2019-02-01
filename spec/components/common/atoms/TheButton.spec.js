@@ -1,16 +1,16 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import Button from '~/components/common/atoms/Button'
+import TheButton from '~/components/common/atoms/TheButton'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/atoms/Button', () => {
+describe('components/common/atoms/TheButton', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = mount(Button, { localVue })
+    wrapper = mount(TheButton, { localVue })
   })
 
   describe('template', () => {

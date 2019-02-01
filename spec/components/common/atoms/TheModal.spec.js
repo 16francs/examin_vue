@@ -1,17 +1,17 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import Modal from '~/components/common/atoms/Modal'
+import TheModal from '~/components/common/atoms/TheModal'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/atoms/Modal', () => {
+describe('components/common/atoms/TheModal', () => {
   let wrapper
   let content
   beforeEach(() => {
-    wrapper = mount(Modal, { localVue })
+    wrapper = mount(TheModal, { localVue })
     content = id => `[data-test="${id}"]`
   })
 

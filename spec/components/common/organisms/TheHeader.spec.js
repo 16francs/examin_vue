@@ -1,17 +1,17 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import Header from '~/components/common/organisms/Header'
+import TheHeader from '~/components/common/organisms/TheHeader'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/organisms/Header', () => {
+describe('components/common/organisms/TheHeader', () => {
   let wrapper
   let content
   beforeEach(() => {
-    wrapper = mount(Header, { localVue })
+    wrapper = mount(TheHeader, { localVue })
     content = id => `[data-test="${id}"]`
   })
 

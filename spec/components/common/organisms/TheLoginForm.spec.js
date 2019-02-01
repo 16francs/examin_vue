@@ -1,17 +1,17 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import LoginForm from '~/components/common/organisms/LoginForm'
+import TheLoginForm from '~/components/common/organisms/TheLoginForm'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/organisms/LoginForm', () => {
+describe('components/common/organisms/TheLoginForm', () => {
   let wrapper
   let content
   beforeEach(() => {
-    wrapper = mount(LoginForm, { localVue })
+    wrapper = mount(TheLoginForm, { localVue })
     content = id => `[data-test="${id}"]`
   })
 

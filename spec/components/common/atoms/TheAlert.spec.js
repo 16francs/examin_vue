@@ -1,16 +1,16 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import Alert from '~/components/common/atoms/Alert'
+import TheAlert from '~/components/common/atoms/TheAlert'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/atoms/Alert', () => {
+describe('components/common/atoms/TheAlert', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = mount(Alert, { localVue })
+    wrapper = mount(TheAlert, { localVue })
   })
   describe('template', () => {
     test('Alertが存在するか', () => {

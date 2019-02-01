@@ -1,15 +1,15 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { mount, createLocalVue } from '@vue/test-utils'
-import Card from '~/components/common/atoms/Card'
+import TheCard from '~/components/common/atoms/TheCard'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
-describe('components/common/atoms/Card', () => {
+describe('components/common/atoms/TheCard', () => {
   let wrapper
   beforeEach(() => {
-    wrapper = mount(Card, { localVue })
+    wrapper = mount(TheCard, { localVue })
   })
   describe('template', () => {
     test('cardが存在するか', () => {
