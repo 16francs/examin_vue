@@ -1,16 +1,16 @@
 <template>
   <div>
-    <HardHeader />
+    <the-header-hard />
     <nuxt/>
   </div>
 </template>
 
 <script>
-import HardHeader from '~/components/common/organisms/HardHeader'
+import TheHeaderHard from '~/components/common/organisms/TheHeaderHard'
 
 export default {
   components: {
-    HardHeader
+    TheHeaderHard
   }
 }
 </script>
