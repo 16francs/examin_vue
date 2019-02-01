@@ -1,20 +1,20 @@
 <template>
-  <Button
+  <the-button
     color="primary"
     @click="doSubmit"
   >
     <span>{{ text }}</span>
-  </Button>
+  </the-button>
 </template>
 
 <script>
-import Button from '~/components/common/atoms/Button'
+import TheButton from '~/components/common/atoms/TheButton'
 
 export default {
-  name: 'SubmitButton',
+  name: 'TheSubmitButton',
 
   components: {
-    Button
+    TheButton
   },
 
   props: {

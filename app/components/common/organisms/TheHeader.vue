@@ -1,6 +1,6 @@
 <template>
-  <Navbar :color="color">
-    <NavBrand :color="color">
+  <the-navbar :color="color">
+    <the-navbar-brand :color="color">
       <a
         :class="{ 'is-active': isActive }"
         class="navbar-burger burger"
@@ -12,28 +12,29 @@
         <span />
         <span />
       </a>
-    </NavBrand>
-    <NavMenu
+    </the-navbar-brand>
+
+    <the-navbar-menu
       :is-active="isActive"
       :list="list"
       @close="doClose"
       @logout="doLogout"
       @userEdit="doUserEdit" />
-  </Navbar>
+  </the-navbar>
 </template>
 
 <script>
-import Navbar from '~/components/common/atoms/Navbar'
-import NavBrand from '~/components/common/molecules/NavBrand'
-import NavMenu from '~/components/common/molecules/NavMenu'
+import TheNavbar from '~/components/common/atoms/TheNavbar'
+import TheNavbarBrand from '~/components/common/molecules/TheNavbarBrand'
+import TheNavbarMenu from '~/components/common/molecules/TheNavbarMenu'
 
 export default {
-  name: 'Header',
+  name: 'TheHeader',
 
   components: {
-    Navbar,
-    NavBrand,
-    NavMenu
+    TheNavbar,
+    TheNavbarBrand,
+    TheNavbarMenu
   },
 
   props: {

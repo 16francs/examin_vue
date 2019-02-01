@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'NavBrand',
+  name: 'TheNavbarBrand',
 
   props: {
     color: {

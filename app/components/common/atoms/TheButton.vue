@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'Button',
+  name: 'TheButton',
   props: {
     color: {
       type: String,

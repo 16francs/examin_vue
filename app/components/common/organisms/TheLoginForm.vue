@@ -1,17 +1,17 @@
 <template>
   <section>
-    <TextField
+    <the-text-field
       v-model="formData.login_id"
       label="ユーザーID"
       data-test="login_id" />
 
-    <TextField
+    <the-text-field
       v-model="formData.password"
       label="パスワード"
       type="password"
       data-test="password" />
 
-    <submit-button
+    <the-submit-button
       color="info"
       text="ログイン"
       @submit="doSubmit"
@@ -20,15 +20,15 @@
 </template>
 
 <script>
-import TextField from '~/components/common/atoms/TextField'
-import SubmitButton from '../molecules/SubmitButton'
+import TheTextField from '~/components/common/atoms/TheTextField'
+import TheSubmitButton from '../molecules/TheSubmitButton'
 
 export default {
-  name: 'LoginForm',
+  name: 'TheLoginForm',
 
   components: {
-    SubmitButton,
-    TextField
+    TheSubmitButton,
+    TheTextField
   },
   props: {
     error: {

@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'Tooltip',
+  name: 'TheTooltip',
 
   props: {
     active: {

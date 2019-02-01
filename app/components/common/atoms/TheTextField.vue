@@ -19,7 +19,7 @@
 
 <script>
 export default {
-  name: 'TextField',
+  name: 'TheTextField',
 
   props: {
     alert: {

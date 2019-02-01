@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'Box',
+  name: 'TheBox',
   props: {
     title: {
       type: String,

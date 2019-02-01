@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'ProgressBar',
+  name: 'TheProgressBar',
   props: {
     color: {
       type: String,

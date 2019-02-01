@@ -18,32 +18,32 @@
 
     <div class="navbar-end">
       <div class="navbar-item buttons">
-        <Button
+        <the-button
           data-test="userEdit"
           @click="handleUserEdit"
         >
           <span>設定</span>
-        </Button>
+        </the-button>
 
-        <Button
+        <the-button
           data-test="logout"
           @click="handleLogout"
         >
           <span>Logout</span>
-        </Button>
+        </the-button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Button from '~/components/common/atoms/Button'
+import TheButton from '~/components/common/atoms/TheButton'
 
 export default {
-  name: 'NavMenu',
+  name: 'TheNavbarMenu',
 
   components: {
-    Button
+    TheButton
   },
 
   props: {

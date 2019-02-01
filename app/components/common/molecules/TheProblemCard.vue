@@ -1,28 +1,28 @@
 <template>
-  <card
+  <the-card
     :title="title"
     :content="content"
     data-test="card"
   >
-    <card-footer-item
+    <the-card-footer-item
       text="学習する"
       data-test="footer-item-learn"
       @click="doLearn"
     />
-    <card-footer-item
+    <the-card-footer-item
       text="テスト"
       data-test="footer-item-test"
       @click="doTest"
     />
-  </card>
+  </the-card>
 </template>
 
 <script>
-import Card from '~/components/common/atoms/Card'
-import CardFooterItem from '~/components/common/atoms/CardFooterItem'
+import TheCard from '~/components/common/atoms/TheCard'
+import TheCardFooterItem from '~/components/common/atoms/TheCardFooterItem'
 export default {
-  name: 'ProblemCard',
-  components: { CardFooterItem, Card },
+  name: 'TheProblemCard',
+  components: { TheCardFooterItem, TheCard },
   props: {
     title: {
       type: String,
