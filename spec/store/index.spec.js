@@ -83,8 +83,8 @@ describe('store/index.js', () => {
         expect(store.getters['loginUser']).toEqual(loginUser)
       })
 
-      test('logout', async () => {
-        await store.dispatch('logout')
+      test('logout', () => {
+        store.dispatch('logout')
         expect(store.getters['accessToken']).toBe('')
         expect(store.getters['loginUser']).toEqual({ id: 0, role: -1 })
       })

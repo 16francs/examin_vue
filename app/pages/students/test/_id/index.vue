@@ -1,11 +1,11 @@
 <template>
-  <AnswerForm/>
+  <students-answer-form/>
 </template>
 
 <script>
-import AnswerForm from '~/components/students/organisms/AnswerForm'
+import StudentsAnswerForm from '~/components/students/organisms/StudentsAnswerForm'
 export default {
-  components: { AnswerForm },
+  components: { StudentsAnswerForm },
   layout: 'students/default',
   async asyncData({ store, route }) {
     const { id } = route.params

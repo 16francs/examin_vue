@@ -1,6 +1,6 @@
 <template>
   <section class="section">
-    <result-panel
+    <students-result-panel
       :results="results"
     />
   </section>
@@ -8,9 +8,9 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import ResultPanel from '~/components/students/molecules/ResultPanel'
+import StudentsResultPanel from '~/components/students/molecules/StudentsResultPanel'
 export default {
-  components: { ResultPanel },
+  components: { StudentsResultPanel },
   layout: 'students/default',
   computed: {
     ...mapGetters({
