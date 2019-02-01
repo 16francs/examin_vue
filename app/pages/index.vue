@@ -2,24 +2,24 @@
   <section>
     <div class="hero-body" >
       <h1 class="title">Login</h1>
-      <Alert
+      <the-alert
         :error="error"
         message="ユーザーIDまたはパスワードが違います"
         @close="close" />
-      <LoginForm @login="doLogin" />
+      <the-login-form @login="doLogin" />
     </div>
   </section>
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import Alert from '~/components/common/atoms/Alert'
-import LoginForm from '~/components/common/organisms/LoginForm'
+import TheAlert from '~/components/common/atoms/TheAlert'
+import TheLoginForm from '~/components/common/organisms/TheLoginForm'
 
 export default {
   components: {
-    Alert,
-    LoginForm
+    TheAlert,
+    TheLoginForm
   },
 
   asyncData({ store, redirect }) {
