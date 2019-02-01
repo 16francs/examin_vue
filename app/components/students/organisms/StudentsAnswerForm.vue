@@ -1,14 +1,14 @@
 <template>
   <section class="section">
-    <progress-bar
+    <the-progress-bar
       v-if="isTesting"
       :value="limit"
     />
-    <box
+    <the-box
       v-if="isTesting"
       :title="questions[number].sentence"
     />
-    <select-list
+    <students-select-list
       v-if="isTesting"
       :answers="questions[number].answers"
       @select="select"
@@ -17,13 +17,13 @@
 </template>
 
 <script>
-import ProgressBar from '~/components/common/atoms/ProgressBar'
-import SelectList from '~/components/students/molecules/SelectList'
+import TheProgressBar from '~/components/common/atoms/TheProgressBar'
+import StudentsSelectList from '~/components/students/molecules/StudentsSelectList'
 import { mapGetters, mapActions } from 'vuex'
-import Box from '~/components/common/atoms/Box'
+import TheBox from '~/components/common/atoms/TheBox'
 export default {
   name: 'AnswerForm',
-  components: { Box, SelectList, ProgressBar },
+  components: { TheBox, StudentsSelectList, TheProgressBar },
   data() {
     return {
       limit: 100,

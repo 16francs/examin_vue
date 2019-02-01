@@ -4,7 +4,7 @@
       v-for="problem in problems"
       :key="problem.id"
     >
-      <problem-card
+      <students-problem-card
         :title="problem.title"
         :content="problem.content"
         @doLearn="doLearn(problem.id)"
@@ -15,11 +15,11 @@
 </template>
 
 <script>
-import ProblemCard from '~/components/common/molecules/ProblemCard'
+import StudentsProblemCard from '~/components/students/molecules/StudentsProblemCard'
 import { mapGetters } from 'vuex'
 export default {
-  name: 'ProblemCardList',
-  components: { ProblemCard },
+  name: 'TheProblemCardList',
+  components: { StudentsProblemCard },
   // 問題集のデータをvuexから取得する
   computed: {
     ...mapGetters({

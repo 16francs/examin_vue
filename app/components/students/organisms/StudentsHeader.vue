@@ -1,18 +1,18 @@
 <template>
-  <Header
+  <the-header
     :list="list"
     @logout="doLogout"
     @userEdit="doUserEdit" />
 </template>
 
 <script>
-import Header from '~/components/common/organisms/Header'
+import TheHeader from '~/components/common/organisms/StudentsHeader'
 
 export default {
-  name: 'Header',
+  name: 'StudentsHeader',
 
   components: {
-    Header
+    TheHeader
   },
 
   data() {

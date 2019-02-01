@@ -9,6 +9,6 @@
 
 <script>
 export default {
-  name: 'Panel'
+  name: 'StudentsPanel'
 }
 </script>

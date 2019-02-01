@@ -10,7 +10,7 @@
 
 <script>
 export default {
-  name: 'PanelBlock',
+  name: 'StudentsPanelBlock',
   props: {
     index: {
       type: Number,

@@ -1,6 +1,6 @@
 <template>
   <div data-test="question-list">
-    <Box
+    <the-box
       v-for="question in questions"
       :key="question.id"
       :title="question.sentence"
@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import Box from '~/components/common/atoms/Box'
+import TheBox from '~/components/common/atoms/TheBox'
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'QuestionList',
-  components: { Box },
+  name: 'StudentsQuestionList',
+  components: { TheBox },
   computed: {
     ...mapGetters({
       questions: 'students/questions/questions'
