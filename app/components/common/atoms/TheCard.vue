@@ -36,7 +36,6 @@
 
 <script>
 export default {
-  name: 'TheCard',
   props: {
     title: {
       type: String,

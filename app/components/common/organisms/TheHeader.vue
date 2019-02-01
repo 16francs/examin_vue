@@ -29,8 +29,6 @@ import TheNavbarBrand from '~/components/common/molecules/TheNavbarBrand'
 import TheNavbarMenu from '~/components/common/molecules/TheNavbarMenu'
 
 export default {
-  name: 'TheHeader',
-
   components: {
     TheNavbar,
     TheNavbarBrand,

@@ -40,8 +40,6 @@
 import TheButton from '~/components/common/atoms/TheButton'
 
 export default {
-  name: 'TheNavbarMenu',
-
   components: {
     TheButton
   },

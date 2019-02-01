@@ -21,7 +21,6 @@
 import TheCard from '~/components/common/atoms/TheCard'
 import TheCardFooterItem from '~/components/common/atoms/TheCardFooterItem'
 export default {
-  name: 'TheProblemCard',
   components: { TheCardFooterItem, TheCard },
   props: {
     title: {

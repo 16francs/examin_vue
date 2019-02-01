@@ -15,7 +15,6 @@
 import StudentsPanelBlock from '~/components/students/atoms/StudentsPanelBlock'
 import StudentsPanel from '~/components/students/atoms/StudentsPanel'
 export default {
-  name: 'StudentsSelectList',
   components: { StudentsPanel, StudentsPanelBlock },
   props: {
     answers: {

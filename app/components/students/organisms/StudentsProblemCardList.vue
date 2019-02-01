@@ -18,7 +18,6 @@
 import StudentsProblemCard from '~/components/students/molecules/StudentsProblemCard'
 import { mapGetters } from 'vuex'
 export default {
-  name: 'TheProblemCardList',
   components: { StudentsProblemCard },
   // 問題集のデータをvuexから取得する
   computed: {

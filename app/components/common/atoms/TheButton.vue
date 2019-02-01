@@ -10,7 +10,6 @@
 
 <script>
 export default {
-  name: 'TheButton',
   props: {
     color: {
       type: String,

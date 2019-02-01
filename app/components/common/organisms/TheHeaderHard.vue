@@ -9,8 +9,6 @@ import TheNavbar from '~/components/common/atoms/TheNavbar'
 import TheNavbarBrand from '~/components/common/molecules/TheNavbarBrand'
 
 export default {
-  name: 'TheHeaderHard',
-
   components: {
     TheNavbar,
     TheNavbarBrand

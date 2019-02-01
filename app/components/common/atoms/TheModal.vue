@@ -29,8 +29,6 @@
 
 <script>
 export default {
-  name: 'TheModal',
-
   props: {
     active: {
       type: Boolean,

@@ -19,8 +19,6 @@
 
 <script>
 export default {
-  name: 'TheTextField',
-
   props: {
     alert: {
       type: String,

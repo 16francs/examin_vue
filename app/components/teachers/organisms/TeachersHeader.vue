@@ -9,8 +9,6 @@
 import TheHeader from '~/components/common/organisms/TheHeader'
 
 export default {
-  name: 'TeachersHeader',
-
   components: {
     TheHeader
   },

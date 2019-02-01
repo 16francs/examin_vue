@@ -15,7 +15,6 @@ import TheBox from '~/components/common/atoms/TheBox'
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'StudentsQuestionList',
   components: { TheBox },
   computed: {
     ...mapGetters({

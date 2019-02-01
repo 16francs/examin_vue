@@ -9,7 +9,6 @@
 
 <script>
 export default {
-  name: 'TheCardFooterItem',
   props: {
     text: {
       type: String,

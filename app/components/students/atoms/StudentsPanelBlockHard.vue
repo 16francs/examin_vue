@@ -9,7 +9,6 @@
 
 <script>
 export default {
-  name: 'StudentsPanelBlockHard',
   props: {
     index: {
       type: Number,

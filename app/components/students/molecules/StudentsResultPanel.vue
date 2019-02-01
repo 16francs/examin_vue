@@ -15,7 +15,6 @@ import StudentsPanel from '~/components/students/atoms/StudentsPanel'
 import StudentsPanelBlockHard from '~/components/students/atoms/StudentsPanelBlockHard'
 
 export default {
-  name: 'StudentsResultPanel',
   components: { StudentsPanelBlockHard, StudentsPanel },
   props: {
     results: {

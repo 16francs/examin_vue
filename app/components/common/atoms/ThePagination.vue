@@ -15,8 +15,6 @@
 
 <script>
 export default {
-  name: 'ThePagination',
-
   props: {
     order: {
       type: String,

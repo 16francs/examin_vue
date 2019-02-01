@@ -11,8 +11,6 @@
 import TheButton from '~/components/common/atoms/TheButton'
 
 export default {
-  name: 'TheSubmitButton',
-
   components: {
     TheButton
   },

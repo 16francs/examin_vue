@@ -13,7 +13,6 @@
 
 <script>
 export default {
-  name: 'TheIcon',
   props: {
     color: {
       type: String,

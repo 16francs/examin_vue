@@ -9,7 +9,6 @@
 
 <script>
 export default {
-  name: 'TheAlert',
   props: {
     error: {
       type: Boolean,

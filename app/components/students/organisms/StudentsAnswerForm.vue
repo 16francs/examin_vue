@@ -22,7 +22,6 @@ import StudentsSelectList from '~/components/students/molecules/StudentsSelectLi
 import { mapGetters, mapActions } from 'vuex'
 import TheBox from '~/components/common/atoms/TheBox'
 export default {
-  name: 'AnswerForm',
   components: { TheBox, StudentsSelectList, TheProgressBar },
   data() {
     return {
