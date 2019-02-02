@@ -5,7 +5,7 @@
         v-for="problem in problems"
         :key="problem.id"
         class="column is-12-mobile is-6-tablet is-4-desktop">
-        <ProblemCard :problem="problem" />
+        <teachers-problem-card :problem="problem" />
       </div>
     </div>
   </div>
@@ -13,11 +13,11 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import ProblemCard from '~/components/teachers/organisms/ProblemCard'
+import TeachersProblemCard from '~/components/teachers/organisms/TeachersProblemCard'
 
 export default {
   components: {
-    ProblemCard
+    TeachersProblemCard
   },
 
   computed: {

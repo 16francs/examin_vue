@@ -1,16 +1,17 @@
 <template>
   <div class="section">
-    <ProblemList />
+    <teachers-problems />
   </div>
 </template>
 
 <script>
-import ProblemList from '~/components/teachers/templates/ProblemList'
+import TeachersProblems from '~/components/teachers/templates/TeachersProblems'
+
 export default {
   layout: 'teachers/default',
 
   components: {
-    ProblemList
+    TeachersProblems
   },
 
   async asyncData({ store }) {
