@@ -1,13 +1,13 @@
 <template>
   <section class="hero-body">
-    <question-list/>
+    <students-question-list/>
   </section>
 </template>
 
 <script>
-import QuestionList from '~/components/students/organisms/QuestionList'
+import StudentsQuestionList from '~/components/students/organisms/StudentsQuestionList'
 export default {
-  components: { QuestionList },
+  components: { StudentsQuestionList },
   layout: 'students/default',
   async asyncData({ store, route }) {
     const { id } = route.params

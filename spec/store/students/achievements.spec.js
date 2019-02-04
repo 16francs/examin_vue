@@ -2,6 +2,7 @@ import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
 import cloneDeep from 'lodash.clonedeep'
 import * as Achievements from '~/store/students/achievements'
+import axios from '~~/spec/helpers/axios'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
@@ -50,6 +51,20 @@ describe('store/students/achievements', () => {
     test('setResults', () => {
       commit('setResults', { results: results })
       expect(store.state.results).toBe(results)
+    })
+  })
+  describe('action', () => {
+    beforeEach(() => {
+      store.$axios = axios
+    })
+    describe('success', () => {
+      beforeEach(() => {
+        store.$axios.setSafetyMode(true)
+      })
+      test('setResults', async () => {
+        await store.dispatch('setResults', { results: results })
+        expect(store.getters['results']).toEqual(results)
+      })
     })
   })
 })
