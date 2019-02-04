@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="title">問題集一覧</div>
-    <teachers-problem-search />
+    <teachers-problem-search data-test="problem-search" />
     <hr />
-    <teachers-problem-list />
+    <teachers-problem-list data-test="problem-list" />
   </div>
 </template>
 

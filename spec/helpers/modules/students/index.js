@@ -5,7 +5,7 @@ export default {
   namespaced: true,
 
   modules: {
-    problem: problems,
+    problems: problems,
     questions: questions
   }
 }
