@@ -4,19 +4,12 @@
     data-test="card-footer-item"
     @click="onClick"
   >
-    {{ text }}
+    <slot />
   </a>
 </template>
 
 <script>
 export default {
-  props: {
-    text: {
-      type: String,
-      default: 'テスト'
-    }
-  },
-
   methods: {
     onClick() {
       this.$emit('click')

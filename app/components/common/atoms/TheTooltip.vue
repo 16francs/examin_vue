@@ -21,7 +21,7 @@ export default {
   props: {
     active: {
       type: Boolean,
-      default: false
+      default: true
     },
     always: {
       type: Boolean,
