@@ -1,5 +1,5 @@
 <template>
-  <the-text-field placeholder="問題集のタイトルを入力" />
+  <the-text-field placeholder="問題集のタイトルを入力 (未実装)" />
 </template>
 
 <script>

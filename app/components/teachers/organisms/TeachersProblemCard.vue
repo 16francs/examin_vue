@@ -1,26 +1,32 @@
 <template>
-  <div class="card">
-    <teachers-problem-card-header :title="problem.title" />
+  <the-card-hard>
+    <teachers-problem-card-header
+      slot="header"
+      :title="problem.title"
+    />
 
     <teachers-problem-card-content
       :content="problem.content"
       :teacher-name="problem.teacher_name"
-      :updated-at="problem.updated_at" />
+      :updated-at="problem.updated_at"
+    />
 
-    <teachers-problem-card-footer />
-  </div>
+    <teachers-problem-card-footer slot="footer" />
+  </the-card-hard>
 </template>
 
 <script>
 import TeachersProblemCardContent from '~/components/teachers/molecules/TeachersProblemCardContent'
 import TeachersProblemCardFooter from '~/components/teachers/molecules/TeachersProblemCardFooter'
 import TeachersProblemCardHeader from '~/components/teachers/molecules/TeachersProblemCardHeader'
+import TheCardHard from '~/components/common/atoms/TheCardHard'
 
 export default {
   components: {
     TeachersProblemCardContent,
     TeachersProblemCardFooter,
-    TeachersProblemCardHeader
+    TeachersProblemCardHeader,
+    TheCardHard
   },
 
   props: {

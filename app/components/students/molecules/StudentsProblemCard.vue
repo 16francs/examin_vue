@@ -5,15 +5,17 @@
     data-test="card"
   >
     <the-card-footer-item
-      text="学習する"
       data-test="footer-item-learn"
       @click="doLearn"
-    />
+    >
+      学習する
+    </the-card-footer-item>
     <the-card-footer-item
-      text="テスト"
       data-test="footer-item-test"
       @click="doTest"
-    />
+    >
+      テスト
+    </the-card-footer-item>
   </the-card>
 </template>
 

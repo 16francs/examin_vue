@@ -1,17 +1,15 @@
 <template>
-  <div class="card-content">
-    <div class="content">
+  <div class="content">
 
-      <div class="tag">タグ</div>
-      <div class="tag">タグ</div>
-      <div class="tag">タグ</div>
+    <div class="tag">タグ</div>
+    <div class="tag">タグ</div>
+    <div class="tag">タグ</div>
 
-      <div class="description">{{ content }}</div>
+    <div class="description">{{ content }}</div>
 
-      <div class="level">
-        <div class="level-left">@{{ teacherName }}</div>
-        <div class="level-right">{{ updatedAt }}</div>
-      </div>
+    <div class="level">
+      <div class="level-left">@{{ teacherName }}</div>
+      <div class="level-right">{{ updatedAt }}</div>
     </div>
   </div>
 </template>
