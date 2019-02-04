@@ -19,17 +19,6 @@ describe('components/common/atoms/TheCardFooterItem', () => {
     })
   })
   describe('script', () => {
-    describe('props', () => {
-      describe('text', () => {
-        test('textの初期値', () => {
-          expect(wrapper.props().text).toBe('テスト')
-        })
-        test('textに代入', () => {
-          wrapper.setProps({ text: '変更テスト' })
-          expect(wrapper.props().text).toBe('変更テスト')
-        })
-      })
-    })
     describe('methods', () => {
       describe('onClick', () => {
         let mock
