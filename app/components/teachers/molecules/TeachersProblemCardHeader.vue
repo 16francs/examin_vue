@@ -1,6 +1,11 @@
 <template>
   <header class="card-header">
-    <span class="card-header-title">{{ title }}</span>
+    <span
+      class="card-header-title"
+      data-test="title"
+    >
+      {{ title }}
+    </span>
   </header>
 </template>
 

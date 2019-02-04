@@ -5,11 +5,26 @@
     <div class="tag">タグ</div>
     <div class="tag">タグ</div>
 
-    <div class="description">{{ content }}</div>
+    <div
+      class="description"
+      data-test="description"
+    >
+      {{ content }}
+    </div>
 
     <div class="level">
-      <div class="level-left">@{{ teacherName }}</div>
-      <div class="level-right">{{ updatedAt }}</div>
+      <div
+        class="level-left"
+        data-test="teacher-name"
+      >
+        @{{ teacherName }}
+      </div>
+      <div
+        class="level-right"
+        data-test="updated-at"
+      >
+        {{ updatedAt }}
+      </div>
     </div>
   </div>
 </template>
@@ -23,7 +38,7 @@ export default {
     },
     teacherName: {
       type: String,
-      default: ''
+      default: 'None'
     },
     updatedAt: {
       type: String,

@@ -1,5 +1,8 @@
 <template>
-  <footer class="card-footer">
+  <footer
+    class="card-footer"
+    data-test="card-footer"
+  >
     <the-card-footer-item @click="doShow">
       <the-tooltip label="詳細">
         <the-icon icon="info-circle" />
