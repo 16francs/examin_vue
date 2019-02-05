@@ -7,6 +7,10 @@
       <slot name="header" />
     </thead>
 
+    <tfoot>
+      <slot name="footer" />
+    </tfoot>
+
     <tbody>
       <slot />
     </tbody>

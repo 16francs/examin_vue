@@ -1,37 +1,53 @@
 <template>
   <the-table>
-    <tr slot="header">
-      <th>No.</th>
-      <th>講師名</th>
-      <th>塾名</th>
-      <th>権限</th>
-      <th />
-    </tr>
+    <teachers-teacher-table-header slot="header" />
 
-    <tr>
-      <td>1</td>
-      <td>講師1</td>
-      <td>16francs</td>
-      <td>管理者</td>
-      <td>編集</td>
-    </tr>
-
-    <tr>
-      <td>2</td>
-      <td>講師2</td>
-      <td>16francs</td>
-      <td>講師</td>
-      <td>編集</td>
-    </tr>
+    <teachers-teacher-table-body
+      v-for="(teacher, index) in teachers"
+      :key="teacher.id"
+      :index="index + 1"
+      :teacher="teacher"
+    />
   </the-table>
 </template>
 
 <script>
+import TeachersTeacherTableBody from '~/components/teachers/molecules/TeachersTeacherTableBody'
+import TeachersTeacherTableHeader from '~/components/teachers/molecules/TeachersTeacherTableHeader'
+import ThePagination from '~/components/common/atoms/ThePagination'
 import TheTable from '~/components/common/atoms/TheTable'
 
 export default {
   components: {
+    TeachersTeacherTableBody,
+    TeachersTeacherTableHeader,
+    ThePagination,
     TheTable
+  },
+
+  data() {
+    return {
+      teachers: [
+        {
+          id: 1,
+          name: '講師1',
+          school: '16francs',
+          role: 2
+        },
+        {
+          id: 2,
+          name: '講師3',
+          school: '16francs',
+          role: 1
+        },
+        {
+          id: 3,
+          name: '講師3',
+          school: '16francs',
+          role: '2'
+        }
+      ]
+    }
   }
 }
 </script>
