@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import { createLocalVue } from '@vue/test-utils'
 import cloneDeep from 'lodash.clonedeep'
-import * as Problems from '~/store/teachers/problems'
+import * as Teachers from '~/store/teachers/teachers'
 import axios from '~~/spec/helpers/axios'
 
 const localVue = createLocalVue()
@@ -9,18 +9,16 @@ localVue.use(Vuex)
 
 describe('store/teachers/problems', () => {
   let store
-  let problems
+  let teachers
   beforeEach(() => {
-    store = new Vuex.Store(cloneDeep(Problems))
+    store = new Vuex.Store(cloneDeep(Teachers))
 
-    problems = [
+    teachers = [
       {
         id: 1,
-        title: 'タイトル',
-        content: '内容',
-        teacher_name: '講師名',
-        created_at: '2019-01-01 00:00:00',
-        updated_at: '2019-01-01 00:00:00'
+        name: '講師',
+        school: '16francs',
+        role: 1
       }
     ]
   })
@@ -30,20 +28,20 @@ describe('store/teachers/problems', () => {
   })
 
   describe('state', () => {
-    test('problemsの初期値が取得できること', () => {
-      expect(store.state.problems).toEqual([])
+    test('teachersの初期値が取得できること', () => {
+      expect(store.state.teachers).toEqual([])
     })
   })
 
   describe('getters', () => {
     beforeEach(() => {
       store.replaceState({
-        problems: problems
+        teachers: teachers
       })
     })
 
-    test('problemsが取得できること', () => {
-      expect(store.getters['problems']).toEqual(problems)
+    test('teachersが取得できること', () => {
+      expect(store.getters['teachers']).toEqual(teachers)
     })
   })
 
@@ -53,9 +51,9 @@ describe('store/teachers/problems', () => {
       commit = store.commit
     })
 
-    test('setProblems', () => {
-      commit('setProblems', { problems: problems })
-      expect(store.state.problems).toEqual(problems)
+    test('setTeachers', () => {
+      commit('setTeachers', { teachers: teachers })
+      expect(store.state.teachers).toEqual(teachers)
     })
   })
 
@@ -69,9 +67,9 @@ describe('store/teachers/problems', () => {
         store.$axios.setSafetyMode(true)
       })
 
-      test('getProblems', async () => {
-        await store.dispatch('getProblems')
-        expect(store.getters['problems']).toEqual(problems)
+      test('getTeachers', async () => {
+        await store.dispatch('getTeachers')
+        expect(store.getters['teachers']).toEqual(teachers)
       })
     })
 
@@ -80,8 +78,8 @@ describe('store/teachers/problems', () => {
         store.$axios.setSafetyMode(false)
       })
 
-      test('getProblems', async () => {
-        await expect(store.dispatch('getProblems')).rejects.toEqual(
+      test('getTeachers', async () => {
+        await expect(store.dispatch('getTeachers')).rejects.toEqual(
           new Error('Server Error')
         )
       })
