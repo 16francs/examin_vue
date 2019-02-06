@@ -5,11 +5,12 @@
 
       <teachers-new-button
         class="right"
+        data-test="teacher-new-button"
         @new="doNew"
       />
     </div>
 
-    <teachers-teacher-list />
+    <teachers-teacher-list data-test="teacher-list" />
   </div>
 </template>
 
