@@ -11,6 +11,10 @@ export default {
 
   components: {
     TeachersTeachers
+  },
+
+  async asyncData({ store }) {
+    await store.dispatch('teachers/teachers/getTeachers')
   }
 }
 </script>

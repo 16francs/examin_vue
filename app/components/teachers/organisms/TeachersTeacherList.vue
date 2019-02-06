@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import TeachersTeacherTableBody from '~/components/teachers/molecules/TeachersTeacherTableBody'
 import TeachersTeacherTableHeader from '~/components/teachers/molecules/TeachersTeacherTableHeader'
 import ThePagination from '~/components/common/atoms/ThePagination'
@@ -25,29 +26,8 @@ export default {
     TheTable
   },
 
-  data() {
-    return {
-      teachers: [
-        {
-          id: 1,
-          name: '講師1',
-          school: '16francs',
-          role: 2
-        },
-        {
-          id: 2,
-          name: '講師3',
-          school: '16francs',
-          role: 1
-        },
-        {
-          id: 3,
-          name: '講師3',
-          school: '16francs',
-          role: '2'
-        }
-      ]
-    }
+  computed: {
+    ...mapGetters('teachers/teachers', ['teachers'])
   }
 }
 </script>
