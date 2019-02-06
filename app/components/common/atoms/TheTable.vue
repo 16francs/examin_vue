@@ -47,7 +47,7 @@ export default {
       return this.isBordered ? 'is-bordered' : ''
     },
     fullwidth() {
-      return this.isFullwidth ? 'is-fullwidth' : 'aiueo'
+      return this.isFullwidth ? 'is-fullwidth' : ''
     },
     hoverable() {
       return this.isHoverable ? 'is-hoverable' : ''
