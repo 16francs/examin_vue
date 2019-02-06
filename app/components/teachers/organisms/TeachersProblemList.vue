@@ -1,12 +1,10 @@
 <template>
-  <div>
-    <div class="columns is-mobile is-multiline">
-      <div
-        v-for="problem in problems"
-        :key="problem.id"
-        class="column is-12-mobile is-6-tablet is-4-desktop">
-        <teachers-problem-card :problem="problem" />
-      </div>
+  <div class="columns is-mobile is-multiline">
+    <div
+      v-for="problem in problems"
+      :key="problem.id"
+      class="column is-12-mobile is-6-tablet is-4-desktop">
+      <teachers-problem-card :problem="problem" />
     </div>
   </div>
 </template>

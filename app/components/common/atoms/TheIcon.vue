@@ -1,6 +1,6 @@
 <template>
   <b-icon
-    :class="{ 'fa-spin': spin }"
+    :class="[iconSpin]"
     :icon="icon"
     :size="iconSize"
     :type="iconColor"
@@ -41,6 +41,9 @@ export default {
     // small, medium, large
     iconSize() {
       return this.size === '' ? '' : `is-${this.size}`
+    },
+    iconSpin() {
+      return this.spin ? 'fa-spin' : ''
     }
   }
 }
