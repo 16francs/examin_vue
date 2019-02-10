@@ -1,5 +1,10 @@
 <template>
   <div>
+    <teachers-problem-new-modal
+      :active="active"
+      @close="doClose"
+    />
+
     <div class="title">
       <span>問題集一覧</span>
 
@@ -17,20 +22,34 @@
 </template>
 
 <script>
-import TeachersNewButton from '../molecules/TeachersNewButton'
+import TeachersNewButton from '~/components/teachers/molecules/TeachersNewButton'
 import TeachersProblemList from '~/components/teachers/organisms/TeachersProblemList'
 import TeachersProblemSearch from '~/components/teachers/organisms/TeachersProblemSearch'
+import TheModal from '~/components/common/atoms/TheModal'
+import TeachersProblemNewModal from '../organisms/TeachersProblemNewModal'
 
 export default {
   components: {
+    TeachersProblemNewModal,
     TeachersNewButton,
     TeachersProblemList,
-    TeachersProblemSearch
+    TeachersProblemSearch,
+    TheModal
+  },
+
+  data() {
+    return {
+      active: false
+    }
   },
 
   methods: {
     doNew() {
-      console.log('log:', 'new')
+      this.active = true
+    },
+
+    doClose() {
+      this.active = false
     }
   }
 }
