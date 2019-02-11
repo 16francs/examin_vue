@@ -7,38 +7,18 @@
     @submit="doSubmit"
   >
     <section class="modal-card-body">
-      <h4 class="form-title">問題集情報</h4>
-
-      <the-text-field
-        :value="problem.title"
-        label="タイトル"
-        placeholder="英単語テスト"
-      />
-
-      <the-text-field
-        :value="problem.content"
-        label="概要"
-        placeholder="日本語 → 英語"
-      />
-
-      <b-field label="タグ">
-        <b-taginput
-          :value="problem.tags"
-          ellipsis
-          icon="label"
-        />
-      </b-field>
+      <teachers-problem-form v-model="problem" />
     </section>
   </the-modal>
 </template>
 
 <script>
 import TheModal from '~/components/common/atoms/TheModal'
-import TheTextField from '../../common/atoms/TheTextField'
+import TeachersProblemForm from '~/components/teachers/molecules/TeachersProblemForm'
 
 export default {
   components: {
-    TheTextField,
+    TeachersProblemForm,
     TheModal
   },
 
@@ -74,9 +54,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.form-title {
-  text-align: center;
-}
-</style>
