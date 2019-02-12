@@ -24,15 +24,15 @@
 <script>
 import TeachersNewButton from '~/components/teachers/molecules/TeachersNewButton'
 import TeachersProblemList from '~/components/teachers/organisms/TeachersProblemList'
+import TeachersProblemNewModal from '~/components/teachers/organisms/TeachersProblemNewModal'
 import TeachersProblemSearch from '~/components/teachers/organisms/TeachersProblemSearch'
 import TheModal from '~/components/common/atoms/TheModal'
-import TeachersProblemNewModal from '../organisms/TeachersProblemNewModal'
 
 export default {
   components: {
-    TeachersProblemNewModal,
     TeachersNewButton,
     TeachersProblemList,
+    TeachersProblemNewModal,
     TeachersProblemSearch,
     TheModal
   },
