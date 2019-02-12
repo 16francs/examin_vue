@@ -23,5 +23,12 @@ export const actions = {
       .catch(() => {
         throw new Error('Server Error')
       })
+  },
+
+  // 問題集登録
+  async createProblem({ commit }, { problem }) {
+    await this.$axios.post('/teachers/problems', { problem }).catch(() => {
+      throw new Error('Invalid Error')
+    })
   }
 }

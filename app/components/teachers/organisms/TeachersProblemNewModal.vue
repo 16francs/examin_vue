@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import TheModal from '~/components/common/atoms/TheModal'
 import TeachersProblemForm from '~/components/teachers/molecules/TeachersProblemForm'
 
@@ -46,11 +47,19 @@ export default {
 
     doSubmit() {
       console.log('log:', 'create')
-      // TODO: 問題登録
-
-      // 成功時の処理
-      this.doClose()
-    }
+      // 問題登録
+      this.createProblem({
+        problem: this.problem
+      })
+        .then(() => {
+          // 成功時の処理
+          this.doClose()
+        })
+        .catch(() => {
+          console.log('log:', 'error')
+        })
+    },
+    ...mapActions('teachers/problems', ['createProblem'])
   }
 }
 </script>
