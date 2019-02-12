@@ -49,7 +49,15 @@ export default {
   },
 
   methods: {
+    openAlert() {
+      this.error = true
+      setTimeout(() => {
+        this.error = false
+      }, 5000)
+    },
+
     doClose() {
+      this.error = false
       this.$emit('close')
     },
 
@@ -59,14 +67,14 @@ export default {
         problem: this.problem
       })
         .then(() => {
-          // 成功時の処理
           this.doClose()
+          this.$toast.open({
+            message: '問題集を登録しました.',
+            type: 'is-success'
+          })
         })
         .catch(() => {
-          this.error = true
-          setTimeout(() => {
-            this.error = false
-          }, 5000)
+          this.openAlert()
         })
     },
     ...mapActions('teachers/problems', ['createProblem'])
