@@ -7,6 +7,9 @@ export const getters = {
 }
 
 export const mutations = {
+  addProblem(state, { problem }) {
+    state.problems.unshift(problem)
+  },
   setProblems(state, { problems }) {
     state.problems = problems
   }
@@ -27,8 +30,13 @@ export const actions = {
 
   // 問題集登録
   async createProblem({ commit }, { problem }) {
-    await this.$axios.post('/teachers/problems', { problem }).catch(() => {
-      throw new Error('Invalid Error')
-    })
+    await this.$axios
+      .post('/teachers/problems', { problem })
+      .then(response => {
+        commit('addProblem', response.data)
+      })
+      .catch(() => {
+        throw new Error('Invalid Error')
+      })
   }
 }
