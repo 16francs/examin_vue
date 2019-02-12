@@ -18,6 +18,7 @@ describe('components/teachers/organisms/TeachersProblemList', () => {
         title: 'タイトル',
         content: '内容',
         teacher_name: '講師',
+        tags: ['タグ'],
         updated_at: '2019-01-01 00:00:00'
       }
     ]
