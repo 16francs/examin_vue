@@ -7,6 +7,11 @@
     @submit="doSubmit"
   >
     <section class="modal-card-body">
+      <the-alert
+        :error="error"
+        message="入力値に誤りがあります．"
+      />
+
       <teachers-problem-form v-model="problem" />
     </section>
   </the-modal>
@@ -14,12 +19,14 @@
 
 <script>
 import { mapActions } from 'vuex'
-import TheModal from '~/components/common/atoms/TheModal'
 import TeachersProblemForm from '~/components/teachers/molecules/TeachersProblemForm'
+import TheAlert from '~/components/common/atoms/TheAlert'
+import TheModal from '~/components/common/atoms/TheModal'
 
 export default {
   components: {
     TeachersProblemForm,
+    TheAlert,
     TheModal
   },
 
@@ -32,6 +39,7 @@ export default {
 
   data() {
     return {
+      error: false,
       problem: {
         title: '',
         content: '',
@@ -46,7 +54,6 @@ export default {
     },
 
     doSubmit() {
-      console.log('log:', 'create')
       // 問題登録
       this.createProblem({
         problem: this.problem
@@ -56,7 +63,10 @@ export default {
           this.doClose()
         })
         .catch(() => {
-          console.log('log:', 'error')
+          this.error = true
+          setTimeout(() => {
+            this.error = false
+          }, 5000)
         })
     },
     ...mapActions('teachers/problems', ['createProblem'])
