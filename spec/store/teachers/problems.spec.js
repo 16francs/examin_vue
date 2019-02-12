@@ -9,21 +9,19 @@ localVue.use(Vuex)
 
 describe('store/teachers/problems', () => {
   let store
-  let problems
+  let problem, problems
   beforeEach(() => {
     store = new Vuex.Store(cloneDeep(Problems))
 
-    problems = [
-      {
-        id: 1,
-        title: 'タイトル',
-        content: '内容',
-        teacher_name: '講師名',
-        tags: ['タグ'],
-        created_at: '2019-01-01 00:00:00',
-        updated_at: '2019-01-01 00:00:00'
-      }
-    ]
+    problem = {
+      id: 1,
+      title: 'タイトル',
+      content: '内容',
+      teacher_name: '講師名',
+      tags: ['タグ'],
+      updated_at: '2019-01-01 00:00:00'
+    }
+    problems = [problem]
   })
 
   afterEach(() => {
@@ -54,6 +52,11 @@ describe('store/teachers/problems', () => {
       commit = store.commit
     })
 
+    test('addProblem', () => {
+      commit('addProblem', { problem: problem })
+      expect(store.state.problems).toEqual(problems)
+    })
+
     test('setProblems', () => {
       commit('setProblems', { problems: problems })
       expect(store.state.problems).toEqual(problems)
@@ -74,6 +77,11 @@ describe('store/teachers/problems', () => {
         await store.dispatch('getProblems')
         expect(store.getters['problems']).toEqual(problems)
       })
+
+      test('createProblem', async () => {
+        await store.dispatch('createProblem', { problem: problem })
+        expect(store.getters['problems']).toEqual(problems)
+      })
     })
 
     describe('failure', () => {
@@ -85,6 +93,12 @@ describe('store/teachers/problems', () => {
         await expect(store.dispatch('getProblems')).rejects.toEqual(
           new Error('Server Error')
         )
+      })
+
+      test('createProblem', async () => {
+        await expect(
+          store.dispatch('createProblem', { problem: problem })
+        ).rejects.toEqual(new Error('Invalid Error'))
       })
     })
   })

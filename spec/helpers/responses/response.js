@@ -12,7 +12,8 @@ export default {
     ...teachersTeachers.get
   },
   post: {
-    ...index.post
+    ...index.post,
+    ...teachersProblems.post
   },
   put: {},
   patch: {},
