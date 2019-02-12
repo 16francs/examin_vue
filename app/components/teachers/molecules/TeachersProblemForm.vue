@@ -12,6 +12,7 @@
       v-model="value.content"
       label="概要"
       placeholder="日本語 → 英語"
+      type="textarea"
     />
 
     <the-tag-input
