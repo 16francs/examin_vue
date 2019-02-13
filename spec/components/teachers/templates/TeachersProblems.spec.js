@@ -30,16 +30,17 @@ describe('components/teachers/templates/TeachersProblems', () => {
 
   describe('script', () => {
     describe('methods', () => {
-      let mock
-      beforeEach(() => {
-        mock = jest.fn()
-      })
-
       describe('doNew', () => {
         test('正常に呼び出されること', () => {
-          wrapper.setMethods({ doNew: mock })
           wrapper.vm.doNew()
-          expect(mock).toBeCalled()
+          expect(wrapper.vm.active).toBeTruthy()
+        })
+      })
+
+      describe('doClose', () => {
+        test('正常に呼び出されること', () => {
+          wrapper.vm.doClose()
+          expect(wrapper.vm.active).toBeFalsy()
         })
       })
     })

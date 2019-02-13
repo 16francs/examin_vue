@@ -1,6 +1,7 @@
 <template>
   <the-modal
     :active="active"
+    data-test="new-modal"
     submit="作成する"
     title="問題集作成"
     @close="doClose"
@@ -49,13 +50,6 @@ export default {
   },
 
   methods: {
-    openAlert() {
-      this.error = true
-      setTimeout(() => {
-        this.error = false
-      }, 5000)
-    },
-
     doClose() {
       this.error = false
       this.$emit('close')
@@ -76,6 +70,13 @@ export default {
         .catch(() => {
           this.openAlert()
         })
+    },
+
+    openAlert() {
+      this.error = true
+      setTimeout(() => {
+        this.error = false
+      }, 5000)
     },
     ...mapActions('teachers/problems', ['createProblem'])
   }
