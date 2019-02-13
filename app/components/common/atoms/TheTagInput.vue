@@ -1,7 +1,7 @@
 <template>
   <b-field
     :label="label"
-    :type="labelAlert"
+    :type="labelColor"
   >
     <b-taginput
       :allow-new="allowNew"
@@ -16,6 +16,7 @@
       :size="formSize"
       :type="tagType"
       v-model="value"
+      data-test="tag-input"
       icon="label"
     >
       <slot />
@@ -26,10 +27,6 @@
 <script>
 export default {
   props: {
-    alert: {
-      type: String,
-      default: ''
-    },
     allowNew: {
       type: Boolean,
       default: false
@@ -51,6 +48,10 @@ export default {
       default: false
     },
     label: {
+      type: String,
+      default: ''
+    },
+    labelType: {
       type: String,
       default: ''
     },
@@ -88,12 +89,12 @@ export default {
 
   computed: {
     // small, medium, large
-    formSize: function() {
+    formSize() {
       return this.size === '' ? '' : `is-${this.size}`
     },
     // success, error, info, warning
-    labelAlert() {
-      return this.alert === '' ? '' : `is-${this.alert}`
+    labelColor() {
+      return this.labelType === '' ? '' : `is-${this.labelType}`
     },
     // white, black, light, dark,
     // primary, info, success, warning, danger
