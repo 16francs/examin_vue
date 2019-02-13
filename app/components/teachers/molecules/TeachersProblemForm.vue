@@ -4,12 +4,14 @@
 
     <the-text-field
       v-model="value.title"
+      data-test="form-title"
       label="タイトル"
       placeholder="英単語テスト"
     />
 
     <the-text-field
       v-model="value.content"
+      data-test="form-content"
       label="概要"
       placeholder="日本語 → 英語"
       type="textarea"
@@ -19,6 +21,7 @@
       :ellipsis="true"
       :maxtags="4"
       v-model="value.tags"
+      data-test="form-tags"
       label="タグ"
     />
   </div>
