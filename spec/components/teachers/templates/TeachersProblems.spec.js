@@ -15,12 +15,34 @@ describe('components/teachers/templates/TeachersProblems', () => {
   })
 
   describe('template', () => {
+    test('問題集作成ボタンが存在すること', () => {
+      expect(wrapper.find(content('problem-new-button'))).toBeTruthy()
+    })
+
     test('問題集検索フォームが存在すること', () => {
       expect(wrapper.find(content('problem-search'))).toBeTruthy()
     })
 
     test('問題集一覧が存在すること', () => {
       expect(wrapper.find(content('problem-list'))).toBeTruthy()
+    })
+  })
+
+  describe('script', () => {
+    describe('methods', () => {
+      describe('doNew', () => {
+        test('正常に呼び出されること', () => {
+          wrapper.vm.doNew()
+          expect(wrapper.vm.active).toBeTruthy()
+        })
+      })
+
+      describe('doClose', () => {
+        test('正常に呼び出されること', () => {
+          wrapper.vm.doClose()
+          expect(wrapper.vm.active).toBeFalsy()
+        })
+      })
     })
   })
 })

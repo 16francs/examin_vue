@@ -1,9 +1,13 @@
 <template>
   <div class="content">
 
-    <div class="tag">タグ</div>
-    <div class="tag">タグ</div>
-    <div class="tag">タグ</div>
+    <div
+      v-for="tag in tags"
+      :key="tag"
+      class="tag"
+    >
+      {{ tag }}
+    </div>
 
     <div
       class="description"
@@ -36,6 +40,12 @@ export default {
       type: String,
       default: ''
     },
+    tags: {
+      type: Array,
+      default: () => {
+        return []
+      }
+    },
     teacherName: {
       type: String,
       default: 'None'
@@ -52,5 +62,9 @@ export default {
 .description {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.tag {
+  margin-right: 1vh;
 }
 </style>

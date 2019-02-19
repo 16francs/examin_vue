@@ -7,6 +7,7 @@
 
     <teachers-problem-card-content
       :content="problem.content"
+      :tags="problem.tags"
       :teacher-name="problem.teacher_name"
       :updated-at="problem.updated_at"
     />
@@ -38,6 +39,7 @@ export default {
           title: '',
           content: '',
           teacher_name: '',
+          tags: [],
           updated_at: ''
         }
       }

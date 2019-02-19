@@ -1,7 +1,8 @@
 <template>
   <b-modal
-    :active.sync="active"
+    :active="active"
     :has-modal-card="card"
+    :on-cancel="handleClose"
     :width="width"
   >
     <header class="modal-card-head">
