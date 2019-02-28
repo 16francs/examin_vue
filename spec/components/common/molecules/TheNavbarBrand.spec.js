@@ -14,7 +14,7 @@ describe('components/common/molecules/TheTheNavbarBrand', () => {
     wrapper = mount(TheNavbarBrand, {
       localVue,
       stubs: {
-        RouterLink: RouterLinkStub
+        NuxtLink: RouterLinkStub
       }
     })
     content = id => `[data-test="${id}"]`
