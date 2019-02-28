@@ -12,7 +12,8 @@
 
 <script>
 import StudentsAchievementsCard from '~/components/students/molecules/StudentsAchievementsCard'
-import TheBox from '../../common/atoms/TheBox'
+import TheBox from '~/components/common/atoms/TheBox'
+
 export default {
   name: 'StudentsAchievementsCardList',
   components: { TheBox, StudentsAchievementsCard },

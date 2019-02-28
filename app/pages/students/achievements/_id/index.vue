@@ -9,6 +9,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import StudentsAnsweredProblemCardList from '~/components/students/organisms/StudentsAnsweredProblemCardList'
+
 export default {
   components: { StudentsAnsweredProblemCardList },
   layout: 'students/default',

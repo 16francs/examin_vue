@@ -14,6 +14,7 @@
 <script>
 import StudentsPanelBlock from '~/components/students/atoms/StudentsPanelBlock'
 import StudentsPanel from '~/components/students/atoms/StudentsPanel'
+
 export default {
   components: { StudentsPanel, StudentsPanelBlock },
   props: {

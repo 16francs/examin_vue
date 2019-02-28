@@ -6,6 +6,7 @@
 
 <script>
 import StudentsAchievementsBoard from '~/components/students/organisms/StudentsAchievementsBoard'
+
 export default {
   components: { StudentsAchievementsBoard },
   layout: 'students/default',

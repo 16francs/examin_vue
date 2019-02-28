@@ -15,6 +15,7 @@
 import { mapGetters } from 'vuex'
 import StudentsAchievementsCard from '~/components/students/molecules/StudentsAchievementsCard'
 import StudentsAchievementsList from '~/components/students/molecules/StudentsAchievementsList'
+
 export default {
   name: 'StudentsAchievementsCardList',
   components: { StudentsAchievementsCard, StudentsAchievementsList },

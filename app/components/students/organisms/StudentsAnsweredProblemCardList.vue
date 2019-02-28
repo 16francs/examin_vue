@@ -9,7 +9,8 @@
 </template>
 
 <script>
-import StudentsAnsweredProblemCard from '../molecules/StudentsAnsweredProblemCard'
+import StudentsAnsweredProblemCard from '~/components/students/molecules/StudentsAnsweredProblemCard'
+
 export default {
   name: 'StudentsAnsweredProblemCardList',
   components: { StudentsAnsweredProblemCard },

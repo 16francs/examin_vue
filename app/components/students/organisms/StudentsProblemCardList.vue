@@ -15,6 +15,7 @@
 <script>
 import StudentsProblemCard from '~/components/students/molecules/StudentsProblemCard'
 import { mapGetters } from 'vuex'
+
 export default {
   components: { StudentsProblemCard },
   // 問題集のデータをvuexから取得する

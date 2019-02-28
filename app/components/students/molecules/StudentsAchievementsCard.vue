@@ -16,6 +16,7 @@
 import StudentsAchievementsChart from '~/components/students/atoms/StudentsAchievementsChart'
 import TheCardHard from '~/components/common/atoms/TheCardHard'
 import TheCardHeader from '~/components/common/molecules/TheCardHeader'
+
 export default {
   name: 'StudentsAchievementsCard',
   components: { TheCardHeader, TheCardHard, StudentsAchievementsChart },

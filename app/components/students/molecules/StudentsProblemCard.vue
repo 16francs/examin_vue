@@ -27,6 +27,7 @@
 <script>
 import TheCard from '~/components/common/atoms/TheCard'
 import TheCardFooterItem from '~/components/common/atoms/TheCardFooterItem'
+
 export default {
   components: { TheCardFooterItem, TheCard },
   props: {
