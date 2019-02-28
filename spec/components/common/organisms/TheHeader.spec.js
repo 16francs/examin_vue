@@ -1,6 +1,6 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
-import { mount, createLocalVue } from '@vue/test-utils'
+import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import TheHeader from '~/components/common/organisms/TheHeader'
 
 const localVue = createLocalVue()
@@ -11,7 +11,12 @@ describe('components/common/organisms/TheHeader', () => {
   let wrapper
   let content
   beforeEach(() => {
-    wrapper = mount(TheHeader, { localVue })
+    wrapper = mount(TheHeader, {
+      localVue,
+      stubs: {
+        NuxtLink: RouterLinkStub
+      }
+    })
     content = id => `[data-test="${id}"]`
   })
 
