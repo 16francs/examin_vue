@@ -3,18 +3,20 @@
     class="navbar-brand"
     data-test="navbar-brand"
   >
-    <span
+    <nuxt-link
       :class="navbarColor"
       class="navbar-item"
+      to="/"
     >
       examin
-    </span>
+    </nuxt-link>
     <slot />
   </div>
 </template>
 
 <script>
 export default {
+  name: 'TheNavbarBrand',
   props: {
     color: {
       type: String,

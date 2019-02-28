@@ -1,17 +1,22 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
-import { mount, createLocalVue } from '@vue/test-utils'
+import { mount, createLocalVue, RouterLinkStub } from '@vue/test-utils'
 import TheNavbarBrand from '~/components/common/molecules/TheNavbarBrand'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/common/molecules/TheTheNavbarbarBrand', () => {
+describe('components/common/molecules/TheTheNavbarBrand', () => {
   let wrapper
   let content
   beforeEach(() => {
-    wrapper = mount(TheNavbarBrand, { localVue })
+    wrapper = mount(TheNavbarBrand, {
+      localVue,
+      stubs: {
+        RouterLink: RouterLinkStub
+      }
+    })
     content = id => `[data-test="${id}"]`
   })
 
