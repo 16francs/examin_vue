@@ -1,14 +1,18 @@
 <template>
-  <div>
-    <students-problem-card
+  <div class="columns is-multiline">
+    <div
       v-for="problem in problems"
       :key="problem.id"
-      :title="problem.title"
-      :content="problem.content"
-      @doLearn="doLearn(problem.id)"
-      @doTest="doTest(problem.id, problem.title)"
-      @showAchievements="showAchievements(problem.id)"
-    />
+      class="column is-4"
+    >
+      <students-problem-card
+        :title="problem.title"
+        :content="problem.content"
+        @doLearn="doLearn(problem.id)"
+        @doTest="doTest(problem.id, problem.title)"
+        @showAchievements="showAchievements(problem.id)"
+      />
+    </div>
   </div>
 </template>
 
