@@ -1,16 +1,14 @@
 <template>
   <div>
-    <div
+    <students-problem-card
       v-for="problem in problems"
       :key="problem.id"
-    >
-      <students-problem-card
-        :title="problem.title"
-        :content="problem.content"
-        @doLearn="doLearn(problem.id)"
-        @doTest="doTest(problem.id, problem.title)"
-      />
-    </div>
+      :title="problem.title"
+      :content="problem.content"
+      @doLearn="doLearn(problem.id)"
+      @doTest="doTest(problem.id, problem.title)"
+      @showAchievements="showAchievements(problem.id)"
+    />
   </div>
 </template>
 
@@ -34,6 +32,9 @@ export default {
         message: `<b>${problemTitle}</b>のテストを開始しますか？`,
         onConfirm: () => this.$router.push(`/students/test/${problemId}`)
       })
+    },
+    showAchievements(problemId) {
+      this.$router.push(`/students/achievements/${problemId}`)
     }
   }
 }

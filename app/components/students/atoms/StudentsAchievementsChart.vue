@@ -6,8 +6,8 @@ export default {
   extends: Doughnut,
   props: {
     chartData: {
-      type: Array,
-      default: () => []
+      type: Object,
+      default: null
     },
     options: {
       type: Object,

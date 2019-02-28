@@ -1,36 +1,29 @@
 <template>
-  <the-card-hard>
+  <nuxt-link
+    :to="{path: '/students/achievements/about/' + answeredProblem.id}"
+  >
     <the-card-header
       slot="header"
       :title="formattedTitle"
     />
-    <StudentsAchievementsChart
-      :chart-data="chartData"
-    />
-    <hr/>
-    <slot/>
-  </the-card-hard>
+  </nuxt-link>
 </template>
 
 <script>
-import StudentsAchievementsChart from '~/components/students/atoms/StudentsAchievementsChart'
 import TheCardHard from '~/components/common/atoms/TheCardHard'
 import TheCardHeader from '~/components/common/molecules/TheCardHeader'
 export default {
-  name: 'StudentsAchievementsCard',
-  components: { TheCardHeader, TheCardHard, StudentsAchievementsChart },
+  name: 'StudentsAnsweredProblemCard',
+  components: { TheCardHeader, TheCardHard },
   props: {
     answeredProblem: {
       type: Object,
       default() {
         return {
-          created_at: ''
+          id: -1,
+          created_at: '2000-11-11'
         }
       }
-    },
-    chartData: {
-      type: Object,
-      default: null
     }
   },
   computed: {
@@ -40,6 +33,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-</style>

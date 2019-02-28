@@ -16,6 +16,11 @@
     >
       テスト
     </the-card-footer-item>
+    <the-card-footer-item
+      @click="showAchievements"
+    >
+      成績
+    </the-card-footer-item>
   </the-card>
 </template>
 
@@ -40,6 +45,9 @@ export default {
     },
     doTest() {
       this.$emit('doTest')
+    },
+    showAchievements() {
+      this.$emit('showAchievements')
     }
   }
 }
