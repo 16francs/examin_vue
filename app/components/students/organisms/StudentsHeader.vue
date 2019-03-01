@@ -16,10 +16,7 @@ export default {
 
   data() {
     return {
-      list: [
-        { label: 'ホーム', link: '/students' },
-        { label: 'テスト', link: '/students/test' }
-      ]
+      list: []
     }
   },
 

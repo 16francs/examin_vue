@@ -1,7 +1,9 @@
 <template>
   <div>
     <students-header @logout="doLogout" />
-    <nuxt/>
+    <div class="hero">
+      <nuxt/>
+    </div>
   </div>
 </template>
 

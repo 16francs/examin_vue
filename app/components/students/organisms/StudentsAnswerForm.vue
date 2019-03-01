@@ -19,8 +19,9 @@
 <script>
 import TheProgressBar from '~/components/common/atoms/TheProgressBar'
 import StudentsSelectList from '~/components/students/molecules/StudentsSelectList'
-import { mapGetters, mapActions } from 'vuex'
 import TheBox from '~/components/common/atoms/TheBox'
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
   components: { TheBox, StudentsSelectList, TheProgressBar },
   data() {

@@ -20,10 +20,7 @@ describe('components/students/organisms/StudentsHeader', () => {
   describe('script', () => {
     describe('data', () => {
       test('listが存在すること', () => {
-        const list = [
-          { label: 'ホーム', link: '/students' },
-          { label: 'テスト', link: '/students/test' }
-        ]
+        const list = []
         expect(wrapper.vm.list).toEqual(list)
       })
     })

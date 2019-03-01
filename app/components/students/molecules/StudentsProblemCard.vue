@@ -16,12 +16,18 @@
     >
       テスト
     </the-card-footer-item>
+    <the-card-footer-item
+      @click="showAchievements"
+    >
+      成績
+    </the-card-footer-item>
   </the-card>
 </template>
 
 <script>
 import TheCard from '~/components/common/atoms/TheCard'
 import TheCardFooterItem from '~/components/common/atoms/TheCardFooterItem'
+
 export default {
   components: { TheCardFooterItem, TheCard },
   props: {
@@ -40,6 +46,9 @@ export default {
     },
     doTest() {
       this.$emit('doTest')
+    },
+    showAchievements() {
+      this.$emit('showAchievements')
     }
   }
 }

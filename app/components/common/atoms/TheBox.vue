@@ -1,5 +1,8 @@
 <template>
-  <div class="box">
+  <div
+    :class="textColor, background"
+    class="box"
+  >
     <div class="content">
       <h1>{{ title }}</h1>
       <p>{{ content }}</p>
@@ -17,6 +20,24 @@ export default {
     content: {
       type: String,
       default: ''
+    },
+    color: {
+      type: String,
+      default: ''
+    },
+    backgroundColor: {
+      type: String,
+      default: ''
+    }
+  },
+  computed: {
+    textColor() {
+      return this.color === '' ? '' : `has-text-${this.color}`
+    },
+    background() {
+      return this.backgroundColor === ''
+        ? ''
+        : `has-background-${this.backgroundColor}`
     }
   }
 }
