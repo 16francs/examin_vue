@@ -11,6 +11,7 @@
   </the-table>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 import TeachersQuestionTableBody from '~/components/teachers/molecules/TeachersQuestionTableBody'
 import TeachersQuestionTableHeader from '~/components/teachers/molecules/TeachersQuestionTableHeader'
 import TheTable from '~/components/common/atoms/TheTable'
@@ -22,26 +23,8 @@ export default {
     TheTable
   },
 
-  data() {
-    return {
-      questions: [
-        {
-          id: 1,
-          sentence: 'read',
-          correct: '読む'
-        },
-        {
-          id: 2,
-          sentence: 'work',
-          correct: '働く'
-        },
-        {
-          id: 3,
-          sentence: 'do',
-          correct: 'する'
-        }
-      ]
-    }
+  computed: {
+    ...mapGetters('teachers/questions', ['questions'])
   }
 }
 </script>

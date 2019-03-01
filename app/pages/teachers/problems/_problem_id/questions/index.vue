@@ -12,6 +12,13 @@ export default {
 
   components: {
     TeachersQuestions
+  },
+
+  async asyncData({ store, route }) {
+    const { problem_id } = route.params
+    await store.dispatch('teachers/questions/getQuestions', {
+      problem_id: problem_id
+    })
   }
 }
 </script>
