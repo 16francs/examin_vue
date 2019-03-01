@@ -15,7 +15,11 @@ export default {
   },
 
   async asyncData({ store }) {
-    await store.dispatch('teachers/problems/getProblems')
+    await store.dispatch('teachers/problems/getProblems').catch(response => {
+      if (response.data.status === 401) {
+        this.$emit('logout')
+      }
+    })
   }
 }
 </script>
