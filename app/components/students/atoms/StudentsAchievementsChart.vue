@@ -7,7 +7,17 @@ export default {
   props: {
     chartData: {
       type: Object,
-      default: null
+      default: () => {
+        return {
+          labels: ['type1'],
+          datasets: [
+            {
+              backgroundColor: ['#d3d3d3'],
+              data: [10]
+            }
+          ]
+        }
+      }
     },
     options: {
       type: Object,

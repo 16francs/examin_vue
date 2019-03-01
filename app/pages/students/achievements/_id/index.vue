@@ -14,9 +14,7 @@ export default {
   components: { StudentsAnsweredProblemCardList },
   layout: 'students/default',
   async asyncData({ store }) {
-    await store.dispatch('students/achievements/getAnsweredProblemsByUser', {
-      accessToken: store.getters['accessToken']
-    })
+    await store.dispatch('students/achievements/getAnsweredProblemsByUser')
   },
   computed: {
     ...mapGetters({
