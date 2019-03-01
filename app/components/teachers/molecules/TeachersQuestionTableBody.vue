@@ -1,9 +1,8 @@
 <template>
   <tr>
     <td>{{ index }}</td>
-    <td>{{ teacher.name }}</td>
-    <td>{{ teacher.school }}</td>
-    <td>{{ isAdmin }}</td>
+    <td>{{ question.sentence }}</td>
+    <td>{{ question.correct }}</td>
     <td>
       <the-tooltip label="編集">
         <the-icon icon="edit" />
@@ -27,21 +26,14 @@ export default {
       type: Number,
       default: 0
     },
-    teacher: {
+    question: {
       type: Object,
       default: () => {
         return {
-          name: 'None',
-          school: 'None',
-          role: 1
+          sentence: 'None',
+          correct: 'None'
         }
       }
-    }
-  },
-
-  computed: {
-    isAdmin() {
-      return this.teacher.role === 2 ? '管理者' : '講師'
     }
   }
 }
