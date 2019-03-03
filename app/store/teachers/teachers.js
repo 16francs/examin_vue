@@ -15,13 +15,8 @@ export const mutations = {
 export const actions = {
   // 講師一覧取得
   async getTeachers({ commit }) {
-    await this.$axios
-      .get('/teachers/teachers')
-      .then(response => {
-        commit('setTeachers', response.data)
-      })
-      .catch(() => {
-        throw new Error('Server Error')
-      })
+    await this.$axios.get('/teachers/teachers').then(response => {
+      commit('setTeachers', response.data)
+    })
   }
 }
