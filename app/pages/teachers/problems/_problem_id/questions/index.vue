@@ -16,15 +16,9 @@ export default {
 
   async asyncData({ store, route }) {
     const { problem_id } = route.params
-    await store
-      .dispatch('teachers/questions/getQuestions', {
-        problem_id: problem_id
-      })
-      .catch(response => {
-        if (response.data.status === 401) {
-          this.$emit('logout')
-        }
-      })
+    await store.dispatch('teachers/questions/getQuestions', {
+      problem_id: problem_id
+    })
   }
 }
 </script>
