@@ -23,7 +23,7 @@
 
 <script>
 import TheTextField from '~/components/common/atoms/TheTextField'
-import TheSubmitButton from '../molecules/TheSubmitButton'
+import TheSubmitButton from '~/components/common/molecules/TheSubmitButton'
 
 export default {
   components: {
