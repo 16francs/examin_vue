@@ -12,7 +12,10 @@
       :updated-at="problem.updated_at"
     />
 
-    <teachers-problem-card-footer slot="footer" />
+    <teachers-problem-card-footer
+      slot="footer"
+      @show="doShow"
+    />
   </the-card-hard>
 </template>
 
@@ -43,6 +46,12 @@ export default {
           updated_at: ''
         }
       }
+    }
+  },
+
+  methods: {
+    doShow() {
+      this.$router.push(`/teachers/problems/${this.problem.id}/questions`)
     }
   }
 }
