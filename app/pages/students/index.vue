@@ -11,8 +11,8 @@ export default {
   layout: 'students/default',
   // 問題集のデータを取得する
   async asyncData({ store }) {
-    await store.dispatch('students/problems/getProblems', {
-      accessToken: store.getters['accessToken']
+    await store.dispatch('students/problems/getProblems').catch(() => {
+      console.log('status:', '401')
     })
   }
 }

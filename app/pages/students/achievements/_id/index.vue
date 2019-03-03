@@ -14,7 +14,11 @@ export default {
   components: { StudentsAnsweredProblemCardList },
   layout: 'students/default',
   async asyncData({ store }) {
-    await store.dispatch('students/achievements/getAnsweredProblemsByUser')
+    await store
+      .dispatch('students/achievements/getAnsweredProblemsByUser')
+      .catch(() => {
+        console.log('status:', '401')
+      })
   },
   computed: {
     ...mapGetters({

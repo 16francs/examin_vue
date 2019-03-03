@@ -18,14 +18,9 @@ export const mutations = {
 export const actions = {
   // 問題集一覧取得
   async getProblems({ commit }) {
-    await this.$axios
-      .get('/teachers/problems')
-      .then(response => {
-        commit('setProblems', response.data)
-      })
-      .catch(() => {
-        throw new Error('Server Error')
-      })
+    await this.$axios.get('/teachers/problems').then(response => {
+      commit('setProblems', response.data)
+    })
   },
 
   // 問題集登録

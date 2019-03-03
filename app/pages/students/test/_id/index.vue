@@ -9,10 +9,13 @@ export default {
   layout: 'students/default',
   async asyncData({ store, route }) {
     const { id } = route.params
-    await store.dispatch('students/questions/getRandomQuestions', {
-      accessToken: store.getters['accessToken'],
-      problemId: id
-    })
+    await store
+      .dispatch('students/questions/getRandomQuestions', {
+        problemId: id
+      })
+      .catch(() => {
+        console.log('status:', '401')
+      })
   }
 }
 </script>
