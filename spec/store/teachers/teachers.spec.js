@@ -72,17 +72,5 @@ describe('store/teachers/problems', () => {
         expect(store.getters['teachers']).toEqual(teachers)
       })
     })
-
-    describe('failure', () => {
-      beforeEach(() => {
-        store.$axios.setSafetyMode(false)
-      })
-
-      test('getTeachers', async () => {
-        await expect(store.dispatch('getTeachers')).rejects.toEqual(
-          new Error('Server Error')
-        )
-      })
-    })
   })
 })

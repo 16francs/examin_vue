@@ -12,9 +12,13 @@ export default {
   layout: 'students/default',
   async asyncData({ store, route }) {
     const { id } = route.params
-    await store.dispatch('students/achievements/getAchievements', {
-      id: id
-    })
+    await store
+      .dispatch('students/achievements/getAchievements', {
+        id: id
+      })
+      .catch(() => {
+        console.log('status:', '401')
+      })
   }
 }
 </script>

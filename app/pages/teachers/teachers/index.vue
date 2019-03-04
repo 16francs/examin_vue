@@ -14,7 +14,9 @@ export default {
   },
 
   async asyncData({ store }) {
-    await store.dispatch('teachers/teachers/getTeachers')
+    await store.dispatch('teachers/teachers/getTeachers').catch(() => {
+      console.log('status:', '401')
+    })
   }
 }
 </script>
