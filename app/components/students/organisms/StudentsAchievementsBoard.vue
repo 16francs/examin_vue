@@ -17,7 +17,7 @@ import StudentsAchievementsCard from '~/components/students/molecules/StudentsAc
 import StudentsAchievementsList from '~/components/students/molecules/StudentsAchievementsList'
 
 export default {
-  name: 'StudentsAchievementsCardList',
+  name: 'StudentsAchievementsBoard',
   components: { StudentsAchievementsCard, StudentsAchievementsList },
   computed: {
     ...mapGetters({

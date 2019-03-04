@@ -4,7 +4,7 @@
       slot="header"
       :title="formattedTitle"
     />
-    <StudentsAchievementsChart
+    <students-achievements-chart
       :chart-data="chartData"
     />
     <hr/>
@@ -23,15 +23,25 @@ export default {
   props: {
     answeredProblem: {
       type: Object,
-      default() {
+      default: () => {
         return {
-          created_at: ''
+          created_at: '2000-11-11'
         }
       }
     },
     chartData: {
       type: Object,
-      default: null
+      default: () => {
+        return {
+          labels: ['type1'],
+          datasets: [
+            {
+              backgroundColor: ['#d3d3d3'],
+              data: [10]
+            }
+          ]
+        }
+      }
     }
   },
   computed: {

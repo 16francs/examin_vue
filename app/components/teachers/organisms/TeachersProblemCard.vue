@@ -7,11 +7,15 @@
 
     <teachers-problem-card-content
       :content="problem.content"
+      :tags="problem.tags"
       :teacher-name="problem.teacher_name"
       :updated-at="problem.updated_at"
     />
 
-    <teachers-problem-card-footer slot="footer" />
+    <teachers-problem-card-footer
+      slot="footer"
+      @show="doShow"
+    />
   </the-card-hard>
 </template>
 
@@ -38,9 +42,16 @@ export default {
           title: '',
           content: '',
           teacher_name: '',
+          tags: [],
           updated_at: ''
         }
       }
+    }
+  },
+
+  methods: {
+    doShow() {
+      this.$router.push(`/teachers/problems/${this.problem.id}/questions`)
     }
   }
 }

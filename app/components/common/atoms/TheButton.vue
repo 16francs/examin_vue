@@ -1,6 +1,6 @@
 <template>
   <button
-    :class="btnColor, btnFullWidth, btnOutlined, btnRounded, btnSize"
+    :class="[btnColor, btnFullWidth, btnOutlined, btnRounded, btnSize]"
     class="button"
     @click="handleClick"
   >

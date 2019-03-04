@@ -1,5 +1,8 @@
 <template>
-  <b-collapse class="card">
+  <b-collapse
+    class="card"
+    data-test="card"
+  >
     <slot name="header" />
 
     <div class="card-content">

@@ -38,7 +38,7 @@ export default {
 
   methods: {
     doShow() {
-      console.log('log:', 'show')
+      this.$emit('show')
     },
 
     doEdit() {

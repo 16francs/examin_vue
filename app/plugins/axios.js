@@ -1,4 +1,4 @@
-export default function({ $axios, store }) {
+export default function({ $axios, store, redirect }) {
   $axios.onRequest(config => {
     // API の ホスト名
     config.baseURL = process.env.baseUrl + '/api'
@@ -11,5 +11,12 @@ export default function({ $axios, store }) {
     }
 
     return config
+  })
+
+  $axios.onError(error => {
+    if (error.response.status === 401) {
+      store.dispatch('logout')
+      redirect('/')
+    }
   })
 }

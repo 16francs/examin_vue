@@ -10,12 +10,11 @@
 </template>
 
 <script>
-import TheCardHard from '~/components/common/atoms/TheCardHard'
 import TheCardHeader from '~/components/common/molecules/TheCardHeader'
 
 export default {
   name: 'StudentsAnsweredProblemCard',
-  components: { TheCardHeader, TheCardHard },
+  components: { TheCardHeader },
   props: {
     answeredProblem: {
       type: Object,
