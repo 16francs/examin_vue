@@ -5,7 +5,7 @@
 
       <teachers-new-button
         class="right"
-        data-test="teacher-new-button"
+        data-test="question-new-button"
         @new="doNew"
       />
     </div>
