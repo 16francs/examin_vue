@@ -1,5 +1,7 @@
 <template>
-  <the-card-hard>
+  <the-card-hard
+    data-test="setting-card"
+  >
     <the-card-header
       slot="header"
       title="生徒情報"
@@ -33,6 +35,7 @@ import TheMedia from '~/components/common/atoms/TheMedia'
 import TheIcon from '~/components/common/atoms/TheIcon'
 import TheCardFooterItem from '~/components/common/atoms/TheCardFooterItem'
 import StudentsSettingContent from '~/components/students/atoms/StudentsSettingContent'
+
 export default {
   name: 'StudentsSettingCard',
   components: {
