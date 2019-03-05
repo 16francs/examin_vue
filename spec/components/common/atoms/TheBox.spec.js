@@ -44,6 +44,44 @@ describe('components/common/atoms/TheBox', () => {
           expect(wrapper.props().content).toBe('変更テスト')
         })
       })
+      describe('color', () => {
+        test('colorの初期値', () => {
+          expect(wrapper.props().color).toBe('')
+        })
+        test('colorに代入', () => {
+          wrapper.setProps({ color: 'primary' })
+          expect(wrapper.props().color).toBe('primary')
+        })
+      })
+      describe('backgroundColor', () => {
+        test('backgroundColorの初期値', () => {
+          expect(wrapper.props().backgroundColor).toBe('')
+        })
+        test('backgroundColorに代入', () => {
+          wrapper.setProps({ backgroundColor: 'primary' })
+          expect(wrapper.props().backgroundColor).toBe('primary')
+        })
+      })
+    })
+    describe('computed', () => {
+      describe('textColor', () => {
+        test('color == null', () => {
+          expect(wrapper.vm.textColor).toBe('')
+        })
+        test('color != null', () => {
+          wrapper.setProps({ color: 'primary' })
+          expect(wrapper.vm.textColor).toBe('has-text-primary')
+        })
+      })
+      describe('background', () => {
+        test('backgroundColor == null', () => {
+          expect(wrapper.vm.background).toBe('')
+        })
+        test('backgroundColor != null', () => {
+          wrapper.setProps({ backgroundColor: 'primary' })
+          expect(wrapper.vm.background).toBe('has-background-primary')
+        })
+      })
     })
   })
 })

@@ -1,11 +1,15 @@
 <template>
-  <the-card-hard>
+  <the-card-hard
+    data-test="card"
+  >
     <the-card-header
       slot="header"
       :title="formattedTitle"
+      data-test="card-header"
     />
     <students-achievements-chart
       :chart-data="chartData"
+      data-test="chart"
     />
     <hr/>
     <slot/>
