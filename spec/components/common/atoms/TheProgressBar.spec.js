@@ -49,8 +49,12 @@ describe('components/common/atoms/TheProgressBar', () => {
     })
     describe('computed', () => {
       describe('barColor', () => {
-        test('color == null', () => {
+        test('colorがデフォルトのとき', () => {
           expect(wrapper.vm.barColor).toBe('is-primary')
+        })
+        test('color == null', () => {
+          wrapper.setProps({ color: '' })
+          expect(wrapper.vm.barColor).toBe('')
         })
         test('color != null', () => {
           wrapper.setProps({ color: 'info' })

@@ -4,7 +4,7 @@
     :icon="icon"
     :size="iconSize"
     :type="iconColor"
-    pack="fas"
+    :pack="pack"
     data-test="icon"
   >
     <slot />
@@ -29,6 +29,10 @@ export default {
     spin: {
       type: Boolean,
       default: false
+    },
+    pack: {
+      type: String,
+      default: 'fas'
     }
   },
 

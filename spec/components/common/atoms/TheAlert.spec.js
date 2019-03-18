@@ -71,6 +71,15 @@ describe('components/common/atoms/TheAlert', () => {
           expect(wrapper.vm.isError).toBeFalsy()
         })
       })
+      describe('alertColor', () => {
+        test('color == null', () => {
+          wrapper.setProps({ color: '' })
+          expect(wrapper.vm.alertColor).toBe('')
+        })
+        test('color != null', () => {
+          expect(wrapper.vm.alertColor).toBe('is-danger')
+        })
+      })
     })
     describe('methods', () => {
       describe('close', () => {

@@ -40,7 +40,7 @@ describe('components/students/organisms/StudentsHeader', () => {
 
         test('routerが正常に実行されること', async done => {
           await wrapper.vm.doUserEdit()
-          expect(wrapper.vm.$route.path).toBe('/students/edit')
+          expect(wrapper.vm.$route.path).toBe('/students/setting')
           done()
         })
       })

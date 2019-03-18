@@ -1,5 +1,7 @@
 <template>
-  <div>
+  <div
+    data-test="achievements-list"
+  >
     <the-box
       v-for="achievement in achievements"
       :key="achievement.id"
