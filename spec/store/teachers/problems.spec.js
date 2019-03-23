@@ -19,7 +19,7 @@ describe('store/teachers/problems', () => {
       content: '内容',
       teacher_name: '講師名',
       tags: ['タグ'],
-      updated_at: '2019-01-01 00:00:00'
+      updated_at: '2019-01-01T00:00:00+0900'
     }
     problems = [problem]
   })
@@ -53,7 +53,7 @@ describe('store/teachers/problems', () => {
     })
 
     test('addProblem', () => {
-      commit('addProblem', { problem: problem })
+      commit('addProblem', problem)
       expect(store.state.problems).toEqual(problems)
     })
 
