@@ -7,9 +7,11 @@ export const getters = {
 }
 
 export const mutations = {
-  addProblem(state, { problem }) {
-    state.problems.unshift(problem)
+  addProblem(state, payload) {
+    delete payload.created_at // 不要な要素の削除
+    state.problems.unshift(payload)
   },
+
   setProblems(state, { problems }) {
     state.problems = problems
   }
