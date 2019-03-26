@@ -54,7 +54,8 @@ module.exports = {
   **  Router
   */
   router: {
-    middleware: ['auth-cookie']
+    middleware: ['auth-cookie'],
+    base: '/examin/'
   },
 
   /*
