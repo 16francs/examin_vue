@@ -1,8 +1,6 @@
 # ビルドコンテナ
 FROM node:11.12-alpine as builder
 
-RUN npm install yarn
-
 WORKDIR /examin_view
 
 # 依存ライブラリのインストール
