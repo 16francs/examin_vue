@@ -4,9 +4,6 @@ module.exports = {
   srcDir: 'app',
   mode: 'universal',
 
-  // 環境設定
-  env: { baseUrl: process.env.BASE_URL || 'http://0.0.0.0:3000' },
-
   /*
   ** Headers of the page
   */
@@ -38,7 +35,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['~/plugins/axios'],
+  plugins: ['~/plugins/axios', '~/plugins/env'],
 
   /*
   ** Nuxt.js modules
@@ -47,7 +44,15 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
-    'nuxt-buefy'
+    'nuxt-buefy',
+    [
+      'nuxt-env',
+      {
+        keys: [
+          { key: 'BASE_URL', name: 'baseUrl', default: 'http://0.0.0.0:3000' }
+        ]
+      }
+    ]
   ],
 
   /*
