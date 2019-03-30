@@ -3,6 +3,10 @@ FROM node:11.12-alpine as builder
 
 WORKDIR /examin_view
 
+# 依存ライブラリのインストール
+ADD package* ./
+RUN yarn install
+
 # プロジェクトの配置，build
 ADD . ./
 RUN yarn build
