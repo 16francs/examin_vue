@@ -2,7 +2,7 @@
 FROM node:11.12-alpine as builder
 
 WORKDIR /examin_view
-ENV BASE_URL=http://os3-358-12193.vs.sakura.ne.jp/exmain
+ENV BASE_URL=http://os3-358-12193.vs.sakura.ne.jp/examin
 
 # 依存ライブラリのインストール
 ADD package* ./
