@@ -1,5 +1,6 @@
 <template>
   <the-button
+    :full-width="fullWidth"
     class="right"
     color="primary"
     @click="doNew"
@@ -17,6 +18,10 @@ export default {
   },
 
   props: {
+    fullWidth: {
+      type: Boolean,
+      default: true
+    },
     text: {
       type: String,
       default: '作成する'

@@ -1,71 +1,81 @@
 <template>
-  <div class="columns is-mobile is-multiline">
-    <div class="column is-12">
-
-      <div class="title">問題一括登録</div>
-      <div class="columns is-mobile is-multiline">
-        <div class="column is-12-mobile is-12-tablet is-6-desktop">
-          <h4>Execテンプレートをダウンロード</h4>
-          <the-button color="primary">
-            <the-icon icon="download">
-              <span>ダウンロード</span>
-            </the-icon>
-          </the-button>
+  <div class="tile is-ancestor">
+    <div class="tile is-vertical">
+      <div class="tile is-vertical box">
+        <div class="tile is-parent">
+          <div class="title">問題一括登録</div>
         </div>
 
-        <div class="column is-12-mobile is-12-tablet is-6-desktop">
-          <h4>Excelテンプレートをアップロード</h4>
-          <b-field class="file">
-            <b-upload v-model="file">
-              <a class="button is-primary">
-                <b-icon icon="upload" />
-                <span>Click to upload</span>
-              </a>
-            </b-upload>
-            <span
-              v-if="file"
-              class="file-name"
-            >
-              {{ file.name }}
-            </span>
-          </b-field>
+        <div class="tile is-parent">
+          <div class="tile is-child box">
+            <h4>Execテンプレートをダウンロード</h4>
+            <the-button color="primary">
+              <the-icon icon="download">
+                <span>ダウンロード</span>
+              </the-icon>
+            </the-button>
+          </div>
+
+          <div class="tile is-child box">
+            <h4>Excelテンプレートをアップロード</h4>
+            <b-field class="file">
+              <b-upload v-model="file">
+                <a class="button is-primary">
+                  <b-icon icon="upload" />
+                  <span>Click to upload</span>
+                </a>
+              </b-upload>
+              <span
+                v-if="file"
+                class="file-name"
+              >
+                {{ file.name }}
+              </span>
+            </b-field>
+          </div>
         </div>
       </div>
-    </div>
 
-    <hr />
+      <div class="tile is-vertical box">
+        <div class="tile is-parent">
+          <div class="title">問題登録</div>
+        </div>
 
-    <div class="column is-12">
-      <div class="title">問題登録</div>
+        <div class="tile is-parent">
+          <div class="tile is-child form">
+            <h4 class="form-title">問題情報</h4>
 
-      <div class="form">
-        <h4 class="form-title">問題情報</h4>
+            <the-text-field
+              v-model="value.sentence"
+              data-test="form-sentence"
+              label="問題"
+              placeholder="read"
+            />
 
-        <the-text-field
-          v-model="value.sentence"
-          data-test="form-sentence"
-          label="問題"
-          placeholder="read"
-        />
+            <the-text-field
+              v-model="value.correct"
+              data-test="form-correct"
+              label="答え"
+              placeholder="読む"
+            />
 
-        <the-text-field
-          v-model="value.correct"
-          data-test="form-correct"
-          label="答え"
-          placeholder="読む"
-        />
+            <teachers-new-button @click="doSubmit" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import TeachersNewButton from '~/components/teachers/molecules/TeachersNewButton'
 import TheButton from '~/components/common/atoms/TheButton'
 import TheIcon from '~/components/common/atoms/TheIcon'
-import TheTextField from '../../common/atoms/TheTextField'
+import TheTextField from '~/components/common/atoms/TheTextField'
 
 export default {
   components: {
+    TeachersNewButton,
     TheTextField,
     TheButton,
     TheIcon
@@ -78,6 +88,12 @@ export default {
         sentence: '',
         correct: ''
       }
+    }
+  },
+
+  methods: {
+    doSubmit() {
+      console.log('log:', 'create')
     }
   }
 }
