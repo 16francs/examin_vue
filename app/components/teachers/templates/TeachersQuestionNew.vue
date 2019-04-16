@@ -42,7 +42,7 @@
         </div>
 
         <div class="tile is-parent">
-          <div class="tile is-child form">
+          <div class="tile is-child box form">
             <h4 class="form-title">問題情報</h4>
 
             <the-text-field
@@ -59,7 +59,7 @@
               placeholder="読む"
             />
 
-            <teachers-new-button @click="doSubmit" />
+            <teachers-submit-button @submit="doSubmit" />
           </div>
         </div>
       </div>
@@ -68,14 +68,14 @@
 </template>
 
 <script>
-import TeachersNewButton from '~/components/teachers/molecules/TeachersNewButton'
+import TeachersSubmitButton from '~/components/teachers/molecules/TeachersSubmitButton'
 import TheButton from '~/components/common/atoms/TheButton'
 import TheIcon from '~/components/common/atoms/TheIcon'
 import TheTextField from '~/components/common/atoms/TheTextField'
 
 export default {
   components: {
-    TeachersNewButton,
+    TeachersSubmitButton,
     TheTextField,
     TheButton,
     TheIcon
