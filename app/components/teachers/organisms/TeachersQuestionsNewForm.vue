@@ -10,7 +10,7 @@
       </div>
 
       <div class="tile is-child box">
-        <teachers-questions-upload v-model="file" />
+        <teachers-questions-upload />
       </div>
     </div>
   </div>
@@ -24,14 +24,6 @@ export default {
   components: {
     TeachersQuestionsDownload,
     TeachersQuestionsUpload
-  },
-
-  data() {
-    return {
-      file: {
-        name: ''
-      }
-    }
   }
 }
 </script>

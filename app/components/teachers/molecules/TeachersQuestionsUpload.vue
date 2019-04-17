@@ -2,33 +2,45 @@
   <div class="questions-upload">
     <h4>Excelテンプレートをアップロード</h4>
 
-    <b-field class="file">
-      <b-upload v-model="value">
+    <the-field class="file">
+      <the-upload-field @upload="doUpload">
         <a class="button is-primary">
-          <b-icon icon="upload" />
+          <the-icon icon="upload" />
           <span>Click to upload</span>
         </a>
-      </b-upload>
+      </the-upload-field>
+
       <span
-        v-if="value"
+        v-if="file"
         class="file-name"
       >
-        {{ value.name }}
+        {{ file.name }}
       </span>
-    </b-field>    
+    </the-field>    
   </div>
 </template>
 
 <script>
+import TheField from '~/components/common/atoms/TheField'
+import TheIcon from '~/components/common/atoms/TheIcon'
+import TheUploadField from '~/components/common/atoms/TheUploadField'
+
 export default {
-  props: {
-    value: {
-      type: Object,
-      default: () => {
-        return {
-          name: ''
-        }
-      }
+  components: {
+    TheField,
+    TheIcon,
+    TheUploadField
+  },
+
+  data() {
+    return {
+      file: null
+    }
+  },
+
+  methods: {
+    doUpload({ file }) {
+      this.file = file
     }
   }
 }
