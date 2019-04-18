@@ -9,7 +9,8 @@ export const getters = {
 export const mutations = {
   addQuestion(state, payload) {
     delete payload.created_at
-    delete payload.updated_at // 不要な要素の削除
+    delete payload.updated_at
+    delete payload.problem_id // 不要な要素の削除
     state.questions.unshift(payload)
   },
 

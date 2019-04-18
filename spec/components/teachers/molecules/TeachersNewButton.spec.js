@@ -24,8 +24,8 @@ describe('components/teachers/molecules/TeachersNewButton', () => {
         mock = jest.fn()
       })
 
-      test('ボタンクリックでdoNewが呼ばれること', () => {
-        wrapper.setMethods({ doNew: mock })
+      test('ボタンクリックでhandleNewが呼ばれること', () => {
+        wrapper.setMethods({ handleNew: mock })
         wrapper.find('button').trigger('click')
         expect(mock).toBeCalled()
       })
@@ -48,20 +48,20 @@ describe('components/teachers/molecules/TeachersNewButton', () => {
   })
 
   describe('methods', () => {
-    describe('doNew', () => {
+    describe('handleNew', () => {
       let mock
       beforeEach(() => {
         mock = jest.fn()
       })
 
       test('正常に呼び出されること', () => {
-        wrapper.setMethods({ doNew: mock })
-        wrapper.vm.doNew()
+        wrapper.setMethods({ handleNew: mock })
+        wrapper.vm.handleNew()
         expect(mock).toBeCalled()
       })
 
       test('emitが実行されること', async () => {
-        await wrapper.vm.doNew()
+        await wrapper.vm.handleNew()
         expect(wrapper.emitted().new).toBeTruthy()
       })
     })
