@@ -2,7 +2,10 @@
   <div class="questions-download">
     <h4>Execテンプレートをダウンロード</h4>
 
-    <the-button color="primary">
+    <the-button
+      color="primary"
+      @click="handleDownload"
+    >
       <the-icon icon="download">
         <span>ダウンロード</span>
       </the-icon>
@@ -18,6 +21,12 @@ export default {
   components: {
     TheButton,
     TheIcon
+  },
+
+  methods: {
+    handleDownload() {
+      this.$emit('download')
+    }
   }
 }
 </script>

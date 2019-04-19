@@ -1,5 +1,8 @@
 <template>
-  <b-upload @input="handleUpload">
+  <b-upload
+    data-test="upload"
+    @input="handleUpload"
+  >
     <slot />
   </b-upload>
 </template>

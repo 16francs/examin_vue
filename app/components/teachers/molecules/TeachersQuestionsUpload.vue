@@ -2,7 +2,10 @@
   <div class="questions-upload">
     <h4>Excelテンプレートをアップロード</h4>
 
-    <the-field class="file">
+    <the-field
+      class="file"
+      data-test="form-upload"
+    >
       <the-upload-field @upload="doUpload">
         <a class="button is-primary">
           <the-icon icon="upload" />
