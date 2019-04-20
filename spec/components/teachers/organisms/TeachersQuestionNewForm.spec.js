@@ -15,7 +15,7 @@ describe('components/teachers/organisms/TeachersQuestionNewForm', () => {
   let wrapper, store, $route
   let question
   beforeEach(() => {
-    let $route = {
+    $route = {
       params: {
         problem_id: 1
       }
