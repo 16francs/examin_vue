@@ -1,5 +1,8 @@
 <template>
-  <div class="questions-form">
+  <div
+    class="questions-form"
+    data-test="form-questions"
+  >
     <div class="tile is-parent">
       <div class="title">問題一括登録</div>
     </div>
