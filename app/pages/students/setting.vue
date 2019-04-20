@@ -7,6 +7,7 @@
     <student-setting-edit-form
       v-if="isEditing"
       @doEdit="doEdit"
+      @cancel="cancel"
     />
   </div>
 </template>
@@ -14,6 +15,7 @@
 <script>
 import StudentsSettingCard from '~/components/students/molecules/StudentsSettingCard'
 import StudentSettingEditForm from '~/components/students/organisms/StudentSettingEditForm'
+
 export default {
   components: { StudentSettingEditForm, StudentsSettingCard },
   layout: 'students/default',
@@ -29,6 +31,9 @@ export default {
     },
     doEdit() {
       console.log('編集処理')
+    },
+    cancel() {
+      this.isEditing = false
     }
   }
 }

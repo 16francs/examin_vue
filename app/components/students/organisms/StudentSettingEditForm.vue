@@ -21,6 +21,11 @@
       text="編集"
       @submit="doSubmit"
     />
+    <the-button
+      @click="cancel"
+    >
+      戻る
+    </the-button>
   </the-card-hard>
 </template>
 
@@ -29,10 +34,12 @@ import TheTextField from '~/components/common/atoms/TheTextField'
 import TheSubmitButton from '~/components/common/molecules/TheSubmitButton'
 import TheCardHard from '~/components/common/atoms/TheCardHard'
 import TheCardHeader from '../../common/molecules/TheCardHeader'
+import TheButton from '../../common/atoms/TheButton'
 
 export default {
   name: 'StudentSettingEditForm',
   components: {
+    TheButton,
     TheCardHeader,
     TheCardHard,
     TheTextField,
@@ -49,6 +56,9 @@ export default {
   methods: {
     doSubmit() {
       this.$emit('doEdit')
+    },
+    cancel() {
+      this.$emit('cancel')
     }
   }
 }
