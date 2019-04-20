@@ -4,7 +4,9 @@ module.exports = {
   srcDir: 'app',
   mode: 'universal',
 
-  // 環境設定
+  /*
+  ** Environments
+  */
   env: { baseUrl: process.env.BASE_URL || 'http://0.0.0.0:3000' },
 
   /*
@@ -54,6 +56,7 @@ module.exports = {
   **  Router
   */
   router: {
+    base: '/examin/',
     middleware: ['auth-cookie']
   },
 

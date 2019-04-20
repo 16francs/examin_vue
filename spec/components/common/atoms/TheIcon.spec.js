@@ -79,6 +79,15 @@ describe('components/common/atoms/TheIcon', () => {
           expect(wrapper.vm.iconSize).toBe('is-small')
         })
       })
+      describe('iconSpin', () => {
+        test('spin == true', () => {
+          wrapper.setProps({ spin: true })
+          expect(wrapper.vm.iconSpin).toBe('fa-spin')
+        })
+        test('spin != true', () => {
+          expect(wrapper.vm.iconSpin).toBe('')
+        })
+      })
     })
   })
 })

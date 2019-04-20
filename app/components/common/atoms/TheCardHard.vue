@@ -12,3 +12,9 @@
     <slot name="footer" />
   </b-collapse>
 </template>
+
+<script>
+export default {
+  name: 'TheCardHard'
+}
+</script>

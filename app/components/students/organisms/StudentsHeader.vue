@@ -25,7 +25,7 @@ export default {
       this.$emit('logout')
     },
     doUserEdit() {
-      this.$router.push('/students/edit')
+      this.$router.push('/students/setting')
     }
   }
 }

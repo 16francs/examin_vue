@@ -1,12 +1,14 @@
 <template>
-  <nuxt-link
-    :to="{path: '/students/achievements/about/' + answeredProblem.id}"
-  >
-    <the-card-header
-      slot="header"
-      :title="formattedTitle"
-    />
-  </nuxt-link>
+  <div data-test="answered-problem">
+    <nuxt-link
+      :to="{path: '/students/achievements/about/' + answeredProblem.id}"
+    >
+      <the-card-header
+        slot="header"
+        :title="formattedTitle"
+      />
+    </nuxt-link>
+  </div>
 </template>
 
 <script>
