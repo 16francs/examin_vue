@@ -1,0 +1,10 @@
+version: '3'
+services:
+  frontend_web:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    ports:
+      - '3000:3000'
+    environment:
+      BASE_URL: ${BASE_URL}

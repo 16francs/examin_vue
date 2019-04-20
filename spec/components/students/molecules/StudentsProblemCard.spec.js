@@ -87,6 +87,24 @@ describe('components/common/molecules/StudentsProblemCard', () => {
           done()
         })
       })
+      describe('showAchievements', () => {
+        let mock
+        beforeEach(() => {
+          mock = jest.fn()
+        })
+
+        test('正常に呼び出されるか', () => {
+          wrapper.setMethods({ showAchievements: mock })
+          wrapper.vm.showAchievements()
+          expect(mock).toBeCalled()
+        })
+
+        test('emitが実行されること', async done => {
+          await wrapper.vm.showAchievements()
+          expect(wrapper.emitted().showAchievements).toBeTruthy()
+          done()
+        })
+      })
     })
   })
 })
