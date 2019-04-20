@@ -56,7 +56,7 @@ export default {
     },
 
     doSubmit() {
-      // 問題登録
+      // 問題集登録
       this.createProblem({
         problem: this.problem
       })

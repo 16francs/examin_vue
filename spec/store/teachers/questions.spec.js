@@ -9,17 +9,16 @@ localVue.use(Vuex)
 
 describe('store/teachers/questions', () => {
   let store
-  let questions
+  let question, questions
   beforeEach(() => {
     store = new Vuex.Store(cloneDeep(Questions))
 
-    questions = [
-      {
-        id: 1,
-        sentence: '問題',
-        correct: '答え'
-      }
-    ]
+    question = {
+      id: 1,
+      sentence: '問題',
+      correct: '答え'
+    }
+    questions = [question]
   })
 
   afterEach(() => {
@@ -50,6 +49,11 @@ describe('store/teachers/questions', () => {
       commit = store.commit
     })
 
+    test('addProblem', () => {
+      commit('addQuestion', question)
+      expect(store.state.questions).toEqual(questions)
+    })
+
     test('setQuestions', () => {
       commit('setQuestions', { questions: questions })
       expect(store.state.questions).toEqual(questions)
@@ -67,8 +71,33 @@ describe('store/teachers/questions', () => {
       })
 
       test('getQuestions', async () => {
-        await store.dispatch('getQuestions', { problem_id: 1 })
+        await store.dispatch('getQuestions', {
+          problem_id: 1
+        })
         expect(store.getters['questions']).toEqual(questions)
+      })
+
+      test('createQuestion', async () => {
+        await store.dispatch('createQuestion', {
+          question: question,
+          problem_id: 1
+        })
+        expect(store.getters['questions']).toEqual(questions)
+      })
+    })
+
+    describe('failure', () => {
+      beforeEach(() => {
+        store.$axios.setSafetyMode(false)
+      })
+
+      test('createProblem', async () => {
+        await expect(
+          store.dispatch('createQuestion', {
+            question: question,
+            problem_id: 1
+          })
+        ).rejects.toEqual(new Error('Invalid Error'))
       })
     })
   })

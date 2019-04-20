@@ -17,7 +17,8 @@ export default {
   },
   post: {
     ...index.post,
-    ...teachersProblems.post
+    ...teachersProblems.post,
+    ...teachersQuestions.post
   },
   put: {},
   patch: {},
