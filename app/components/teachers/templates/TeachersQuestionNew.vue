@@ -1,5 +1,8 @@
 <template>
-  <div class="tile is-ancestor">
+  <div
+    class="tile is-ancestor"
+    data-test="question-new"
+  >
     <div class="tile is-vertical">
       <div class="tile is-vertical box">
         <teachers-questions-new-form />
