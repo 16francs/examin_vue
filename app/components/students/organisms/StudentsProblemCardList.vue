@@ -1,5 +1,14 @@
 <template>
-  <div class="columns is-multiline">
+  <div v-if="isNothing">
+    <the-alert
+      color="light"
+      message="問題集が未登録です．"
+    />
+  </div>
+  <div
+    v-else
+    class="columns is-multiline"
+  >
     <div
       v-for="problem in problems"
       :key="problem.id"
@@ -19,14 +28,18 @@
 <script>
 import StudentsProblemCard from '~/components/students/molecules/StudentsProblemCard'
 import { mapGetters } from 'vuex'
+import TheAlert from '~/components/common/atoms/TheAlert'
 
 export default {
-  components: { StudentsProblemCard },
+  components: { TheAlert, StudentsProblemCard },
   // 問題集のデータをvuexから取得する
   computed: {
     ...mapGetters({
       problems: 'students/problems/problems'
-    })
+    }),
+    isNothing() {
+      return this.problems.length === 0
+    }
   },
   methods: {
     doLearn(problemId) {
