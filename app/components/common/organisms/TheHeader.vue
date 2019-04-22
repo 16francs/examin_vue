@@ -58,9 +58,11 @@ export default {
       this.isActive = false
     },
     doLogout() {
+      this.isActive = !this.isActive
       this.$emit('logout')
     },
     doUserEdit() {
+      this.isActive = !this.isActive
       this.$emit('userEdit')
     },
     handleToggle() {
