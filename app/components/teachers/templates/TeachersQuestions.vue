@@ -26,7 +26,8 @@ export default {
 
   methods: {
     doNew() {
-      console.log('log:', 'new')
+      const { problem_id } = this.$route.params
+      this.$router.push(`/teachers/problems/${problem_id}/questions/new`)
     }
   }
 }

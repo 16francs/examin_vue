@@ -12,6 +12,9 @@ describe('components/teachers/organisms/TeachersQuestionList', () => {
   let wrapper, store
   let questions
   beforeEach(() => {
+    store = new Vuex.Store(Module)
+    wrapper = shallowMount(TeachersQuestionList, { localVue, store })
+
     questions = [
       {
         id: 1,
@@ -19,9 +22,6 @@ describe('components/teachers/organisms/TeachersQuestionList', () => {
         correct: '答え'
       }
     ]
-
-    store = new Vuex.Store(Module)
-    wrapper = shallowMount(TeachersQuestionList, { localVue, store })
 
     store.replaceState({
       teachers: { questions: { questions: questions } }

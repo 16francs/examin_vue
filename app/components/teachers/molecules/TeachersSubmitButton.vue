@@ -1,8 +1,9 @@
 <template>
   <the-button
+    :full-width="fullWidth"
     class="right"
     color="primary"
-    @click="handleNew"
+    @click="handleSubmit"
   >
     <span>{{ text }}</span>
   </the-button>
@@ -17,15 +18,19 @@ export default {
   },
 
   props: {
+    fullWidth: {
+      type: Boolean,
+      default: true
+    },
     text: {
       type: String,
-      default: '作成する'
+      default: '送信する'
     }
   },
 
   methods: {
-    handleNew() {
-      this.$emit('new')
+    handleSubmit() {
+      this.$emit('submit')
     }
   }
 }
