@@ -13,7 +13,10 @@
         pack="mdi"
         size="medium"
       />
-      <students-setting-content />
+      <students-setting-content
+        :name="student.name"
+        :school-name="student.school"
+      />
     </the-media>
     <footer
       slot="footer"
@@ -29,6 +32,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import TheCardHard from '~/components/common/atoms/TheCardHard'
 import TheCardHeader from '~/components/common/molecules/TheCardHeader'
 import TheMedia from '~/components/common/atoms/TheMedia'
@@ -45,6 +49,11 @@ export default {
     TheMedia,
     TheCardHeader,
     TheCardHard
+  },
+  computed: {
+    ...mapGetters({
+      student: 'students/students/student'
+    })
   },
   methods: {
     click() {

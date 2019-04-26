@@ -30,11 +30,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import TheTextField from '~/components/common/atoms/TheTextField'
 import TheSubmitButton from '~/components/common/molecules/TheSubmitButton'
 import TheCardHard from '~/components/common/atoms/TheCardHard'
-import TheCardHeader from '../../common/molecules/TheCardHeader'
-import TheButton from '../../common/atoms/TheButton'
+import TheCardHeader from '~/components/common/molecules/TheCardHeader'
+import TheButton from '~/components/common/atoms/TheButton'
 
 export default {
   name: 'StudentSettingEditForm',
@@ -52,6 +53,11 @@ export default {
         schoolName: ''
       }
     }
+  },
+  computed: {
+    ...mapGetters({
+      student: 'students/students/student'
+    })
   },
   methods: {
     doSubmit() {

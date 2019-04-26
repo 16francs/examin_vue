@@ -19,6 +19,12 @@ import StudentSettingEditForm from '~/components/students/organisms/StudentSetti
 export default {
   components: { StudentSettingEditForm, StudentsSettingCard },
   layout: 'students/default',
+  // 生徒情報を取得する
+  async asyncData({ store }) {
+    await store.dispatch('students/students/getStudent').catch(() => {
+      console.log('status:', '401')
+    })
+  },
   data() {
     return {
       isEditing: false
