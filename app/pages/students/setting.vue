@@ -6,6 +6,7 @@
     />
     <student-setting-edit-form
       v-if="isEditing"
+      v-model="student"
       @doEdit="doEdit"
       @cancel="cancel"
     />
@@ -13,6 +14,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import StudentsSettingCard from '~/components/students/molecules/StudentsSettingCard'
 import StudentSettingEditForm from '~/components/students/organisms/StudentSettingEditForm'
 
@@ -29,6 +31,11 @@ export default {
     return {
       isEditing: false
     }
+  },
+  computed: {
+    ...mapGetters({
+      student: 'students/students/student'
+    })
   },
   methods: {
     showEditForm() {

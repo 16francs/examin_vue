@@ -5,13 +5,13 @@
       title="生徒情報編集"
     />
     <the-text-field
-      v-model="formData.name"
+      v-model="value.name"
       label="名前"
       data-test="name"
     />
 
     <the-text-field
-      v-model="formData.schoolName"
+      v-model="value.school"
       label="学校名"
       data-test="schoolName"
     />
@@ -46,11 +46,14 @@ export default {
     TheTextField,
     TheSubmitButton
   },
-  data() {
-    return {
-      formData: {
-        name: '',
-        schoolName: ''
+  props: {
+    value: {
+      type: Object,
+      default: () => {
+        return {
+          name: '',
+          school: ''
+        }
       }
     }
   },
