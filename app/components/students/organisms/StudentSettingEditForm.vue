@@ -5,13 +5,13 @@
       title="生徒情報編集"
     />
     <the-text-field
-      v-model="value.name"
+      v-model="formData.name"
       label="名前"
       data-test="name"
     />
 
     <the-text-field
-      v-model="value.school"
+      v-model="formData.school"
       label="学校名"
       data-test="schoolName"
     />
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import TheTextField from '~/components/common/atoms/TheTextField'
 import TheSubmitButton from '~/components/common/molecules/TheSubmitButton'
 import TheCardHard from '~/components/common/atoms/TheCardHard'
@@ -46,14 +46,11 @@ export default {
     TheTextField,
     TheSubmitButton
   },
-  props: {
-    value: {
-      type: Object,
-      default: () => {
-        return {
-          name: '',
-          school: ''
-        }
+  data() {
+    return {
+      formData: {
+        name: '',
+        school: ''
       }
     }
   },
@@ -62,13 +59,25 @@ export default {
       student: 'students/students/student'
     })
   },
+  created() {
+    this.formData.name = this.student.name
+    this.formData.school = this.student.school
+  },
   methods: {
-    doSubmit() {
-      this.$emit('doEdit')
+    async doSubmit() {
+      await this.edit({
+        student: {
+          name: this.formData.name,
+          school: this.formData.school
+        }
+      })
     },
     cancel() {
       this.$emit('cancel')
-    }
+    },
+    ...mapActions({
+      edit: 'students/students/editStudent'
+    })
   }
 }
 </script>
