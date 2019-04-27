@@ -19,7 +19,8 @@ export const state = () => ({
 
 export const getters = {
   accessToken: state => state.accessToken,
-  loginUser: state => state.loginUser
+  loginUser: state => state.loginUser,
+  user: state => state.user
 }
 
 export const mutations = {

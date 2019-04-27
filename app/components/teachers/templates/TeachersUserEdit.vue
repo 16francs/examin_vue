@@ -20,21 +20,21 @@
               <h4 class="form-title">ユーザー情報</h4>
 
               <the-text-field
-                v-model="value.name"
+                v-model="formData.name"
                 data-test="form-name"
                 label="名前"
                 placeholder="山田 太郎"
               />
 
               <the-text-field
-                v-model="value.school"
+                v-model="formData.school"
                 data-test="form-school"
                 label="学校名"
                 placeholder="16francs"
               />
 
               <the-text-field
-                v-model="value.login_id"
+                v-model="formData.login_id"
                 data-test="form-login-id"
                 label="ログインID"
                 placeholder="loginId"
@@ -50,6 +50,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import TeachersSubmitButton from '~/components/teachers/molecules/TeachersSubmitButton'
 import TheTextField from '~/components/common/atoms/TheTextField'
 import TheAlert from '~/components/common/atoms/TheAlert'
@@ -64,17 +65,30 @@ export default {
   data() {
     return {
       error: false,
-      value: {
-        name: '山田 太郎',
-        school: '16francs',
-        login_id: 'loginId'
+      formData: {
+        name: '',
+        school: '',
+        login_id: ''
       }
+    }
+  },
+
+  computed: {
+    ...mapGetters(['user'])
+  },
+
+  mounted() {
+    this.formData = {
+      name: this.user.name,
+      school: this.user.school,
+      login_id: this.user.login_id
     }
   },
 
   methods: {
     doSubmit() {
       console.log('log:', 'update')
+      console.log('log:', this.formData)
     },
 
     openAlert() {
