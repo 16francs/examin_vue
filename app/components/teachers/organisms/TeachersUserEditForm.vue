@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import TeachersSubmitButton from '~/components/teachers/molecules/TeachersSubmitButton'
 import TeachersUserForm from '~/components/teachers/molecules/TeachersUserForm'
 import TheAlert from '~/components/common/atoms/TheAlert'
@@ -57,8 +57,20 @@ export default {
 
   methods: {
     doSubmit() {
-      console.log('log:', 'update')
-      console.log('log:', this.formData)
+      // ユーザー情報編集
+      this.updateUser({
+        user: this.formData
+      })
+        .then(() => {
+          this.$router.push('/teachers')
+          this.$toast.open({
+            message: 'ユーザー情報を編集しました.',
+            type: 'is-success'
+          })
+        })
+        .catch(() => {
+          this.openAlert()
+        })
     },
 
     openAlert() {
@@ -66,7 +78,8 @@ export default {
       setTimeout(() => {
         this.error = false
       }, 5000)
-    }
+    },
+    ...mapActions(['updateUser'])
   }
 }
 </script>

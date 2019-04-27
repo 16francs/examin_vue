@@ -80,5 +80,17 @@ export const actions = {
       .catch(() => {
         throw new Error('Server Error')
       })
+  },
+
+  // ログインユーザー情報編集
+  async updateUser({ commit }, { user }) {
+    await this.$axios
+      .patch('/users/me', { user })
+      .then(response => {
+        commit('setUser', response.data)
+      })
+      .catch(() => {
+        throw new Error('Invalid Error')
+      })
   }
 }
