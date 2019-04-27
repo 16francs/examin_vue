@@ -2,6 +2,8 @@
   <div class="hero-body">
     <students-setting-card
       v-if="!isEditing"
+      :name="student.name"
+      :school-name="student.school"
       @click="showEditForm"
     />
     <student-setting-edit-form
@@ -12,6 +14,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import StudentsSettingCard from '~/components/students/molecules/StudentsSettingCard'
 import StudentSettingEditForm from '~/components/students/organisms/StudentSettingEditForm'
 
@@ -28,6 +31,11 @@ export default {
     return {
       isEditing: false
     }
+  },
+  computed: {
+    ...mapGetters({
+      student: 'students/students/student'
+    })
   },
   methods: {
     showEditForm() {

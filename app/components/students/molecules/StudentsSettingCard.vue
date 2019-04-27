@@ -14,8 +14,8 @@
         size="medium"
       />
       <students-setting-content
-        :name="student.name"
-        :school-name="student.school"
+        :name="name"
+        :school-name="schoolName"
       />
     </the-media>
     <footer
@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import TheCardHard from '~/components/common/atoms/TheCardHard'
 import TheCardHeader from '~/components/common/molecules/TheCardHeader'
 import TheMedia from '~/components/common/atoms/TheMedia'
@@ -50,10 +49,15 @@ export default {
     TheCardHeader,
     TheCardHard
   },
-  computed: {
-    ...mapGetters({
-      student: 'students/students/student'
-    })
+  props: {
+    name: {
+      type: String,
+      default: 'test'
+    },
+    schoolName: {
+      type: String,
+      default: 'test-school'
+    }
   },
   methods: {
     click() {
