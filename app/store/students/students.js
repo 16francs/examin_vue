@@ -18,5 +18,8 @@ export const actions = {
       throw new Error('Server Error')
     })
     commit('setStudent', { student: json.data })
+  },
+  async editStudent({ commit }, { student }) {
+    console.log(student)
   }
 }
