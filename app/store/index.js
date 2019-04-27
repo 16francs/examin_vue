@@ -12,8 +12,8 @@ export const state = () => ({
     name: 'None',
     school: 'None',
     role: 0,
-    createdAt: '',
-    updatedAt: ''
+    created_at: '',
+    updated_at: ''
   }
 })
 
@@ -30,12 +30,6 @@ export const mutations = {
   },
 
   setUser(state, payload) {
-    payload.createdAt = payload.created_at
-    payload.updatedAt = payload.updated_at
-
-    delete payload.created_at
-    delete payload.updated_at
-
     state.user = payload
   }
 }
