@@ -2,8 +2,6 @@
   <div class="question-form">
     <div class="tile is-parent">
       <div class="title">問題登録</div>
-
-
     </div>
 
     <div class="tile is-parent">
