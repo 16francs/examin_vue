@@ -56,7 +56,20 @@ export default {
     },
 
     doSubmit() {
-      console.log('log:', 'create')
+      // 講師登録
+      this.createTeacher({
+        teacher: this.teacher
+      })
+        .then(() => {
+          this.doClose()
+          this.$toast.open({
+            message: '講師を登録しました. パスワードはログインIDと同じです.',
+            type: 'is-success'
+          })
+        })
+        .catch(() => {
+          this.openAlert()
+        })
     },
 
     openAlert() {
@@ -64,7 +77,8 @@ export default {
       setTimeout(() => {
         this.error = false
       }, 5000)
-    }
+    },
+    ...mapActions('teachers/teachers', ['createTeacher'])
   }
 }
 </script>
