@@ -1,5 +1,5 @@
 export const state = () => ({
-  student: []
+  student: {}
 })
 
 export const getters = {
