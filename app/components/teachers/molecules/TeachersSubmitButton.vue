@@ -1,7 +1,7 @@
 <template>
   <the-button
     :full-width="fullWidth"
-    class="right"
+    class="right button-submit"
     color="primary"
     @click="handleSubmit"
   >
@@ -35,3 +35,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.button-submit {
+  margin-top: 3vh;
+}
+</style>

@@ -1,60 +1,70 @@
 <template>
-  <div class="question-form">
+  <div class="user-form">
     <div class="tile is-parent">
-      <div class="title">問題登録</div>
+      <div class="title">ユーザー情報編集</div>
     </div>
 
     <div class="tile is-parent">
       <div class="tile is-child box">
         <the-alert
           :error="error"
-          message="入力値に誤りがあります．"
+          message="入力値に誤りがあります"
         />
 
-        <teachers-question-form v-model="question" />
+        <teachers-user-form v-model="formData" />
 
         <teachers-submit-button @submit="doSubmit" />
       </div>
     </div>
-  </div>
+  </div> 
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-import TeachersQuestionForm from '~/components/teachers/molecules/TeachersQuestionForm'
+import { mapActions, mapGetters } from 'vuex'
 import TeachersSubmitButton from '~/components/teachers/molecules/TeachersSubmitButton'
+import TeachersUserForm from '~/components/teachers/molecules/TeachersUserForm'
 import TheAlert from '~/components/common/atoms/TheAlert'
 
 export default {
   components: {
-    TeachersQuestionForm,
     TeachersSubmitButton,
+    TeachersUserForm,
     TheAlert
   },
 
   data() {
     return {
       error: false,
-      question: {
-        sentence: '',
-        correct: ''
+      formData: {
+        name: '',
+        school: '',
+        login_id: ''
       }
+    }
+  },
+
+  computed: {
+    ...mapGetters(['user'])
+  },
+
+  mounted() {
+    this.formData = {
+      name: this.user.name,
+      school: this.user.school,
+      login_id: this.user.login_id
     }
   },
 
   methods: {
     doSubmit() {
-      const { problem_id } = this.$route.params
-
-      // 問題登録
-      this.createQuestion({
-        question: this.question,
-        problem_id: problem_id
+      // ユーザー情報編集
+      this.updateUser({
+        user: this.formData
       })
         .then(() => {
-          this.$router.push(`/teachers/problems/${problem_id}/questions`)
+          this.$router.push('/teachers')
           this.$toast.open({
-            message: '問題を登録しました.',
+            message: 'ユーザー情報を編集しました.',
             type: 'is-success'
           })
         })
@@ -69,7 +79,7 @@ export default {
         this.error = false
       }, 5000)
     },
-    ...mapActions('teachers/questions', ['createQuestion'])
+    ...mapActions(['updateUser'])
   }
 }
 </script>
