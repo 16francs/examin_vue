@@ -4,6 +4,7 @@
     <td>{{ teacher.name }}</td>
     <td>{{ teacher.school }}</td>
     <td>{{ isAdmin }}</td>
+    <td>{{ teacher.login_id }}</td>
     <td>
       <the-tooltip label="編集">
         <the-icon icon="edit" />
