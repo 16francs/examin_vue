@@ -5,6 +5,7 @@ const get = {
         id: 1,
         name: '講師',
         school: '16francs',
+        login_id: 'test',
         role: 1
       }
     ]
@@ -14,8 +15,8 @@ const get = {
 const post = {
   '/teachers/teachers': {
     id: 1,
-    name: 'テスト',
-    school: 'テスト',
+    name: '講師',
+    school: '16francs',
     login_id: 'test',
     role: 1,
     created_at: '2019-01-01T00:00:00+0900',

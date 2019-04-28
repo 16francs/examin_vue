@@ -9,18 +9,18 @@ localVue.use(Vuex)
 
 describe('store/teachers/problems', () => {
   let store
-  let teachers
+  let teacher, teachers
   beforeEach(() => {
     store = new Vuex.Store(cloneDeep(Teachers))
 
-    teachers = [
-      {
-        id: 1,
-        name: '講師',
-        school: '16francs',
-        role: 1
-      }
-    ]
+    teacher = {
+      id: 1,
+      name: '講師',
+      school: '16francs',
+      login_id: 'test',
+      role: 1
+    }
+    teachers = [teacher]
   })
 
   afterEach(() => {
@@ -51,6 +51,11 @@ describe('store/teachers/problems', () => {
       commit = store.commit
     })
 
+    test('addTeacher', () => {
+      commit('addTeacher', teacher)
+      expect(store.state.teachers).toEqual(teachers)
+    })
+
     test('setTeachers', () => {
       commit('setTeachers', { teachers: teachers })
       expect(store.state.teachers).toEqual(teachers)
@@ -70,6 +75,32 @@ describe('store/teachers/problems', () => {
       test('getTeachers', async () => {
         await store.dispatch('getTeachers')
         expect(store.getters['teachers']).toEqual(teachers)
+      })
+
+      test('createTeacher', async () => {
+        teacher.created_at = '2019-01-01T00:00:00+0900'
+        teacher.updated_at = '2019-01-01T00:00:00+0900'
+
+        await store.dispatch('createTeacher', { teacher: teacher })
+        expect(store.getters['teachers']).toEqual(teachers)
+      })
+    })
+
+    describe('failure', () => {
+      beforeEach(() => {
+        store.$axios.setSafetyMode(false)
+      })
+
+      test('getTeachers', async () => {
+        await expect(store.dispatch('getTeachers')).rejects.toEqual(
+          new Error('Server Error')
+        )
+      })
+
+      test('createTeacher', async () => {
+        await expect(
+          store.dispatch('createTeacher', { teacher: teacher })
+        ).rejects.toEqual(new Error('Invalid Error'))
       })
     })
   })

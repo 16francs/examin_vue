@@ -71,9 +71,7 @@ describe('store/teachers/questions', () => {
       })
 
       test('getQuestions', async () => {
-        await store.dispatch('getQuestions', {
-          problem_id: 1
-        })
+        await store.dispatch('getQuestions', { problem_id: 1 })
         expect(store.getters['questions']).toEqual(questions)
       })
 
@@ -89,6 +87,12 @@ describe('store/teachers/questions', () => {
     describe('failure', () => {
       beforeEach(() => {
         store.$axios.setSafetyMode(false)
+      })
+
+      test('getQuestions', async () => {
+        await expect(
+          store.dispatch('getQuestions', { problem_id: 1 })
+        ).rejects.toEqual(new Error('Server Error'))
       })
 
       test('createProblem', async () => {
