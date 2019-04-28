@@ -15,27 +15,34 @@ describe('components/teachers/templates/TeachersTeachers', () => {
   })
 
   describe('template', () => {
-    test('問題集検索フォームが存在すること', () => {
+    test('講師登録ボタンが存在すること', () => {
       expect(wrapper.find(content('teacher-new-button'))).toBeTruthy()
     })
 
-    test('問題集一覧が存在すること', () => {
+    test('講師一覧が存在すること', () => {
       expect(wrapper.find(content('teacher-list'))).toBeTruthy()
     })
   })
 
   describe('script', () => {
-    describe('methods', () => {
-      let mock
-      beforeEach(() => {
-        mock = jest.fn()
+    describe('data', () => {
+      test('active', () => {
+        expect(wrapper.vm.active).toBeFalsy()
       })
+    })
 
+    describe('methods', () => {
       describe('doNew', () => {
         test('正常に呼び出されること', () => {
-          wrapper.setMethods({ doNew: mock })
           wrapper.vm.doNew()
-          expect(mock).toBeCalled()
+          expect(wrapper.vm.active).toBeTruthy()
+        })
+      })
+
+      describe('doClose', () => {
+        test('正常に呼び出されること', () => {
+          wrapper.vm.doClose()
+          expect(wrapper.vm.active).toBeFalsy()
         })
       })
     })

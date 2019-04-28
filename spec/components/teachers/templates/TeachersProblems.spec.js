@@ -29,6 +29,12 @@ describe('components/teachers/templates/TeachersProblems', () => {
   })
 
   describe('script', () => {
+    describe('data', () => {
+      test('active', () => {
+        expect(wrapper.vm.active).toBeFalsy()
+      })
+    })
+
     describe('methods', () => {
       describe('doNew', () => {
         test('正常に呼び出されること', () => {
