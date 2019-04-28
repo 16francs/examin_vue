@@ -34,7 +34,8 @@ export default {
         return {
           name: 'None',
           school: 'None',
-          role: 1
+          role: 1,
+          login_id: ''
         }
       }
     }
