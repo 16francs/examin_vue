@@ -19,7 +19,9 @@ export const actions = {
     })
     commit('setStudent', { student: json.data })
   },
-  async editStudent({ commit }, { student }) {
-    console.log(student)
+  async editStudent({ commit }, { user }) {
+    await this.$axios.patch('/users/me', { user }).catch(() => {
+      throw new Error('Invalid Error')
+    })
   }
 }
