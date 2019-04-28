@@ -3,18 +3,20 @@
     <students-setting-card
       v-if="!isEditing"
       :name="student.name"
-      :school-name="student.school"
+      :school="student.school"
+      :login_id="student.login_id"
       @click="showEditForm"
     />
     <student-setting-edit-form
       v-if="isEditing"
+      @edit="edit"
       @cancel="cancel"
     />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 import StudentsSettingCard from '~/components/students/molecules/StudentsSettingCard'
 import StudentSettingEditForm from '~/components/students/organisms/StudentSettingEditForm'
 
@@ -39,15 +41,22 @@ export default {
   },
   methods: {
     showEditForm() {
-      console.log('form open')
       this.isEditing = true
     },
-    doEdit() {
-      console.log('編集処理')
+    edit() {
+      this.update()
+      this.isEditing = false
+      this.$toast.open({
+        message: 'ユーザー情報を編集しました.',
+        type: 'is-success'
+      })
     },
     cancel() {
       this.isEditing = false
-    }
+    },
+    ...mapActions({
+      update: 'students/students/getStudent'
+    })
   }
 }
 </script>

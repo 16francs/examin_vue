@@ -1,7 +1,8 @@
 <template>
   <div class="content">
-    <p>名前： <strong>{{ name }}</strong></p>
-    <p>学校名：{{ schoolName }}</p>
+    <p>名前: <strong>{{ name }}</strong></p>
+    <p>学校名: {{ school }}</p>
+    <p>ログインID: {{ login_id }}</p>
   </div>
 </template>
 
@@ -13,9 +14,13 @@ export default {
       type: String,
       default: '山田太郎'
     },
-    schoolName: {
+    school: {
       type: String,
       default: 'テスト'
+    },
+    login_id: {
+      type: String,
+      default: 'test'
     }
   }
 }

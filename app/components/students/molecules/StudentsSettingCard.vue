@@ -15,7 +15,8 @@
       />
       <students-setting-content
         :name="name"
-        :school-name="schoolName"
+        :school="school"
+        :login_id="login_id"
       />
     </the-media>
     <footer
@@ -54,9 +55,13 @@ export default {
       type: String,
       default: 'test'
     },
-    schoolName: {
+    school: {
       type: String,
       default: 'test-school'
+    },
+    login_id: {
+      type: String,
+      default: 'test'
     }
   },
   methods: {
