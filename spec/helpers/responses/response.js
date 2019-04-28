@@ -8,6 +8,7 @@ import teachersTeachers from './teachers/teachers'
 
 export default {
   get: {
+    ...index.get,
     ...studentsProblems.get,
     ...studentsQuestions.get,
     ...studentsAchievements.get,
@@ -21,6 +22,8 @@ export default {
     ...teachersQuestions.post
   },
   put: {},
-  patch: {},
+  patch: {
+    ...index.patch
+  },
   destroy: {}
 }
