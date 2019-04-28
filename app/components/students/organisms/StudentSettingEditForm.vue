@@ -59,7 +59,7 @@ export default {
       student: 'students/students/student'
     })
   },
-  created() {
+  mounted() {
     this.formData.name = this.student.name
     this.formData.school = this.student.school
   },
