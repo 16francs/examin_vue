@@ -6,7 +6,7 @@
     />
 
     <div class="title">
-      <span>講師一覧</span>
+      <span>生徒一覧</span>
 
       <teachers-new-button
         class="right"
