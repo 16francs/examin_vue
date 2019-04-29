@@ -89,6 +89,12 @@ describe('store/teachers/problems', () => {
         store.$axios.setSafetyMode(false)
       })
 
+      test('getProblems', async () => {
+        await expect(store.dispatch('getProblems')).rejects.toEqual(
+          new Error('Server Error')
+        )
+      })
+
       test('createProblem', async () => {
         await expect(
           store.dispatch('createProblem', { problem: problem })

@@ -76,9 +76,7 @@ describe('store/teachers/questions', () => {
       })
 
       test('getQuestions', async () => {
-        await store.dispatch('getQuestions', {
-          problem_id: 1
-        })
+        await store.dispatch('getQuestions', { problem_id: 1 })
         expect(store.getters['questions']).toEqual(questions)
       })
 

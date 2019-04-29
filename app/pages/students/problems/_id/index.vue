@@ -9,7 +9,7 @@ import StudentsQuestionList from '~/components/students/organisms/StudentsQuesti
 export default {
   components: { StudentsQuestionList },
   layout: 'students/default',
-  async asyncData({ store, route }) {
+  async fetch({ store, route }) {
     const { id } = route.params
     await store
       .dispatch('students/questions/getQuestions', {

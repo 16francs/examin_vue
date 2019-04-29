@@ -1,35 +1,18 @@
 <template>
-  <div class="hero-body">
-    <students-setting-card
-      v-if="!isEditing"
-      @click="showEditForm"
-    />
-    <student-setting-edit-form
-      v-if="isEditing"
-      @doEdit="doEdit"
-    />
-  </div>
+  <students-user-edit />
 </template>
 
 <script>
-import StudentsSettingCard from '~/components/students/molecules/StudentsSettingCard'
-import StudentSettingEditForm from '~/components/students/organisms/StudentSettingEditForm'
+import StudentsUserEdit from '~/components/students/templates/StudentsUserEdit'
+
 export default {
-  components: { StudentSettingEditForm, StudentsSettingCard },
+  components: { StudentsUserEdit },
   layout: 'students/default',
-  data() {
-    return {
-      isEditing: false
-    }
-  },
-  methods: {
-    showEditForm() {
-      console.log('form open')
-      this.isEditing = true
-    },
-    doEdit() {
-      console.log('編集処理')
-    }
+  // 生徒情報を取得する
+  async asyncData({ store }) {
+    await store.dispatch('students/students/getStudent').catch(() => {
+      console.log('status:', '401')
+    })
   }
 }
 </script>

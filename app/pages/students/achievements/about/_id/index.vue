@@ -10,7 +10,7 @@ import StudentsAchievementsBoard from '~/components/students/organisms/StudentsA
 export default {
   components: { StudentsAchievementsBoard },
   layout: 'students/default',
-  async asyncData({ store, route }) {
+  async fetch({ store, route }) {
     const { id } = route.params
     await store
       .dispatch('students/achievements/getAchievements', {

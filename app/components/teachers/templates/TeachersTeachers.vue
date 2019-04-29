@@ -1,5 +1,10 @@
 <template>
   <div>
+    <teachers-teacher-new-modal
+      :active="active"
+      @close="doClose"
+    />
+
     <div class="title">
       <span>講師一覧</span>
 
@@ -17,16 +22,28 @@
 <script>
 import TeachersNewButton from '~/components/teachers/molecules/TeachersNewButton'
 import TeachersTeacherList from '~/components/teachers/organisms/TeachersTeacherList'
+import TeachersTeacherNewModal from '~/components/teachers/organisms/TeachersTeacherNewModal'
 
 export default {
   components: {
     TeachersNewButton,
-    TeachersTeacherList
+    TeachersTeacherList,
+    TeachersTeacherNewModal
+  },
+
+  data() {
+    return {
+      active: false
+    }
   },
 
   methods: {
     doNew() {
-      console.log('log:', 'new')
+      this.active = true
+    },
+
+    doClose() {
+      this.active = false
     }
   }
 }

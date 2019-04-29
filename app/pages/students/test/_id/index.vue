@@ -7,7 +7,7 @@ import StudentsAnswerForm from '~/components/students/organisms/StudentsAnswerFo
 export default {
   components: { StudentsAnswerForm },
   layout: 'students/default',
-  async asyncData({ store, route }) {
+  async fetch({ store, route }) {
     const { id } = route.params
     await store
       .dispatch('students/questions/getRandomQuestions', {

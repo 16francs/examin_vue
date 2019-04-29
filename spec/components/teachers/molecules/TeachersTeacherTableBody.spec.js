@@ -16,7 +16,8 @@ describe('components/teachers/molecules/TeachersTeacherTableBody', () => {
     teacher = {
       name: '講師',
       school: '16francs',
-      role: 1
+      role: 1,
+      login_id: 'test'
     }
   })
 
@@ -38,7 +39,8 @@ describe('components/teachers/molecules/TeachersTeacherTableBody', () => {
           expect(wrapper.props().teacher).toEqual({
             name: 'None',
             school: 'None',
-            role: 1
+            role: 1,
+            login_id: ''
           })
         })
 

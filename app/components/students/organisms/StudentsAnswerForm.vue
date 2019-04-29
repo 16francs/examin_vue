@@ -43,7 +43,11 @@ export default {
         this.isTesting = false
         clearInterval(this.intervalID)
         console.log(JSON.stringify(this.selects))
-        this.setTestResults({ results: this.selects })
+        console.log(this.$route.params.id)
+        this.setTestResults({
+          id: this.$route.params.id,
+          results: this.selects
+        })
         this.$router.push('/students/test/result')
       }
     }
@@ -79,7 +83,6 @@ export default {
         this.number++
         this.limit = 100
       }
-      console.log(this.selects)
     },
     ...mapActions({
       setTestResults: 'students/achievements/setResults'

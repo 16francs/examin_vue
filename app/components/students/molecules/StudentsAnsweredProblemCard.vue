@@ -1,13 +1,11 @@
 <template>
   <div data-test="answered-problem">
-    <nuxt-link
-      :to="{path: '/students/achievements/about/' + answeredProblem.id}"
-    >
+    <a @click="click(answeredProblem.id)">
       <the-card-header
         slot="header"
         :title="formattedTitle"
       />
-    </nuxt-link>
+    </a>
   </div>
 </template>
 
@@ -31,6 +29,11 @@ export default {
   computed: {
     formattedTitle() {
       return this.answeredProblem.created_at + 'の記録'
+    }
+  },
+  methods: {
+    click(id) {
+      this.$router.push(`/students/achievements/about/${id}`)
     }
   }
 }
