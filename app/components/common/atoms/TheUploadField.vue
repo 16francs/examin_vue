@@ -32,9 +32,7 @@ export default {
 
   methods: {
     handleUpload() {
-      this.$emit('upload', {
-        file: this.file
-      })
+      this.$emit('upload', { file: this.file })
       this.file = null
     }
   }

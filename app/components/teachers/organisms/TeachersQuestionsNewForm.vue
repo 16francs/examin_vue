@@ -79,7 +79,6 @@ export default {
           })
         })
         .catch(error => {
-          console.log('error', error)
           this.$toast.open({
             message: '問題登録用のテンプレートの取得に失敗しました.',
             type: 'is-danger'
@@ -95,7 +94,6 @@ export default {
       this.file = file
       const { problem_id } = this.$route.params
 
-      console.log('log', 'file', file)
       // 問題一括登録
       // FormDataを利用してFileをAPIに送る
       let formData = new FormData()

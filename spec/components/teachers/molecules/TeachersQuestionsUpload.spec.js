@@ -21,9 +21,29 @@ describe('components/teachers/molecules/TeachersQuestionsUpload', () => {
   })
 
   describe('script', () => {
-    describe('data', () => {
-      test('file', () => {
-        expect(wrapper.vm.file).toBeNull()
+    describe('props', () => {
+      describe('fileName', () => {
+        test('fileNameの初期値', () => {
+          expect(wrapper.props().fileName).toBe('')
+        })
+
+        test('fileNameに代入', () => {
+          wrapper.setProps({ fileName: 'ファイル' })
+          expect(wrapper.props().fileName).toBe('ファイル')
+        })
+      })
+    })
+
+    describe('computed', () => {
+      describe('isLoading', () => {
+        test('fileName == null', () => {
+          expect(wrapper.vm.isLoading).toBeFalsy()
+        })
+
+        test('fileName != null', () => {
+          wrapper.setProps({ fileName: 'ファイル' })
+          expect(wrapper.vm.isLoading).toBeTruthy()
+        })
       })
     })
 
@@ -32,6 +52,11 @@ describe('components/teachers/molecules/TeachersQuestionsUpload', () => {
         test('正常に実行されること', async () => {
           await wrapper.vm.doUpload({ file: { name: 'ファイル' } })
           expect(wrapper.vm.file).toEqual({ name: 'ファイル' })
+        })
+
+        test('emitが実行されること', async () => {
+          await wrapper.vm.doUpload()
+          expect(wrapper.emitted().upload).toBeTruthy()
         })
       })
     })
