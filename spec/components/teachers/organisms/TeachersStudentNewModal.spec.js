@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import TeachersTeacherNewModal from '~/components/teachers/organisms/TeachersTeacherNewModal'
+import TeachersStudentNewModal from '~/components/teachers/organisms/TeachersStudentNewModal'
 import Module from '~~/spec/helpers/store'
 import axios from '~~/spec/helpers/axios'
 import { Toast } from 'buefy/dist/components/toast'
@@ -11,20 +11,20 @@ localVue.use(Vuex)
 localVue.use(Buefy)
 localVue.use(Toast)
 
-describe('components/teachers/organisms/TeachersTeacherNewModal', () => {
+describe('components/teachers/organisms/TeachersStudentNewModal', () => {
   let wrapper, content, store
-  let teacher
+  let student
   beforeEach(() => {
     store = new Vuex.Store(Module)
-    wrapper = shallowMount(TeachersTeacherNewModal, { localVue, store })
+    wrapper = shallowMount(TeachersStudentNewModal, { localVue, store })
     content = id => `[data-test="${id}]`
 
-    teacher = {
+    student = {
       id: 1,
-      name: '講師',
+      name: '生徒',
       school: '16francs',
       login_id: 'test',
-      role: 1,
+      role: 0,
       created_at: '2019-01-01T00:00:00+0900',
       updated_at: '2019-01-01T00:00:00+0900'
     }
@@ -59,8 +59,8 @@ describe('components/teachers/organisms/TeachersTeacherNewModal', () => {
         expect(wrapper.vm.error).toBeFalsy()
       })
 
-      test('teacher', () => {
-        expect(wrapper.vm.teacher).toEqual({
+      test('student', () => {
+        expect(wrapper.vm.student).toEqual({
           name: '',
           school: '',
           login_id: ''
@@ -94,8 +94,8 @@ describe('components/teachers/organisms/TeachersTeacherNewModal', () => {
 
           test('正常に実行されること', async () => {
             await wrapper.vm.doSubmit()
-            expect(store.getters['teachers/teachers/teachers']).toEqual([
-              teacher
+            expect(store.getters['teachers/students/students']).toEqual([
+              student
             ])
           })
         })
@@ -107,7 +107,7 @@ describe('components/teachers/organisms/TeachersTeacherNewModal', () => {
 
           test('正常に実行されること', async () => {
             await wrapper.vm.doSubmit()
-            expect(store.getters['teachers/teachers/teachers']).toEqual([])
+            expect(store.getters['teachers/students/students']).toEqual([])
           })
         })
       })

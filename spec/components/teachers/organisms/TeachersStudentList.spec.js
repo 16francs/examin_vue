@@ -1,39 +1,39 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import TeachersTeacherList from '~/components/teachers/organisms/TeachersTeacherList'
+import TeachersStudentList from '~/components/teachers/organisms/TeachersStudentList'
 import Module from '~~/spec/helpers/store'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/teachers/organisms/TeachersTeacherList', () => {
+describe('components/teachers/organisms/TeachersStudentList', () => {
   let wrapper, store
-  let teachers
+  let students
   beforeEach(() => {
     store = new Vuex.Store(Module)
-    wrapper = shallowMount(TeachersTeacherList, { localVue, store })
+    wrapper = shallowMount(TeachersStudentList, { localVue, store })
 
-    teachers = [
+    students = [
       {
         id: 1,
         name: '講師',
         school: '16francs',
-        role: 1
+        role: 0
       }
     ]
 
     store.replaceState({
-      teachers: { teachers: { teachers: teachers } }
+      teachers: { students: { students: students } }
     })
   })
 
   describe('script', () => {
     describe('computed', () => {
       describe('mapGetters', () => {
-        test('store から teachers が取得できること', () => {
-          expect(wrapper.vm.teachers).toEqual(teachers)
+        test('store から students が取得できること', () => {
+          expect(wrapper.vm.students).toEqual(students)
         })
       })
     })
