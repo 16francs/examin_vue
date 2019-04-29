@@ -13,7 +13,7 @@ import StudentsAnsweredProblemCardList from '~/components/students/organisms/Stu
 export default {
   components: { StudentsAnsweredProblemCardList },
   layout: 'students/default',
-  async asyncData({ store }) {
+  async fetch({ store }) {
     await store
       .dispatch('students/achievements/getAnsweredProblemsByUser')
       .catch(() => {
