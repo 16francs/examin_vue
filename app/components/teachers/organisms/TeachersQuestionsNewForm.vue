@@ -116,7 +116,7 @@ export default {
         })
     },
     ...mapActions('teachers/problems', ['getTemplateFile']),
-    ...mapActions('teachers/questions', ['createProblems'])
+    ...mapActions('teachers/questions', ['createQuestions'])
   }
 }
 </script>

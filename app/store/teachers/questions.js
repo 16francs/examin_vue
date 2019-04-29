@@ -53,7 +53,7 @@ export const actions = {
   },
 
   // 問題一括登録
-  async createProblems({ commit }, { problem_id, formData }) {
+  async createQuestions({ commit }, { problem_id, formData }) {
     await this.$axios
       .post(`/teachers/problems/${problem_id}/questions/upload`, formData)
       .then(response => {

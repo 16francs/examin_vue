@@ -54,6 +54,11 @@ describe('store/teachers/questions', () => {
       expect(store.state.questions).toEqual(questions)
     })
 
+    test('addQuestions', () => {
+      commit('addQuestions', { questions: questions })
+      expect(store.state.questions).toEqual(questions)
+    })
+
     test('setQuestions', () => {
       commit('setQuestions', { questions: questions })
       expect(store.state.questions).toEqual(questions)
@@ -84,6 +89,23 @@ describe('store/teachers/questions', () => {
         })
         expect(store.getters['questions']).toEqual(questions)
       })
+
+      test('createQuestions', async () => {
+        await store.dispatch('createQuestions', {
+          problem_id: 1,
+          formData: { file: { name: 'ファイル' } }
+        })
+        expect(store.getters['questions']).toEqual([
+          {
+            id: 1,
+            problem_id: 1,
+            sentence: '問題',
+            correct: '答え',
+            created_at: '2019-01-01T00:00:00+0900',
+            updated_at: '2019-01-01T00:00:00+0900'
+          }
+        ])
+      })
     })
 
     describe('failure', () => {
@@ -91,11 +113,28 @@ describe('store/teachers/questions', () => {
         store.$axios.setSafetyMode(false)
       })
 
-      test('createProblem', async () => {
+      test('getQuestions', async () => {
+        await expect(
+          store.dispatch('getQuestions', {
+            problem_id: 1
+          })
+        ).rejects.toEqual(new Error('Server Error'))
+      })
+
+      test('createQuestion', async () => {
         await expect(
           store.dispatch('createQuestion', {
             question: question,
             problem_id: 1
+          })
+        ).rejects.toEqual(new Error('Invalid Error'))
+      })
+
+      test('createQuestions', async () => {
+        await expect(
+          store.dispatch('createQuestions', {
+            problem_id: 1,
+            formData: { file: { name: 'ファイル' } }
           })
         ).rejects.toEqual(new Error('Invalid Error'))
       })
