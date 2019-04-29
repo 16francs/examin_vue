@@ -35,5 +35,14 @@ export const actions = {
       .catch(() => {
         throw new Error('Invalid Error')
       })
+  },
+
+  // 問題一括登録用テンプレートの取得
+  getTemplateFile() {
+    return new Promise((resolve, reject) => {
+      this.$axios('/teachers/problems/download', {
+        responseType: 'blob'
+      }).then(response => resolve(response), error => reject(error))
+    })
   }
 }
