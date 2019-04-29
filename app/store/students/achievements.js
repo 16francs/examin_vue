@@ -37,7 +37,10 @@ export const mutations = {
 }
 
 export const actions = {
-  async setResults({ commit }, { results }) {
+  async setResults({ commit }, { id, results }) {
+    await this.$axios.post(`/students/problems/${id}/achievement`, {
+      achievements: results
+    })
     commit('setResults', { results: results })
   },
   async getAnsweredProblemsByUser({ commit }) {

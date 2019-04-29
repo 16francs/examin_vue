@@ -1,37 +1,21 @@
 <template>
   <div class="hero-body">
-    <students-answered-problem-card-list
-      :answered-problems="answeredProblemsByUserFindByProblemsId"
-    />
+    <students-answered-problem-card-list />
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
 import StudentsAnsweredProblemCardList from '~/components/students/organisms/StudentsAnsweredProblemCardList'
 
 export default {
   components: { StudentsAnsweredProblemCardList },
   layout: 'students/default',
-  async asyncData({ store }) {
+  async fetch({ store }) {
     await store
       .dispatch('students/achievements/getAnsweredProblemsByUser')
       .catch(() => {
         console.log('status:', '401')
       })
-  },
-  computed: {
-    ...mapGetters({
-      answeredProblemsByUser: 'students/achievements/answeredProblemsByUser'
-    }),
-    answeredProblemsByUserFindByProblemsId() {
-      return this.answeredProblemsByUser.filter(
-        problem => problem.problem_id == this.$route.params.id
-      )
-    }
   }
 }
 </script>
-
-<style scoped>
-</style>
