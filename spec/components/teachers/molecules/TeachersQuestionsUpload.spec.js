@@ -49,13 +49,8 @@ describe('components/teachers/molecules/TeachersQuestionsUpload', () => {
 
     describe('methods', () => {
       describe('doUpload', () => {
-        test('正常に実行されること', async () => {
-          await wrapper.vm.doUpload({ file: { name: 'ファイル' } })
-          expect(wrapper.vm.file).toEqual({ name: 'ファイル' })
-        })
-
         test('emitが実行されること', async () => {
-          await wrapper.vm.doUpload()
+          await wrapper.vm.doUpload({ file: { name: 'ファイル' } })
           expect(wrapper.emitted().upload).toBeTruthy()
         })
       })

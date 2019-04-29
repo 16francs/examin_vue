@@ -54,7 +54,7 @@ export default {
 
   methods: {
     doUpload({ file }) {
-      this.$emit('upload', { file })
+      this.$emit('upload', { file: file })
     }
   }
 }
