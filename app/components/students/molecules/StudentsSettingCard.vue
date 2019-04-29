@@ -13,7 +13,11 @@
         pack="mdi"
         size="medium"
       />
-      <students-setting-content />
+      <students-setting-content
+        :name="name"
+        :school="school"
+        :login_id="login_id"
+      />
     </the-media>
     <footer
       slot="footer"
@@ -45,6 +49,20 @@ export default {
     TheMedia,
     TheCardHeader,
     TheCardHard
+  },
+  props: {
+    name: {
+      type: String,
+      default: 'test'
+    },
+    school: {
+      type: String,
+      default: 'test-school'
+    },
+    login_id: {
+      type: String,
+      default: 'test'
+    }
   },
   methods: {
     click() {
