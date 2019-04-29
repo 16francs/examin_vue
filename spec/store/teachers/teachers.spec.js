@@ -7,7 +7,7 @@ import axios from '~~/spec/helpers/axios'
 const localVue = createLocalVue()
 localVue.use(Vuex)
 
-describe('store/teachers/problems', () => {
+describe('store/teachers/teachers', () => {
   let store
   let teacher, teachers
   beforeEach(() => {

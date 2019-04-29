@@ -6,6 +6,7 @@
 
 <script>
 import TeachersTeachers from '~/components/teachers/templates/TeachersTeachers'
+
 export default {
   layout: 'teachers/default',
 
