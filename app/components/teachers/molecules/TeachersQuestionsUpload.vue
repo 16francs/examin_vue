@@ -6,7 +6,11 @@
       class="file"
       data-test="form-upload"
     >
-      <the-upload-field @upload="doUpload">
+      <the-upload-field
+        :loading="isLoading"
+        accept=".xlsx"
+        @upload="doUpload"
+      >
         <a class="button is-primary">
           <the-icon icon="upload" />
           <span>Click to upload</span>
@@ -14,10 +18,10 @@
       </the-upload-field>
 
       <span
-        v-if="file"
+        v-if="fileName"
         class="file-name"
       >
-        {{ file.name }}
+        {{ fileName }}
       </span>
     </the-field>    
   </div>
@@ -35,15 +39,22 @@ export default {
     TheUploadField
   },
 
-  data() {
-    return {
-      file: null
+  props: {
+    fileName: {
+      type: String,
+      default: ''
+    }
+  },
+
+  computed: {
+    isLoading() {
+      return this.fileName != ''
     }
   },
 
   methods: {
     doUpload({ file }) {
-      this.file = file
+      this.$emit('upload', { file })
     }
   }
 }

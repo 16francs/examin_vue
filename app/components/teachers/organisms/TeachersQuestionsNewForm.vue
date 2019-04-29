@@ -13,7 +13,10 @@
       </div>
 
       <div class="tile is-child box">
-        <teachers-questions-upload />
+        <teachers-questions-upload
+          :file-name="fileName"
+          @upload="doUpload"
+        />
       </div>
     </div>
   </div>
@@ -29,6 +32,18 @@ export default {
   components: {
     TeachersQuestionsDownload,
     TeachersQuestionsUpload
+  },
+
+  data() {
+    return {
+      file: null
+    }
+  },
+
+  computed: {
+    fileName() {
+      return this.file ? this.file.name : ''
+    }
   },
 
   methods: {
@@ -71,7 +86,39 @@ export default {
           })
         })
     },
-    ...mapActions('teachers/problems', ['getTemplateFile'])
+    doUpload({ file }) {
+      this.$toast.open({
+        message: 'アップロード中...',
+        type: 'is-info'
+      })
+
+      this.file = file
+      const { problem_id } = this.$route.params
+
+      console.log('log', 'file', file)
+      // 問題一括登録
+      // FormDataを利用してFileをAPIに送る
+      let formData = new FormData()
+      formData.append('file', file)
+
+      this.createProblems({ problem_id, formData })
+        .then(() => {
+          this.$router.push(`/teachers/problems/${problem_id}/questions`)
+          this.$toast.open({
+            message: '問題を登録しました.',
+            type: 'is-success'
+          })
+        })
+        .catch(() => {
+          this.file = null
+          this.$toast.open({
+            message: '問題の登録に失敗しました.',
+            type: 'is-danger'
+          })
+        })
+    },
+    ...mapActions('teachers/problems', ['getTemplateFile']),
+    ...mapActions('teachers/questions', ['createProblems'])
   }
 }
 </script>
