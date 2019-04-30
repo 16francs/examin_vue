@@ -10,7 +10,9 @@ const get = {
         updated_at: '2019-01-01T00:00:00+0900'
       }
     ]
-  }
+  },
+
+  '/teachers/problems/download': {}
 }
 
 const post = {

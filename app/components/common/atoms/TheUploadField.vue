@@ -1,5 +1,9 @@
 <template>
   <b-upload
+    :accept="accept"
+    :disabled="loading"
+    :loading="loading"
+    v-model="file"
     data-test="upload"
     @input="handleUpload"
   >
@@ -9,9 +13,27 @@
 
 <script>
 export default {
+  props: {
+    accept: {
+      type: String,
+      default: ''
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    }
+  },
+
+  data() {
+    return {
+      file: null
+    }
+  },
+
   methods: {
-    handleUpload(value) {
-      this.$emit('upload', { file: value })
+    handleUpload() {
+      this.$emit('upload', { file: this.file })
+      this.file = null
     }
   }
 }
