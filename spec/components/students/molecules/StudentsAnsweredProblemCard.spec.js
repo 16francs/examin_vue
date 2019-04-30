@@ -44,10 +44,32 @@ describe('components/students/molecules/StudentsAnsweredProblem', () => {
         })
       })
     })
+
     describe('computed', () => {
       describe('formattedTitle', () => {
         test('formattedTitleの戻り値', () => {
           expect(wrapper.vm.formattedTitle).toBe('2000-11-11の記録')
+        })
+      })
+    })
+
+    describe('methods', () => {
+      describe('click', () => {
+        let mock
+        beforeEach(() => {
+          mock = jest.fn()
+        })
+
+        test('正常に呼び出されること', () => {
+          wrapper.setMethods({ click: mock })
+          wrapper.vm.click()
+          expect(mock).toBeCalled()
+        })
+
+        test('emitが実行されること', async done => {
+          await wrapper.vm.click()
+          expect(wrapper.emitted().click).toBeTruthy()
+          done()
         })
       })
     })
