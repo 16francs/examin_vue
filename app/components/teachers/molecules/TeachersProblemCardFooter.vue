@@ -9,7 +9,6 @@
       </the-tooltip>
     </the-card-footer-item>
 
-
     <the-card-footer-item @click="doEdit">
       <the-tooltip label="編集">
         <the-icon icon="edit" />

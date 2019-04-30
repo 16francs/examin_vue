@@ -56,7 +56,10 @@ export default {
 </script>
 
 <style scoped>
-.right {
+.title {
+  font-size: 5vh;
+}
+.title .right {
   float: right;
 }
 </style>
