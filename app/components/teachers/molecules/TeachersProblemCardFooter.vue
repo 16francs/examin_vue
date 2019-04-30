@@ -41,11 +41,11 @@ export default {
     },
 
     doEdit() {
-      console.log('log:', 'edit')
+      this.$emit('edit')
     },
 
     doDelete() {
-      console.log('log:', 'delete')
+      this.$emit('delete')
     }
   }
 }

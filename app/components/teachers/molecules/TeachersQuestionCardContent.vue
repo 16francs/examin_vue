@@ -8,7 +8,10 @@
       {{ tag }}
     </div>
 
-    <div class="count">
+    <div
+      class="count"
+      data-test="count"
+    >
       問題数: {{ count }} 問
     </div>
 

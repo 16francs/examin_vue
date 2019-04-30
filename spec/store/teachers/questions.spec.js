@@ -9,10 +9,20 @@ localVue.use(Vuex)
 
 describe('store/teachers/questions', () => {
   let store
-  let question, questions
+  let problem, question, questions
   beforeEach(() => {
     store = new Vuex.Store(cloneDeep(Questions))
 
+    problem = {
+      id: 1,
+      title: 'タイトル',
+      content: '問題集概要',
+      tags: ['タグ1'],
+      count: 1,
+      teacher_name: '講師',
+      created_at: '2019-01-01T00:00:00+0900',
+      updated_at: '2019-01-01T00:00:00+0900'
+    }
     question = {
       id: 1,
       sentence: '問題',
@@ -26,6 +36,19 @@ describe('store/teachers/questions', () => {
   })
 
   describe('state', () => {
+    test('problemの初期値が取得できること', () => {
+      expect(store.state.problem).toEqual({
+        id: 0,
+        title: '',
+        content: '',
+        tags: [],
+        count: 0,
+        teacher_name: '',
+        created_at: '',
+        updated_at: ''
+      })
+    })
+
     test('questionsの初期値が取得できること', () => {
       expect(store.state.questions).toEqual([])
     })
@@ -34,8 +57,13 @@ describe('store/teachers/questions', () => {
   describe('getters', () => {
     beforeEach(() => {
       store.replaceState({
+        problem: problem,
         questions: questions
       })
+    })
+
+    test('problemが取得できること', () => {
+      expect(store.getters['problem']).toEqual(problem)
     })
 
     test('questionsが取得できること', () => {
@@ -55,7 +83,11 @@ describe('store/teachers/questions', () => {
     })
 
     test('setQuestions', () => {
-      commit('setQuestions', { questions: questions })
+      const payload = problem
+      payload.questions = questions
+
+      commit('setQuestions', payload)
+      expect(store.state.problem).toEqual(problem)
       expect(store.state.questions).toEqual(questions)
     })
   })
@@ -72,6 +104,7 @@ describe('store/teachers/questions', () => {
 
       test('getQuestions', async () => {
         await store.dispatch('getQuestions', { problem_id: 1 })
+        expect(store.getters['problem']).toEqual(problem)
         expect(store.getters['questions']).toEqual(questions)
       })
 

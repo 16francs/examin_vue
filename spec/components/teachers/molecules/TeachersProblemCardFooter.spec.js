@@ -34,6 +34,11 @@ describe('components/teachers/molecules/TeachersProblemCardFooter', () => {
           wrapper.vm.doShow()
           expect(mock).toBeCalled()
         })
+
+        test('emitが実行されること', async () => {
+          await wrapper.vm.doShow()
+          expect(wrapper.emitted().show).toBeTruthy()
+        })
       })
 
       describe('doEdit', () => {
@@ -42,6 +47,11 @@ describe('components/teachers/molecules/TeachersProblemCardFooter', () => {
           wrapper.vm.doEdit()
           expect(mock).toBeCalled()
         })
+
+        test('emitが実行されること', async () => {
+          await wrapper.vm.doEdit()
+          expect(wrapper.emitted().edit).toBeTruthy()
+        })
       })
 
       describe('doDelete', () => {
@@ -49,6 +59,11 @@ describe('components/teachers/molecules/TeachersProblemCardFooter', () => {
           wrapper.setMethods({ doDelete: mock })
           wrapper.vm.doDelete()
           expect(mock).toBeCalled()
+        })
+
+        test('emitが実行されること', async () => {
+          await wrapper.vm.doDelete()
+          expect(wrapper.emitted().delete).toBeTruthy()
         })
       })
     })
