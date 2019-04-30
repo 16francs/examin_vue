@@ -1,4 +1,4 @@
-import * as achievements from '~/store/studnets/achievements'
+import * as achievements from '~/store/students/achievements'
 
 export default {
   namespaced: true,

@@ -1,5 +1,9 @@
 export const state = () => ({
-  student: {}
+  student: {
+    name: '',
+    school: '',
+    login_id: ''
+  }
 })
 
 export const getters = {
