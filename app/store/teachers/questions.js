@@ -1,8 +1,19 @@
 export const state = () => ({
+  problem: {
+    id: 0,
+    title: '',
+    content: '',
+    tags: [],
+    count: 0,
+    teacher_name: '',
+    created_at: '',
+    updated_at: ''
+  },
   questions: []
 })
 
 export const getters = {
+  problem: state => state.problem,
   questions: state => state.questions
 }
 
@@ -14,8 +25,10 @@ export const mutations = {
     state.questions.unshift(payload)
   },
 
-  setQuestions(state, { questions }) {
-    state.questions = questions
+  setQuestions(state, payload) {
+    state.questions = payload.questions
+    delete payload.questions
+    state.problem = payload
   }
 }
 

@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import TheCardFooterItem from '../../common/atoms/TheCardFooterItem'
+import TheCardFooterItem from '~/components/common/atoms/TheCardFooterItem'
 import TheIcon from '~/components/common/atoms/TheIcon'
 import TheTooltip from '~/components/common/atoms/TheTooltip'
 

@@ -34,3 +34,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.title {
+  font-size: 5vh;
+}
+</style>
