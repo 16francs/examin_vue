@@ -1,21 +1,21 @@
 <template>
   <div class="section">
-    <teachers-teachers />
+    <teachers-students />
   </div>
 </template>
 
 <script>
-import TeachersTeachers from '~/components/teachers/templates/TeachersTeachers'
+import TeachersStudents from '~/components/teachers/templates/TeachersStudents'
 
 export default {
   layout: 'teachers/default',
 
   components: {
-    TeachersTeachers
+    TeachersStudents
   },
 
   async asyncData({ store }) {
-    await store.dispatch('teachers/teachers/getTeachers').catch(() => {
+    await store.dispatch('teachers/students/getStudents').catch(() => {
       console.log('status:', '401')
     })
   }
