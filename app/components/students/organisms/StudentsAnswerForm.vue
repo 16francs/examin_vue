@@ -42,8 +42,6 @@ export default {
       if (this.number === this.questions.length) {
         this.isTesting = false
         clearInterval(this.intervalID)
-        console.log(JSON.stringify(this.selects))
-        console.log(this.$route.params.id)
         this.setTestResults({
           id: this.$route.params.id,
           results: this.selects

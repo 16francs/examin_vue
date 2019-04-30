@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import StudntsAchievementsBoard from '~/components/students/organisms/StudentsAchievementsBoard'
+import StudentsAchievementsBoard from '~/components/students/organisms/StudentsAchievementsBoard'
 import Module from '~~/spec/helpers/store'
 
 const localVue = createLocalVue()
@@ -63,7 +63,7 @@ describe('components/students/organisms/StudentsAchievementsBoard', () => {
     ]
 
     store = new Vuex.Store(Module)
-    wrapper = shallowMount(StudntsAchievementsBoard, {
+    wrapper = shallowMount(StudentsAchievementsBoard, {
       localVue,
       mocks: {
         $route,
