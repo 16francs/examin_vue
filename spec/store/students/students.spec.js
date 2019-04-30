@@ -29,7 +29,11 @@ describe('students/students', () => {
 
   describe('state', () => {
     test('studentの初期値が取得できること', () => {
-      expect(store.state.student).toEqual({})
+      expect(store.state.student).toEqual({
+        name: '',
+        school: '',
+        login_id: ''
+      })
     })
   })
 
