@@ -32,8 +32,8 @@ export default {
     }
   },
   methods: {
-    click(id) {
-      this.$router.push(`/students/achievements/about/${id}`)
+    click() {
+      this.$emit('click')
     }
   }
 }

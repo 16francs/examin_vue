@@ -4,6 +4,7 @@
       v-for="answeredProblem in answeredProblemsByUserFindByProblemsId"
       :key="answeredProblem.id"
       :answered-problem="answeredProblem"
+      @click="click(answeredProblem.id)"
     />
   </div>
 </template>
@@ -23,6 +24,11 @@ export default {
       return this.answeredProblemsByUser.filter(
         problem => problem.problem_id == this.$route.params.id
       )
+    }
+  },
+  methods: {
+    click(id) {
+      this.$router.push(`/students/achievements/about/${id}`)
     }
   }
 }

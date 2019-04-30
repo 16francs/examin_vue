@@ -21,6 +21,36 @@ describe('components/common/atoms/TheUploadField', () => {
   })
 
   describe('script', () => {
+    describe('props', () => {
+      describe('accept', () => {
+        test('acceptの初期値', () => {
+          expect(wrapper.props().accept).toBe('')
+        })
+
+        test('acceptに代入', () => {
+          wrapper.setProps({ accept: '.xlsx' })
+          expect(wrapper.props().accept).toBe('.xlsx')
+        })
+      })
+
+      describe('loading', () => {
+        test('loadingの初期値', () => {
+          expect(wrapper.props().loading).toBeFalsy()
+        })
+
+        test('loadingに代入', () => {
+          wrapper.setProps({ loading: true })
+          expect(wrapper.props().loading).toBeTruthy()
+        })
+      })
+    })
+
+    describe('data', () => {
+      test('file', () => {
+        expect(wrapper.vm.file).toBeNull()
+      })
+    })
+
     describe('methods', () => {
       describe('handleUpload', () => {
         let mock
@@ -37,6 +67,11 @@ describe('components/common/atoms/TheUploadField', () => {
         test('emitが正常に実行されること', async () => {
           await wrapper.vm.handleUpload()
           expect(wrapper.emitted().upload).toBeTruthy()
+        })
+
+        test('fileがnullになること', () => {
+          wrapper.vm.handleUpload()
+          expect(wrapper.vm.file).toBeNull()
         })
       })
     })

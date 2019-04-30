@@ -1,5 +1,9 @@
 export const state = () => ({
-  student: {}
+  student: {
+    name: '',
+    school: '',
+    login_id: ''
+  }
 })
 
 export const getters = {
@@ -20,8 +24,15 @@ export const actions = {
     commit('setStudent', { student: json.data })
   },
   async editStudent({ commit }, { user }) {
-    await this.$axios.patch('/users/me', { user }).catch(() => {
-      throw new Error('Invalid Error')
-    })
+    await this.$axios
+      .patch('/users/me', { user })
+      .then(response => {
+        commit('setStudent', {
+          student: response.data
+        })
+      })
+      .catch(() => {
+        throw new Error('Invalid Error')
+      })
   }
 }

@@ -25,6 +25,12 @@ export const mutations = {
     state.questions.unshift(payload)
   },
 
+  addQuestions(state, { questions }) {
+    for (let question of questions) {
+      state.questions.push(question)
+    }
+  },
+
   setQuestions(state, payload) {
     state.questions = payload.questions
     delete payload.questions
@@ -53,6 +59,18 @@ export const actions = {
       })
       .then(response => {
         commit('addQuestion', response.data)
+      })
+      .catch(() => {
+        throw new Error('Invalid Error')
+      })
+  },
+
+  // 問題一括登録
+  async createQuestions({ commit }, { problem_id, formData }) {
+    await this.$axios
+      .post(`/teachers/problems/${problem_id}/questions/upload`, formData)
+      .then(response => {
+        commit('addQuestions', response.data)
       })
       .catch(() => {
         throw new Error('Invalid Error')

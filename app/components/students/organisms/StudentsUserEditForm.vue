@@ -46,7 +46,7 @@ import TheButton from '~/components/common/atoms/TheButton'
 import TheAlert from '~/components/common/atoms/TheAlert'
 
 export default {
-  name: 'StudentSettingEditForm',
+  name: 'StudentUserEditForm',
   components: {
     TheAlert,
     TheButton,
