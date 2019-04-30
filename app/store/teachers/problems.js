@@ -40,5 +40,16 @@ export const actions = {
       .catch(() => {
         throw new Error('Invalid Error')
       })
+  },
+
+  // 問題集出力
+  getProblemFile({}, { problem_id }) {
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .get(`/teachers/problems/${problem_id}/download`, {
+          responseType: 'blob'
+        })
+        .then(response => resolve(response), error => reject(error))
+    })
   }
 }
