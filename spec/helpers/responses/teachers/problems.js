@@ -12,7 +12,9 @@ const get = {
     ]
   },
 
-  '/teachers/problems/download': {}
+  '/teachers/problems/download': {},
+
+  '/teachers/problems/1/download': {}
 }
 
 const post = {

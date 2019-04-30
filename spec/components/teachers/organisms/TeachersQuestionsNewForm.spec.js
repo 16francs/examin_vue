@@ -11,7 +11,7 @@ localVue.use(Vuex)
 localVue.use(Buefy)
 localVue.use(Toast)
 
-describe('components/teachers/organisms/TeachersQuestionNewForm', () => {
+describe('components/teachers/organisms/TeachersQuestionsNewForm', () => {
   let wrapper, store, content, $route
   let question
   beforeEach(() => {
