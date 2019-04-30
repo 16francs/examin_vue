@@ -1,6 +1,5 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
-import VueRouter from 'vue-router'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import StudntsAchievementsBoard from '~/components/students/organisms/StudentsAchievementsBoard'
 import Module from '~~/spec/helpers/store'
@@ -10,13 +9,17 @@ localVue.use(Vuex)
 localVue.use(Buefy)
 
 describe('components/students/organisms/StudentsAchievementsBoard', () => {
-  let wrapper, store, $route
+  let wrapper, store, $route, $router
   let achievements, answeredProblemsByUser
   beforeEach(() => {
     $route = {
       params: {
         problem_id: 1
       }
+    }
+
+    $router = {
+      push: jest.fn()
     }
 
     achievements = [
