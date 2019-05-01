@@ -23,6 +23,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
+import dayjs from '~/plugins/dayjs'
 import TeachersQuestionCardContent from '~/components/teachers/molecules/TeachersQuestionCardContent'
 import TeachersQuestionCardFooter from '~/components/teachers/molecules/TeachersQuestionCardFooter'
 import TeachersQuestionCardHeader from '~/components/teachers/molecules/TeachersQuestionCardHeader'
@@ -54,8 +55,8 @@ export default {
 
           // ファイル名を定義
           const datetime = dayjs(Date.now()).format('YYYYMMDDHHmmss')
-          const title = this.problem.title
-          const filename = `問題集_${title}_${datetime}.xlsx`
+          const { title } = this.problem
+          const filename = `${title}_${datetime}.xlsx`
 
           // ファイルのダウンロード
           // IE11 or not
