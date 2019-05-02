@@ -1,8 +1,16 @@
 <template>
   <div class="tile is-ancestor">
+    <teachers-question-test-modal
+      :active="active"
+      @close="doClose"
+    />
+
     <div class="tile is-vertical">
       <div class="tile is-vertical problem-detail">
-        <teachers-question-card data-test="question-card" />
+        <teachers-question-card
+          data-test="question-card"
+          @test="doOpen"
+        />
       </div>
 
       <div class="tile is-vertical box">
@@ -26,18 +34,34 @@
 import TeachersNewButton from '~/components/teachers/molecules/TeachersNewButton'
 import TeachersQuestionCard from '~/components/teachers/organisms/TeachersQuestionCard'
 import TeachersQuestionList from '~/components/teachers/organisms/TeachersQuestionList'
+import TeachersQuestionTestModal from '~/components/teachers/organisms/TeachersQuestionTestModal'
 
 export default {
   components: {
     TeachersNewButton,
     TeachersQuestionCard,
-    TeachersQuestionList
+    TeachersQuestionList,
+    TeachersQuestionTestModal
+  },
+
+  data() {
+    return {
+      active: false
+    }
   },
 
   methods: {
     doNew() {
       const { problem_id } = this.$route.params
       this.$router.push(`/teachers/problems/${problem_id}/questions/new`)
+    },
+
+    doOpen() {
+      this.active = true
+    },
+
+    doClose() {
+      this.active = false
     }
   }
 }
