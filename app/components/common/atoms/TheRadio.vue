@@ -1,13 +1,16 @@
 <template>
-  <label class="radio">
+  <label class="b-radio radio">
     <input
       :name="name"
       :value="value"
       :checked="value === select"
       type="radio"
-      @change="$emit('change', $event.target.value)"
+      @change="doChange($event.target.value)"
     />
-    <slot />
+    <span class="check" />
+    <span class="control-label">
+      <slot />
+    </span>
   </label>
 </template>
 
@@ -30,6 +33,12 @@ export default {
     value: {
       type: String,
       default: ''
+    }
+  },
+
+  methods: {
+    doChange(value) {
+      this.$emit('change', value)
     }
   }
 }
