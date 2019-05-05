@@ -2,19 +2,24 @@
   <div class="form">
     <h4 class="form-title">テスト情報</h4>
 
-    <the-text-field
+    <the-radio
+      v-for="radio in data"
+      :key="radio"
+      :value="radio"
       v-model="value.count"
-      label="問題数"
-    />
+      name="count"
+    >
+      {{ radio }}問
+    </the-radio>
   </div>
 </template>
 
 <script>
-import TheTextField from '~/components/common/atoms/TheTextField'
+import TheRadio from '~/components/common/atoms/TheRadio'
 
 export default {
   components: {
-    TheTextField
+    TheRadio
   },
 
   props: {
@@ -25,6 +30,12 @@ export default {
           count
         }
       }
+    }
+  },
+
+  data() {
+    return {
+      data: ['20', '30', '50']
     }
   }
 }
