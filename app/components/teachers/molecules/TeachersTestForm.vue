@@ -27,7 +27,7 @@ export default {
       type: Object,
       default: () => {
         return {
-          count
+          count: '20'
         }
       }
     }

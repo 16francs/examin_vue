@@ -94,6 +94,14 @@ describe('store/teachers/problems', () => {
         })
         expect(response).toEqual({ data: {} })
       })
+
+      test('getTestFile', async () => {
+        const response = await store.dispatch('getTestFile', {
+          problem_id: 1,
+          test: { count: '20' }
+        })
+        expect(response).toEqual({ data: {} })
+      })
     })
 
     describe('failure', () => {
@@ -122,6 +130,15 @@ describe('store/teachers/problems', () => {
       test('getProblemFile', async () => {
         await expect(
           store.dispatch('getProblemFile', { problem_id: 1 })
+        ).rejects.toEqual(new Error('some error'))
+      })
+
+      test('getTestFile', async () => {
+        await expect(
+          store.dispatch('getTestFile', {
+            problem_id: 1,
+            test: { count: '0' }
+          })
         ).rejects.toEqual(new Error('some error'))
       })
     })
