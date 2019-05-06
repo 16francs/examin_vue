@@ -12,7 +12,7 @@ export default {
     TeachersUserEdit
   },
 
-  async asyncData({ store }) {
+  async fetch({ store }) {
     await store.dispatch('getUser').catch(() => {
       console.log('status:', '401')
     })

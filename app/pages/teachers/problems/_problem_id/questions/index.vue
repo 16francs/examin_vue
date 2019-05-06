@@ -14,7 +14,7 @@ export default {
     TeachersQuestions
   },
 
-  async asyncData({ store, route }) {
+  async fetch({ store, route }) {
     const { problem_id } = route.params
     await store
       .dispatch('teachers/questions/getQuestions', {

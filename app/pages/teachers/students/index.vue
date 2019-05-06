@@ -14,7 +14,7 @@ export default {
     TeachersStudents
   },
 
-  async asyncData({ store }) {
+  async fetch({ store }) {
     await store.dispatch('teachers/students/getStudents').catch(() => {
       console.log('status:', '401')
     })
