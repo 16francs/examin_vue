@@ -1,21 +1,25 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import TeachersProblemCardContent from '~/components/teachers/molecules/TeachersProblemCardContent'
+import TeachersQuestionCardContent from '~/components/teachers/molecules/TeachersQuestionCardContent'
 
 const localVue = createLocalVue()
 localVue.use(Vuex)
 localVue.use(Buefy)
 
-describe('components/teachers/molecules/TeachersProblemCardContent', () => {
+describe('components/teachers/molecules/TeachersQuestionCardContent', () => {
   let wrapper
   let content
   beforeEach(() => {
-    wrapper = shallowMount(TeachersProblemCardContent, { localVue })
+    wrapper = shallowMount(TeachersQuestionCardContent, { localVue })
     content = id => `[data-test="${id}"]`
   })
 
   describe('template', () => {
+    test('問題数が存在すること', () => {
+      expect(wrapper.find(content('count'))).toBeTruthy()
+    })
+
     test('問題集概要が存在すること', () => {
       expect(wrapper.find(content('description'))).toBeTruthy()
     })
@@ -39,6 +43,17 @@ describe('components/teachers/molecules/TeachersProblemCardContent', () => {
         test('contentに代入', () => {
           wrapper.setProps({ content: '問題集内容' })
           expect(wrapper.props().content).toBe('問題集内容')
+        })
+      })
+
+      describe('count', () => {
+        test('countの初期値', () => {
+          expect(wrapper.props().count).toBe(0)
+        })
+
+        test('countに代入', () => {
+          wrapper.setProps({ count: 1 })
+          expect(wrapper.props().count).toBe(1)
         })
       })
 

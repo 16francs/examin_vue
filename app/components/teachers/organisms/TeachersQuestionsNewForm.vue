@@ -1,12 +1,8 @@
 <template>
   <div
-    class="questions-form"
-    data-test="form-questions"
+    class="tile is-parent"
+    data-test="questions-new"
   >
-    <div class="tile is-parent">
-      <div class="title">問題一括登録</div>
-    </div>
-
     <div class="tile is-parent">
       <div class="tile is-child box">
         <teachers-questions-download @download="doDownload" />

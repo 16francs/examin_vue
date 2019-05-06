@@ -9,7 +9,6 @@
       </the-tooltip>
     </the-card-footer-item>
 
-
     <the-card-footer-item @click="doEdit">
       <the-tooltip label="編集">
         <the-icon icon="edit" />
@@ -25,7 +24,7 @@
 </template>
 
 <script>
-import TheCardFooterItem from '../../common/atoms/TheCardFooterItem'
+import TheCardFooterItem from '~/components/common/atoms/TheCardFooterItem'
 import TheIcon from '~/components/common/atoms/TheIcon'
 import TheTooltip from '~/components/common/atoms/TheTooltip'
 
@@ -42,11 +41,11 @@ export default {
     },
 
     doEdit() {
-      console.log('log:', 'edit')
+      this.$emit('edit')
     },
 
     doDelete() {
-      console.log('log:', 'delete')
+      this.$emit('delete')
     }
   }
 }

@@ -1,7 +1,7 @@
 import Vuex from 'vuex'
 import Buefy from 'buefy'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
-import TeachersQuestionNewForm from '~/components/teachers/organisms/TeachersQuestionsNewForm'
+import TeachersQuestionsNewForm from '~/components/teachers/organisms/TeachersQuestionsNewForm'
 import Module from '~~/spec/helpers/store'
 import axios from '~~/spec/helpers/axios'
 import { Toast } from 'buefy/dist/components/toast'
@@ -11,7 +11,7 @@ localVue.use(Vuex)
 localVue.use(Buefy)
 localVue.use(Toast)
 
-describe('components/teachers/organisms/TeachersQuestionNewForm', () => {
+describe('components/teachers/organisms/TeachersQuestionsNewForm', () => {
   let wrapper, store, content, $route
   let question
   beforeEach(() => {
@@ -22,7 +22,7 @@ describe('components/teachers/organisms/TeachersQuestionNewForm', () => {
     }
 
     store = new Vuex.Store(Module)
-    wrapper = shallowMount(TeachersQuestionNewForm, {
+    wrapper = shallowMount(TeachersQuestionsNewForm, {
       localVue,
       store,
       mocks: {
@@ -42,7 +42,7 @@ describe('components/teachers/organisms/TeachersQuestionNewForm', () => {
 
   describe('template', () => {
     test('問題一括登録フォームが存在すること', () => {
-      expect(wrapper.find(content('form-questions'))).toBeTruthy()
+      expect(wrapper.find(content('questions-new'))).toBeTruthy()
     })
   })
 

@@ -42,13 +42,37 @@ export const actions = {
       })
   },
 
-  // 問題一括登録用テンプレートの取得
+  // 問題一括登録テンプレートの取得
   getTemplateFile() {
     return new Promise((resolve, reject) => {
       this.$axios
         .get('/teachers/problems/download', {
           responseType: 'blob'
         })
+        .then(response => resolve(response), error => reject(error))
+    })
+  },
+
+  // 問題集出力
+  getProblemFile({}, { problem_id }) {
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .get(`/teachers/problems/${problem_id}/download`, {
+          responseType: 'blob'
+        })
+        .then(response => resolve(response), error => reject(error))
+    })
+  },
+
+  // テスト出力
+  getTestFile({}, { problem_id, test }) {
+    return new Promise((resolve, reject) => {
+      this.$axios
+        .post(
+          `/teachers/problems/${problem_id}/test`,
+          { test },
+          { responseType: 'blob' }
+        )
         .then(response => resolve(response), error => reject(error))
     })
   }

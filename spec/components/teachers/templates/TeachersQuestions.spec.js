@@ -48,6 +48,20 @@ describe('components/teachers/templates/TeachersQuestions', () => {
           expect(wrapper.vm.$router.push).toBeCalled()
         })
       })
+
+      describe('doOpen', () => {
+        test('正常に呼び出されること', () => {
+          wrapper.vm.doOpen()
+          expect(wrapper.vm.active).toBeTruthy()
+        })
+      })
+
+      describe('doClose', () => {
+        test('正常に呼び出されること', () => {
+          wrapper.vm.doClose()
+          expect(wrapper.vm.active).toBeFalsy()
+        })
+      })
     })
   })
 })

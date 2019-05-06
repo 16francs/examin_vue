@@ -12,7 +12,9 @@ const get = {
     ]
   },
 
-  '/teachers/problems/download': {}
+  '/teachers/problems/download': {},
+
+  '/teachers/problems/1/download': {}
 }
 
 const post = {
@@ -24,7 +26,9 @@ const post = {
     tags: ['タグ'],
     created_at: '2019-01-01T00:00:00+0900',
     updated_at: '2019-01-01T00:00:00+0900'
-  }
+  },
+
+  '/teachers/problems/1/test': {}
 }
 
 export default {

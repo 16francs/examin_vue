@@ -1,20 +1,14 @@
 <template>
-  <div class="question-form">
-    <div class="tile is-parent">
-      <div class="title">問題登録</div>
-    </div>
+  <div class="tile is-parent">
+    <div class="tile is-child box">
+      <the-alert
+        :error="error"
+        message="入力値に誤りがあります．"
+      />
 
-    <div class="tile is-parent">
-      <div class="tile is-child box">
-        <the-alert
-          :error="error"
-          message="入力値に誤りがあります．"
-        />
+      <teachers-question-form v-model="question" />
 
-        <teachers-question-form v-model="question" />
-
-        <teachers-submit-button @submit="doSubmit" />
-      </div>
+      <teachers-submit-button @submit="doSubmit" />
     </div>
   </div>
 </template>

@@ -41,7 +41,7 @@ export default {
           id: 0,
           title: '',
           content: '',
-          teacher_name: '',
+          teacher_name: 'None',
           tags: [],
           updated_at: ''
         }

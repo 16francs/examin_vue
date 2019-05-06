@@ -9,6 +9,13 @@
     </div>
 
     <div
+      class="count"
+      data-test="count"
+    >
+      問題数: {{ count }} 問
+    </div>
+
+    <div
       class="description"
       data-test="description"
     >
@@ -29,7 +36,7 @@
         {{ updatedAt }}
       </div>
     </div>
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -38,6 +45,10 @@ export default {
     content: {
       type: String,
       default: ''
+    },
+    count: {
+      type: Number,
+      default: 0
     },
     tags: {
       type: Array,
@@ -59,11 +70,12 @@ export default {
 
 <style scoped>
 .description {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
 }
 
 .tag {
   margin-right: 1vh;
+  margin-bottom: 3vh;
 }
 </style>
