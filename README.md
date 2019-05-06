@@ -4,179 +4,46 @@
 
 # Examin (フロントエンド)
 
+[インフラ関連: Docker](https://github.com/16francs/examin)     
 [仕様書: API Blueprint](https://github.com/16francs/examin_blueprint)     
 [フロントエンド: Nuxt.js](https://github.com/16francs/examin_vue)     
 [バックエンド(今はこれ使ってる): Rails API](https://github.com/16francs/examin_rails)   
-[バックエンド: Golang API](https://github.com/16francs/examin_go)   
+
+[バックエンド(以降予定): Golang API](https://github.com/16francs/examin_go)   
 [バックエンド: SpringBoot API](https://github.com/16francs/examin_boot)
 
 ## 開発環境
 
-* Ruby 2.5.1
-* DB: MySQL5.7.23
+* Node.js 11.12.0
+* Nuxt.js 2.4.2
 
 ## 環境構築
 
-### 環境構築(フロントエンドのみ)
+* プロジェクトをクローンする
 
-* ルートディレクトリで以下のコマンドを実行
+> $ git clone https://github.com/16francs/examin_vue.git  
+> $ cd ./examin_vue
 
-> $ mkdir ./client
+* 環境変数を設定するためのライブラリをインストール ( Mac の場合 )
 
-* 作成したディレクトリに，examin_vueプロジェクトを格納
+> $ brew install direnv
 
-> $ git clone https://github.com/16francs/examin_vue.git
+* 環境変数の設定
 
-(examin_vueをgithubからクローンする)
+> $ touch ./.envrc  
+> $ echo "export BASE_URL='http://localhost:3000'" > ./.envrc  
+> $ direnv allow
 
-> $ mv examin_vue ./client
+* コンテナをビルドする
 
-(クローンしたプロジェクトをclientディレクトリに移動する)
-
-* 必要な物ををインストールする
-
-> $ yarn install
-
-### 環境構築(バックエンドのみ)
-
-* .envファイルを作成
-
-> $ touch ./.env
-
-* 作成した.envファイルに以下の内容を記述(' '内はローカル設定を記述)
-
-```text:.env
-# データベースの設定
-DATABASE_USERNAME = 'DBのユーザー名'
-DATABASE_PASSWORD = 'DBのパスワード'
-```
-
-* システムに必要なGemをインストール(pathは適宜変更)
-
-> $ ./bin/bundle install --path vendor/bundle
-
-* データベースの構築(MySQLを使用)
-
-> $ rails db:create
-
-* データベースにテーブルを作成
-
-> $ rails db:apply
-
-
-### 環境構築(フロントエンド + バックエンド)
-
-* バックエンドのシステムをクローンする
-
-> $ git clone https://github.com/16francs/examin_rails.git
-
-* 作業ディレクトリの変更
-
-> $ cd ./examin_rails
-
-* フロントエンドをクローンするディレクトリの作成
-
-> $ mkdir ./client
-
-* フロントエンドのシステムをクローンし，ファイルを移動
-
-> $ git clone https://github.com/16francs/examin_vue.git    
-> $ mv ./examin_vue ./client    
-> $ rm -rf ./examin_vue
-
-* .envファイルを作成
-
-> $ cd ./examin_rails
-> $ touch ./.env
-
-* 作成した.envファイルに以下の内容を記述(' '内はローカル設定を記述)
-
-```text:.env
-# データベースの設定
-DATABASE_USERNAME = 'DBのユーザー名'
-DATABASE_PASSWORD = 'DBのパスワード'
-```
-
-* システムに必要なGemをインストール(pathは適宜変更)
-
-> $ ./bin/bundle install --path vendor/bundle
-
-* データベースの構築(MySQLを使用)
-
-> $ rails db:create
-
-* データベースにテーブルを作成
-
-> $ rails db:apply
-
-* フロントエンドでも同様に必要な物をインストールする
-
-> $ cd ./client
-> $ yarn install
+> $ docker-compose -f ./docker/docker-compose.yml build
 
 ## 起動方法
 
-### 起動方法(フロントエンドのみ)
+* コンテナの起動
 
-* テストを実行し，全てのテストをパスするかの確認
-
-> $ yarn test
-
-* サーバーを起動
-
-> $ yarn dev
-
-* 下記のURLにアクセスして確認
-
-> http://localhost:3000
-
-### 起動方法(バックエンドのみ)
-
-* MySQLの起動
-
-> $ sudo mysql.server start
-
-* テストを実行し，全てのテストをパスするかの確認
-
-> $ bundle exec rspec
-
-* (任意のテストを実行する場合, 下記のコマンドを実行する方が速い)
-
-> $ bin/rspec spec/
-
-* サーバーを起動
-
-> $ rails server
-
-* 下記のURLにアクセスして確認
-
-> http://localhost:3000
-
-
-### 起動方法(フロントエンド + バックエンド)
-
-* MySQLの起動
-
-> $ sudo mysql.server start
-
-* フロントエンドのテストを実行
-
-> $ cd ./client   
-> $ yarn test
-
-* バックエンドのテストを実行
-
-> $ cd ./examin_rails   
-> $ bundle exec rspec
-
-* テストをパスしたのを確認後，以下のコマンドを実行しサーバーを起動
-
-> $ foreman start
+> $ docker-compose -f ./docker/docker-compose.yml up
 
 * 下記のURLにアクセスして確認(フロントのポート番号はターミナルを確認)
 
-> http://localhost:5100
-
-(Rails 用のURL)
-
-> http://localhost:3000
+> http://localhost:3000/examin
