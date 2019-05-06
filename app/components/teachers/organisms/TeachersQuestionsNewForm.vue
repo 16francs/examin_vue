@@ -95,7 +95,7 @@ export default {
       let formData = new FormData()
       formData.append('file', file)
 
-      this.createProblems({ problem_id, formData })
+      this.createQuestions({ problem_id, formData })
         .then(() => {
           this.$router.push(`/teachers/problems/${problem_id}/questions`)
           this.$toast.open({
