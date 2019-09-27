@@ -27,10 +27,3 @@ jobs:
     # Sore coverage
     - store_artifacts:
         path: ./coverage
-
-    # Post coverage
-    - run:
-        name: post coverage
-        command: cat ./coverage/lcov.info | ./node_modules/.bin/coveralls
-
-
