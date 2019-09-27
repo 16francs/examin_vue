@@ -22,7 +22,7 @@ export default {
     TheLoginForm
   },
 
-  asyncData({ store, redirect }) {
+  async fetch({ store, redirect }) {
     const accessToken = store.getters['accessToken']
     const loginUser = store.getters['loginUser']
     // ログイン済みのユーザーの場合，アクターごとのホームにリダイレクト
