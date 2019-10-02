@@ -45,7 +45,7 @@
     "lodash.clonedeep": "^4.5.0",
     "nodemon": "^1.19.3",
     "prettier": "1.14.3",
-    "vue-jest": "^2.6.0"
+    "vue-jest": "^3.0.5"
   },
   "lint-staged": {
     "*.{js,vue}": [
