@@ -22,7 +22,7 @@
     "nuxt": "^2.0.0",
     "nuxt-buefy": "^0.3.2",
     "nuxt-env": "^0.1.0",
-    "universal-cookie": "^3.0.7",
+    "universal-cookie": "^4.0.3",
     "vue-chartjs": "^3.4.0"
   },
   "devDependencies": {
