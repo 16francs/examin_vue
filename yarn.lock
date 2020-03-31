@@ -2743,12 +2743,12 @@ bser@^2.0.0:
   dependencies:
     node-int64 "^0.4.0"
 
-buefy@0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/buefy/-/buefy-0.7.2.tgz#966b540b75d10dd0aba4d4921f0670430d6e5518"
-  integrity sha512-5nj7mJeJE81Ai86Zx1YwADugTJcH3w+iY6WDKiMqDohxXWDSE1Mxzfvn5SJqYb4ofc45lU8yTSTYpOMaZCpR/A==
+buefy@^0.8.14:
+  version "0.8.14"
+  resolved "https://registry.yarnpkg.com/buefy/-/buefy-0.8.14.tgz#fb002431a4f55bb353ede4d0148f4696313ec51f"
+  integrity sha512-9HSsfR+lmyX/qa23ZueIHzhdIraSxVvcx3pwKsqQZPhbPm/BGnASB1Hr7j2fp1wjRNmOKn1Qb8f6kJDiMSRmcA==
   dependencies:
-    bulma "0.7.2"
+    bulma "0.7.5"
 
 buffer-from@^1.0.0:
   version "1.1.1"
@@ -2779,10 +2779,10 @@ builtin-status-codes@^3.0.0:
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
 
-bulma@0.7.2:
-  version "0.7.2"
-  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.7.2.tgz#8e944377b74c7926558830d38d8e19eaf49f5fb6"
-  integrity sha512-6JHEu8U/1xsyOst/El5ImLcZIiE2JFXgvrz8GGWbnDLwTNRPJzdAM0aoUM1Ns0avALcVb6KZz9NhzmU53dGDcQ==
+bulma@0.7.5:
+  version "0.7.5"
+  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.7.5.tgz#35066c37f82c088b68f94450be758fc00a967208"
+  integrity sha512-cX98TIn0I6sKba/DhW0FBjtaDpxTelU166pf7ICXpCCuplHWyu6C9LYZmL5PEsnePIeJaiorsTEzzNk3Tsm1hw==
 
 bytes@3.0.0:
   version "3.0.0"
@@ -7903,12 +7903,12 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
 
-nuxt-buefy@^0.3.2:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/nuxt-buefy/-/nuxt-buefy-0.3.3.tgz#0e55d79742f0dff8060bc236f837bcbf504ed5d6"
-  integrity sha512-9Kn2KqC1GavF5YxrCb79nUIYVwhVS+1FVreGVES9DEJX7cG1bZ1FFVmKxVxfByQrhlsf0SbxHPE22PyPjU3YJQ==
+nuxt-buefy@^0.3.25:
+  version "0.3.25"
+  resolved "https://registry.yarnpkg.com/nuxt-buefy/-/nuxt-buefy-0.3.25.tgz#66cbbdf30246f6f5fe57ec3e0357bcdd03672bd3"
+  integrity sha512-nYVMfT98cdHMCP5wZRJBk7Bgf97R9nUU25ZC35cP6npJpB2NdHLGmOEXRuNIZzQ8OnJC2jTCnvEyFh0U4j+KhQ==
   dependencies:
-    buefy "0.7.2"
+    buefy "^0.8.14"
 
 nuxt-env@^0.1.0:
   version "0.1.0"
